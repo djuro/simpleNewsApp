@@ -13,12 +13,8 @@ generator:
 
     config:
       actions: ~
-      fields:
-       id: { help: "ID clanka" }
-       title:        { help: "Naslov clanka" }
-       
-      list:
-       display: [id, title, user_id,photo]
+      fields: ~
+      list: ~
       filter:  ~
       form:    ~
       edit:    ~

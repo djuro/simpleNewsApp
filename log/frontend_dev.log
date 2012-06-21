@@ -18170,3 +18170,471 @@ Jun 21 17:05:37 symfony [info] {sfWebDebugLogger} Partial "home/_populararticles
 Jun 21 17:05:37 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 26.65 ms (1)
 Jun 21 17:05:37 symfony [info] {sfWebDebugLogger} Partial "home/_menu" 30.13 ms (1)
 Jun 21 17:05:37 symfony [info] {sfWebResponse} Send content (43743 o)
+Jun 21 23:50:05 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jun 21 23:50:05 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 21 23:50:05 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 21 23:50:05 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jun 21 23:50:05 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jun 21 23:50:05 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id - ()
+Jun 21 23:50:05 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jun 21 23:50:05 symfony [info] {main} Call "home->executePopulararticles()"
+Jun 21 23:50:05 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_populararticles.php"
+Jun 21 23:50:05 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jun 21 23:50:05 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:50:05 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:50:05 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_menu.php"
+Jun 21 23:50:05 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 21 23:50:05 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 21 23:50:05 symfony [info] {sfWebDebugLogger} Configuration 101.99 ms (11)
+Jun 21 23:50:05 symfony [info] {sfWebDebugLogger} Factories 159.86 ms (1)
+Jun 21 23:50:05 symfony [info] {sfWebDebugLogger} Action "home/index" 117.93 ms (1)
+Jun 21 23:50:05 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Jun 21 23:50:05 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 200.43 ms (1)
+Jun 21 23:50:05 symfony [info] {sfWebDebugLogger} Component "home/populararticles" 0.04 ms (1)
+Jun 21 23:50:05 symfony [info] {sfWebDebugLogger} Partial "home/_populararticles" 7.25 ms (1)
+Jun 21 23:50:05 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 6.78 ms (1)
+Jun 21 23:50:05 symfony [info] {sfWebDebugLogger} Partial "home/_menu" 7.24 ms (1)
+Jun 21 23:50:05 symfony [info] {sfWebResponse} Send content (43645 o)
+Jun 21 23:50:09 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /home/article/id/3 with parameters array (  'module' => 'home',  'action' => 'article',  'id' => '3',)
+Jun 21 23:50:10 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 21 23:50:10 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 21 23:50:10 symfony [info] {homeActions} Call "homeActions->executeArticle()"
+Jun 21 23:50:10 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jun 21 23:50:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.published_at AS a__published_at, u.id AS u__id FROM articles a INNER JOIN users u ON a.user_id = u.id LEFT JOIN comments c ON a.id = c.article_id WHERE (a.id = ?) - (3)
+Jun 21 23:50:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, COUNT(c.article_id) AS c__0 FROM articles a INNER JOIN comments c ON a.id = c.article_id WHERE (c.article_id = ?) - (3)
+Jun 21 23:50:10 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/articleSuccess.php"
+Jun 21 23:50:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) LIMIT 1 - (2)
+Jun 21 23:50:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT c.id AS c__id, c.user_id AS c__user_id, c.text AS c__text, c.article_id AS c__article_id, c.published_at AS c__published_at, c.published AS c__published FROM comments c WHERE (c.article_id IN (?)) - (3)
+Jun 21 23:50:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 21 23:50:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 21 23:50:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 21 23:50:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 21 23:50:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 21 23:50:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 21 23:50:10 symfony [info] {main} Call "home->executePopulararticles()"
+Jun 21 23:50:10 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_populararticles.php"
+Jun 21 23:50:10 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jun 21 23:50:10 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:50:10 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:50:10 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_menu.php"
+Jun 21 23:50:10 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 21 23:50:10 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 21 23:50:10 symfony [info] {sfWebDebugLogger} Configuration 95.36 ms (11)
+Jun 21 23:50:10 symfony [info] {sfWebDebugLogger} Factories 236.20 ms (1)
+Jun 21 23:50:10 symfony [info] {sfWebDebugLogger} Action "home/article" 260.62 ms (1)
+Jun 21 23:50:10 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.09 ms (11)
+Jun 21 23:50:10 symfony [info] {sfWebDebugLogger} View "Success" for "home/article" 280.36 ms (1)
+Jun 21 23:50:10 symfony [info] {sfWebDebugLogger} Component "home/populararticles" 0.04 ms (1)
+Jun 21 23:50:10 symfony [info] {sfWebDebugLogger} Partial "home/_populararticles" 20.99 ms (1)
+Jun 21 23:50:10 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 7.86 ms (1)
+Jun 21 23:50:10 symfony [info] {sfWebDebugLogger} Partial "home/_menu" 7.64 ms (1)
+Jun 21 23:50:10 symfony [info] {sfWebResponse} Send content (60410 o)
+Jun 21 23:53:48 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /comment/index/article/3 with parameters array (  'module' => 'comment',  'action' => 'index',  'article' => '3',)
+Jun 21 23:53:48 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 21 23:53:48 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 21 23:53:48 symfony [info] {sfBasicSecurityFilter} Action "comment/index" requires authentication, forwarding to "default/login"
+Jun 21 23:53:48 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 21 23:53:48 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 21 23:53:48 symfony [info] {defaultActions} Call "defaultActions->executeLogin()"
+Jun 21 23:53:48 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\lib\vendor\symfony\lib/controller/default/templates/loginSuccess.php"
+Jun 21 23:53:48 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\lib\vendor\symfony\lib\controller\default\templates/defaultLayout.php"
+Jun 21 23:53:48 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\lib\vendor\symfony\lib\controller\default\templates/defaultLayout.php"
+Jun 21 23:53:48 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 21 23:53:48 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 21 23:53:48 symfony [info] {sfWebDebugLogger} Configuration 116.19 ms (12)
+Jun 21 23:53:48 symfony [info] {sfWebDebugLogger} Factories 143.20 ms (1)
+Jun 21 23:53:48 symfony [info] {sfWebDebugLogger} Action "default/login" 0.20 ms (1)
+Jun 21 23:53:48 symfony [info] {sfWebDebugLogger} View "Success" for "default/login" 89.62 ms (1)
+Jun 21 23:53:48 symfony [info] {sfWebResponse} Send content (31492 o)
+Jun 21 23:54:09 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /user/login with parameters array (  'module' => 'user',  'action' => 'login',)
+Jun 21 23:54:09 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 21 23:54:09 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 21 23:54:09 symfony [info] {userActions} Call "userActions->executeLogin()"
+Jun 21 23:54:09 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/user/templates/loginSuccess.php"
+Jun 21 23:54:09 symfony [info] {main} Call "home->executePopulararticles()"
+Jun 21 23:54:09 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_populararticles.php"
+Jun 21 23:54:09 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/user/templates/_nice_thumbs.php"
+Jun 21 23:54:09 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:54:09 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:54:09 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/user/templates/_menu.php"
+Jun 21 23:54:09 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 21 23:54:09 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 21 23:54:09 symfony [info] {sfWebDebugLogger} Configuration 89.32 ms (11)
+Jun 21 23:54:09 symfony [info] {sfWebDebugLogger} Factories 133.45 ms (1)
+Jun 21 23:54:09 symfony [info] {sfWebDebugLogger} Action "user/login" 17.19 ms (1)
+Jun 21 23:54:09 symfony [info] {sfWebDebugLogger} View "Success" for "user/login" 173.83 ms (1)
+Jun 21 23:54:09 symfony [info] {sfWebDebugLogger} Component "home/populararticles" 0.05 ms (1)
+Jun 21 23:54:09 symfony [info] {sfWebDebugLogger} Partial "home/_populararticles" 5.57 ms (1)
+Jun 21 23:54:09 symfony [info] {sfWebDebugLogger} Partial "user/_nice_thumbs" 5.32 ms (1)
+Jun 21 23:54:09 symfony [info] {sfWebDebugLogger} Partial "user/_menu" 5.86 ms (1)
+Jun 21 23:54:09 symfony [info] {sfWebResponse} Send content (37944 o)
+Jun 21 23:54:17 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /user/login with parameters array (  'module' => 'user',  'action' => 'login',)
+Jun 21 23:54:17 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 21 23:54:17 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 21 23:54:17 symfony [info] {userActions} Call "userActions->executeLogin()"
+Jun 21 23:54:18 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jun 21 23:54:18 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.username AS u__username, u.password AS u__password FROM users u WHERE (u.username = ?) - (djuro)
+Jun 21 23:54:18 symfony [info] {myUser} User is authenticated
+Jun 21 23:54:18 symfony [info] {myUser} Add credential(s) "anonymous"
+Jun 21 23:54:18 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/user/templates/loginSuccess.php"
+Jun 21 23:54:18 symfony [info] {main} Call "home->executePopulararticles()"
+Jun 21 23:54:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_populararticles.php"
+Jun 21 23:54:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/user/templates/_nice_thumbs.php"
+Jun 21 23:54:18 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:54:18 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:54:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/user/templates/_menu.php"
+Jun 21 23:54:18 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 21 23:54:18 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 21 23:54:18 symfony [info] {sfWebDebugLogger} Configuration 89.20 ms (11)
+Jun 21 23:54:18 symfony [info] {sfWebDebugLogger} Factories 132.55 ms (1)
+Jun 21 23:54:18 symfony [info] {sfWebDebugLogger} Action "user/login" 205.98 ms (1)
+Jun 21 23:54:18 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Jun 21 23:54:18 symfony [info] {sfWebDebugLogger} View "Success" for "user/login" 163.57 ms (1)
+Jun 21 23:54:18 symfony [info] {sfWebDebugLogger} Component "home/populararticles" 0.04 ms (1)
+Jun 21 23:54:18 symfony [info] {sfWebDebugLogger} Partial "home/_populararticles" 5.95 ms (1)
+Jun 21 23:54:18 symfony [info] {sfWebDebugLogger} Partial "user/_nice_thumbs" 5.70 ms (1)
+Jun 21 23:54:18 symfony [info] {sfWebDebugLogger} Partial "user/_menu" 5.73 ms (1)
+Jun 21 23:54:18 symfony [info] {sfWebResponse} Send content (42125 o)
+Jun 21 23:54:19 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jun 21 23:54:20 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 21 23:54:20 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 21 23:54:20 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jun 21 23:54:20 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jun 21 23:54:20 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id - ()
+Jun 21 23:54:20 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jun 21 23:54:20 symfony [info] {main} Call "home->executePopulararticles()"
+Jun 21 23:54:20 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_populararticles.php"
+Jun 21 23:54:20 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jun 21 23:54:20 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:54:20 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:54:20 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_menu.php"
+Jun 21 23:54:20 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 21 23:54:20 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 21 23:54:20 symfony [info] {sfWebDebugLogger} Configuration 89.84 ms (11)
+Jun 21 23:54:20 symfony [info] {sfWebDebugLogger} Factories 137.26 ms (1)
+Jun 21 23:54:20 symfony [info] {sfWebDebugLogger} Action "home/index" 56.35 ms (1)
+Jun 21 23:54:20 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Jun 21 23:54:20 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 175.56 ms (1)
+Jun 21 23:54:20 symfony [info] {sfWebDebugLogger} Component "home/populararticles" 0.04 ms (1)
+Jun 21 23:54:20 symfony [info] {sfWebDebugLogger} Partial "home/_populararticles" 5.17 ms (1)
+Jun 21 23:54:20 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 4.93 ms (1)
+Jun 21 23:54:20 symfony [info] {sfWebDebugLogger} Partial "home/_menu" 5.35 ms (1)
+Jun 21 23:54:20 symfony [info] {sfWebResponse} Send content (44161 o)
+Jun 21 23:54:22 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /home/article/id/3 with parameters array (  'module' => 'home',  'action' => 'article',  'id' => '3',)
+Jun 21 23:54:22 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 21 23:54:22 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 21 23:54:22 symfony [info] {homeActions} Call "homeActions->executeArticle()"
+Jun 21 23:54:22 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jun 21 23:54:22 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.published_at AS a__published_at, u.id AS u__id FROM articles a INNER JOIN users u ON a.user_id = u.id LEFT JOIN comments c ON a.id = c.article_id WHERE (a.id = ?) - (3)
+Jun 21 23:54:22 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, COUNT(c.article_id) AS c__0 FROM articles a INNER JOIN comments c ON a.id = c.article_id WHERE (c.article_id = ?) - (3)
+Jun 21 23:54:22 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/articleSuccess.php"
+Jun 21 23:54:22 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) LIMIT 1 - (2)
+Jun 21 23:54:22 symfony [info] {Doctrine_Connection_Statement} execute : SELECT c.id AS c__id, c.user_id AS c__user_id, c.text AS c__text, c.article_id AS c__article_id, c.published_at AS c__published_at, c.published AS c__published FROM comments c WHERE (c.article_id IN (?)) - (3)
+Jun 21 23:54:22 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 21 23:54:22 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 21 23:54:22 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 21 23:54:22 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 21 23:54:23 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 21 23:54:23 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 21 23:54:23 symfony [info] {main} Call "home->executePopulararticles()"
+Jun 21 23:54:23 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_populararticles.php"
+Jun 21 23:54:23 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jun 21 23:54:23 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:54:23 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:54:23 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_menu.php"
+Jun 21 23:54:23 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 21 23:54:23 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 21 23:54:23 symfony [info] {sfWebDebugLogger} Configuration 89.58 ms (11)
+Jun 21 23:54:23 symfony [info] {sfWebDebugLogger} Factories 138.80 ms (1)
+Jun 21 23:54:23 symfony [info] {sfWebDebugLogger} Action "home/article" 179.29 ms (1)
+Jun 21 23:54:23 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.08 ms (11)
+Jun 21 23:54:23 symfony [info] {sfWebDebugLogger} View "Success" for "home/article" 239.77 ms (1)
+Jun 21 23:54:23 symfony [info] {sfWebDebugLogger} Component "home/populararticles" 0.04 ms (1)
+Jun 21 23:54:23 symfony [info] {sfWebDebugLogger} Partial "home/_populararticles" 4.83 ms (1)
+Jun 21 23:54:23 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 5.06 ms (1)
+Jun 21 23:54:23 symfony [info] {sfWebDebugLogger} Partial "home/_menu" 5.25 ms (1)
+Jun 21 23:54:23 symfony [info] {sfWebResponse} Send content (60561 o)
+Jun 21 23:54:25 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /comment/index/article/3 with parameters array (  'module' => 'comment',  'action' => 'index',  'article' => '3',)
+Jun 21 23:54:25 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 21 23:54:25 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 21 23:54:25 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 21 23:54:25 symfony [info] {commentActions} Call "commentActions->executeIndex()"
+Jun 21 23:54:25 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jun 21 23:54:25 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.category_id AS a__category_id, a.published_at AS a__published_at, a.read_count AS a__read_count, a.user_id AS a__user_id, a.published AS a__published, a.photo AS a__photo FROM articles a WHERE (a.id = ?) LIMIT 1 - (3)
+Jun 21 23:54:25 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/comment/templates/indexSuccess.php"
+Jun 21 23:54:25 symfony [info] {main} Call "home->executePopulararticles()"
+Jun 21 23:54:25 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_populararticles.php"
+Jun 21 23:54:25 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/comment/templates/_nice_thumbs.php"
+Jun 21 23:54:25 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:54:25 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:54:25 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/comment/templates/_menu.php"
+Jun 21 23:54:25 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 21 23:54:25 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 21 23:54:25 symfony [info] {sfWebDebugLogger} Configuration 91.46 ms (11)
+Jun 21 23:54:25 symfony [info] {sfWebDebugLogger} Factories 133.87 ms (1)
+Jun 21 23:54:25 symfony [info] {sfWebDebugLogger} Action "comment/index" 128.85 ms (1)
+Jun 21 23:54:25 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Jun 21 23:54:25 symfony [info] {sfWebDebugLogger} View "Success" for "comment/index" 183.77 ms (1)
+Jun 21 23:54:25 symfony [info] {sfWebDebugLogger} Component "home/populararticles" 0.04 ms (1)
+Jun 21 23:54:25 symfony [info] {sfWebDebugLogger} Partial "home/_populararticles" 4.90 ms (1)
+Jun 21 23:54:25 symfony [info] {sfWebDebugLogger} Partial "comment/_nice_thumbs" 5.66 ms (1)
+Jun 21 23:54:25 symfony [info] {sfWebDebugLogger} Partial "comment/_menu" 6.36 ms (1)
+Jun 21 23:54:25 symfony [info] {sfWebResponse} Send content (46593 o)
+Jun 21 23:54:45 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /comment with parameters array (  'module' => 'comment',  'action' => 'index',)
+Jun 21 23:54:45 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 21 23:54:45 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 21 23:54:45 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 21 23:54:45 symfony [info] {commentActions} Call "commentActions->executeIndex()"
+Jun 21 23:54:45 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jun 21 23:54:45 symfony [info] {Doctrine_Connection_Statement} execute : INSERT INTO comments (text, article_id, user_id, published_at) VALUES (?, ?, ?, ?) - (Komentar dodan 21.06., 3, 2, 2012-12-14 12:45:00)
+Jun 21 23:54:45 symfony [info] {sfFrontWebController} Redirect to "http://localhost/sfproject/web/frontend_dev.php/home"
+Jun 21 23:54:45 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Jun 21 23:54:45 symfony [info] {sfWebResponse} Send header "Location: http://localhost/sfproject/web/frontend_dev.php/home"
+Jun 21 23:54:45 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 21 23:54:45 symfony [info] {sfWebDebugLogger} Configuration 66.80 ms (8)
+Jun 21 23:54:45 symfony [info] {sfWebDebugLogger} Factories 135.58 ms (1)
+Jun 21 23:54:45 symfony [info] {sfWebDebugLogger} Action "comment/index" 122.49 ms (1)
+Jun 21 23:54:45 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.01 ms (2)
+Jun 21 23:54:45 symfony [info] {sfWebResponse} Send content (123 o)
+Jun 21 23:54:45 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jun 21 23:54:45 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 21 23:54:45 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 21 23:54:45 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jun 21 23:54:46 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jun 21 23:54:46 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id - ()
+Jun 21 23:54:46 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jun 21 23:54:46 symfony [info] {main} Call "home->executePopulararticles()"
+Jun 21 23:54:46 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_populararticles.php"
+Jun 21 23:54:46 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jun 21 23:54:46 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:54:46 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:54:46 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_menu.php"
+Jun 21 23:54:46 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 21 23:54:46 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 21 23:54:46 symfony [info] {sfWebDebugLogger} Configuration 85.71 ms (11)
+Jun 21 23:54:46 symfony [info] {sfWebDebugLogger} Factories 133.95 ms (1)
+Jun 21 23:54:46 symfony [info] {sfWebDebugLogger} Action "home/index" 55.22 ms (1)
+Jun 21 23:54:46 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.01 ms (2)
+Jun 21 23:54:46 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 171.61 ms (1)
+Jun 21 23:54:46 symfony [info] {sfWebDebugLogger} Component "home/populararticles" 0.04 ms (1)
+Jun 21 23:54:46 symfony [info] {sfWebDebugLogger} Partial "home/_populararticles" 4.77 ms (1)
+Jun 21 23:54:46 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 4.53 ms (1)
+Jun 21 23:54:46 symfony [info] {sfWebDebugLogger} Partial "home/_menu" 5.00 ms (1)
+Jun 21 23:54:46 symfony [info] {sfWebResponse} Send content (44174 o)
+Jun 21 23:54:49 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /home/article/id/3 with parameters array (  'module' => 'home',  'action' => 'article',  'id' => '3',)
+Jun 21 23:54:49 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 21 23:54:49 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 21 23:54:49 symfony [info] {homeActions} Call "homeActions->executeArticle()"
+Jun 21 23:54:49 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jun 21 23:54:49 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.published_at AS a__published_at, u.id AS u__id FROM articles a INNER JOIN users u ON a.user_id = u.id LEFT JOIN comments c ON a.id = c.article_id WHERE (a.id = ?) - (3)
+Jun 21 23:54:49 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, COUNT(c.article_id) AS c__0 FROM articles a INNER JOIN comments c ON a.id = c.article_id WHERE (c.article_id = ?) - (3)
+Jun 21 23:54:49 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/articleSuccess.php"
+Jun 21 23:54:49 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) LIMIT 1 - (2)
+Jun 21 23:54:49 symfony [info] {Doctrine_Connection_Statement} execute : SELECT c.id AS c__id, c.user_id AS c__user_id, c.text AS c__text, c.article_id AS c__article_id, c.published_at AS c__published_at, c.published AS c__published FROM comments c WHERE (c.article_id IN (?)) - (3)
+Jun 21 23:54:49 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 21 23:54:49 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 21 23:54:49 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 21 23:54:49 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 21 23:54:49 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 21 23:54:49 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 21 23:54:49 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 21 23:54:49 symfony [info] {main} Call "home->executePopulararticles()"
+Jun 21 23:54:49 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_populararticles.php"
+Jun 21 23:54:49 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jun 21 23:54:49 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:54:49 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:54:49 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_menu.php"
+Jun 21 23:54:49 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 21 23:54:49 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 21 23:54:49 symfony [info] {sfWebDebugLogger} Configuration 89.04 ms (11)
+Jun 21 23:54:49 symfony [info] {sfWebDebugLogger} Factories 146.89 ms (1)
+Jun 21 23:54:49 symfony [info] {sfWebDebugLogger} Action "home/article" 157.57 ms (1)
+Jun 21 23:54:49 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.09 ms (12)
+Jun 21 23:54:49 symfony [info] {sfWebDebugLogger} View "Success" for "home/article" 262.68 ms (1)
+Jun 21 23:54:49 symfony [info] {sfWebDebugLogger} Component "home/populararticles" 0.04 ms (1)
+Jun 21 23:54:49 symfony [info] {sfWebDebugLogger} Partial "home/_populararticles" 5.60 ms (1)
+Jun 21 23:54:49 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 5.32 ms (1)
+Jun 21 23:54:49 symfony [info] {sfWebDebugLogger} Partial "home/_menu" 6.13 ms (1)
+Jun 21 23:54:49 symfony [info] {sfWebResponse} Send content (62738 o)
+Jun 21 23:55:01 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /comment/index/article/3 with parameters array (  'module' => 'comment',  'action' => 'index',  'article' => '3',)
+Jun 21 23:55:01 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 21 23:55:01 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 21 23:55:01 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 21 23:55:01 symfony [info] {commentActions} Call "commentActions->executeIndex()"
+Jun 21 23:55:01 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jun 21 23:55:01 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.category_id AS a__category_id, a.published_at AS a__published_at, a.read_count AS a__read_count, a.user_id AS a__user_id, a.published AS a__published, a.photo AS a__photo FROM articles a WHERE (a.id = ?) LIMIT 1 - (3)
+Jun 21 23:55:01 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/comment/templates/indexSuccess.php"
+Jun 21 23:55:01 symfony [info] {main} Call "home->executePopulararticles()"
+Jun 21 23:55:01 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_populararticles.php"
+Jun 21 23:55:01 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/comment/templates/_nice_thumbs.php"
+Jun 21 23:55:01 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:55:01 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:55:01 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/comment/templates/_menu.php"
+Jun 21 23:55:01 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 21 23:55:01 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 21 23:55:01 symfony [info] {sfWebDebugLogger} Configuration 93.82 ms (11)
+Jun 21 23:55:01 symfony [info] {sfWebDebugLogger} Factories 143.03 ms (1)
+Jun 21 23:55:01 symfony [info] {sfWebDebugLogger} Action "comment/index" 142.46 ms (1)
+Jun 21 23:55:01 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.01 ms (2)
+Jun 21 23:55:01 symfony [info] {sfWebDebugLogger} View "Success" for "comment/index" 183.90 ms (1)
+Jun 21 23:55:01 symfony [info] {sfWebDebugLogger} Component "home/populararticles" 0.04 ms (1)
+Jun 21 23:55:01 symfony [info] {sfWebDebugLogger} Partial "home/_populararticles" 4.82 ms (1)
+Jun 21 23:55:01 symfony [info] {sfWebDebugLogger} Partial "comment/_nice_thumbs" 5.67 ms (1)
+Jun 21 23:55:01 symfony [info] {sfWebDebugLogger} Partial "comment/_menu" 6.08 ms (1)
+Jun 21 23:55:01 symfony [info] {sfWebResponse} Send content (46593 o)
+Jun 21 23:55:04 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jun 21 23:55:05 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 21 23:55:05 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 21 23:55:05 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jun 21 23:55:05 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jun 21 23:55:05 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id - ()
+Jun 21 23:55:05 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jun 21 23:55:05 symfony [info] {main} Call "home->executePopulararticles()"
+Jun 21 23:55:05 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_populararticles.php"
+Jun 21 23:55:05 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jun 21 23:55:05 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:55:05 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 21 23:55:05 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_menu.php"
+Jun 21 23:55:05 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 21 23:55:05 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 21 23:55:05 symfony [info] {sfWebDebugLogger} Configuration 87.17 ms (11)
+Jun 21 23:55:05 symfony [info] {sfWebDebugLogger} Factories 138.82 ms (1)
+Jun 21 23:55:05 symfony [info] {sfWebDebugLogger} Action "home/index" 50.25 ms (1)
+Jun 21 23:55:05 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (2)
+Jun 21 23:55:05 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 173.30 ms (1)
+Jun 21 23:55:05 symfony [info] {sfWebDebugLogger} Component "home/populararticles" 0.04 ms (1)
+Jun 21 23:55:05 symfony [info] {sfWebDebugLogger} Partial "home/_populararticles" 4.74 ms (1)
+Jun 21 23:55:05 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 4.59 ms (1)
+Jun 21 23:55:05 symfony [info] {sfWebDebugLogger} Partial "home/_menu" 4.98 ms (1)
+Jun 21 23:55:05 symfony [info] {sfWebResponse} Send content (44174 o)
+Jun 22 01:23:57 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /home/article/id/3 with parameters array (  'module' => 'home',  'action' => 'article',  'id' => '3',)
+Jun 22 01:23:57 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 01:23:57 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 22 01:23:57 symfony [info] {homeActions} Call "homeActions->executeArticle()"
+Jun 22 01:23:57 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jun 22 01:23:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.published_at AS a__published_at, u.id AS u__id FROM articles a INNER JOIN users u ON a.user_id = u.id LEFT JOIN comments c ON a.id = c.article_id WHERE (a.id = ?) - (3)
+Jun 22 01:23:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, COUNT(c.article_id) AS c__0 FROM articles a INNER JOIN comments c ON a.id = c.article_id WHERE (c.article_id = ?) - (3)
+Jun 22 01:23:57 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/articleSuccess.php"
+Jun 22 01:23:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) LIMIT 1 - (2)
+Jun 22 01:23:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT c.id AS c__id, c.user_id AS c__user_id, c.text AS c__text, c.article_id AS c__article_id, c.published_at AS c__published_at, c.published AS c__published FROM comments c WHERE (c.article_id IN (?)) - (3)
+Jun 22 01:23:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 22 01:23:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 22 01:23:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 22 01:23:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 22 01:23:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 22 01:23:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 22 01:23:57 symfony [info] {main} Call "home->executePopulararticles()"
+Jun 22 01:23:57 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_populararticles.php"
+Jun 22 01:23:57 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jun 22 01:23:57 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 22 01:23:57 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 22 01:23:57 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_menu.php"
+Jun 22 01:23:57 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 22 01:23:57 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 22 01:23:57 symfony [info] {sfWebDebugLogger} Configuration 145.60 ms (11)
+Jun 22 01:23:57 symfony [info] {sfWebDebugLogger} Factories 171.72 ms (1)
+Jun 22 01:23:57 symfony [info] {sfWebDebugLogger} Action "home/article" 195.67 ms (1)
+Jun 22 01:23:57 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.08 ms (11)
+Jun 22 01:23:57 symfony [info] {sfWebDebugLogger} View "Success" for "home/article" 242.14 ms (1)
+Jun 22 01:23:57 symfony [info] {sfWebDebugLogger} Component "home/populararticles" 0.27 ms (1)
+Jun 22 01:23:57 symfony [info] {sfWebDebugLogger} Partial "home/_populararticles" 7.19 ms (1)
+Jun 22 01:23:57 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 7.20 ms (1)
+Jun 22 01:23:57 symfony [info] {sfWebDebugLogger} Partial "home/_menu" 7.34 ms (1)
+Jun 22 01:23:58 symfony [info] {sfWebResponse} Send content (60840 o)
+Jun 22 01:24:01 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /comment/index/article/3 with parameters array (  'module' => 'comment',  'action' => 'index',  'article' => '3',)
+Jun 22 01:24:01 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 01:24:01 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 22 01:24:01 symfony [info] {sfBasicSecurityFilter} Action "comment/index" requires authentication, forwarding to "default/login"
+Jun 22 01:24:01 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 01:24:01 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 22 01:24:01 symfony [info] {defaultActions} Call "defaultActions->executeLogin()"
+Jun 22 01:24:01 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\lib\vendor\symfony\lib/controller/default/templates/loginSuccess.php"
+Jun 22 01:24:01 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\lib\vendor\symfony\lib\controller\default\templates/defaultLayout.php"
+Jun 22 01:24:01 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\lib\vendor\symfony\lib\controller\default\templates/defaultLayout.php"
+Jun 22 01:24:01 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 22 01:24:01 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 22 01:24:01 symfony [info] {sfWebDebugLogger} Configuration 165.71 ms (12)
+Jun 22 01:24:01 symfony [info] {sfWebDebugLogger} Factories 166.37 ms (1)
+Jun 22 01:24:01 symfony [info] {sfWebDebugLogger} Action "default/login" 0.21 ms (1)
+Jun 22 01:24:01 symfony [info] {sfWebDebugLogger} View "Success" for "default/login" 47.37 ms (1)
+Jun 22 01:24:01 symfony [info] {sfWebResponse} Send content (31930 o)
+Jun 22 01:24:04 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /home/article/id/3 with parameters array (  'module' => 'home',  'action' => 'article',  'id' => '3',)
+Jun 22 01:24:04 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 01:24:04 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 22 01:24:04 symfony [info] {homeActions} Call "homeActions->executeArticle()"
+Jun 22 01:24:04 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jun 22 01:24:04 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.published_at AS a__published_at, u.id AS u__id FROM articles a INNER JOIN users u ON a.user_id = u.id LEFT JOIN comments c ON a.id = c.article_id WHERE (a.id = ?) - (3)
+Jun 22 01:24:04 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, COUNT(c.article_id) AS c__0 FROM articles a INNER JOIN comments c ON a.id = c.article_id WHERE (c.article_id = ?) - (3)
+Jun 22 01:24:04 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/articleSuccess.php"
+Jun 22 01:24:04 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) LIMIT 1 - (2)
+Jun 22 01:24:04 symfony [info] {Doctrine_Connection_Statement} execute : SELECT c.id AS c__id, c.user_id AS c__user_id, c.text AS c__text, c.article_id AS c__article_id, c.published_at AS c__published_at, c.published AS c__published FROM comments c WHERE (c.article_id IN (?)) - (3)
+Jun 22 01:24:04 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 22 01:24:04 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 22 01:24:04 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 22 01:24:04 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 22 01:24:04 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 22 01:24:04 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) - (2)
+Jun 22 01:24:04 symfony [info] {main} Call "home->executePopulararticles()"
+Jun 22 01:24:04 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_populararticles.php"
+Jun 22 01:24:04 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jun 22 01:24:04 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 22 01:24:04 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 22 01:24:04 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_menu.php"
+Jun 22 01:24:04 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 22 01:24:04 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 22 01:24:04 symfony [info] {sfWebDebugLogger} Configuration 143.24 ms (11)
+Jun 22 01:24:04 symfony [info] {sfWebDebugLogger} Factories 177.86 ms (1)
+Jun 22 01:24:04 symfony [info] {sfWebDebugLogger} Action "home/article" 170.95 ms (1)
+Jun 22 01:24:04 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.08 ms (11)
+Jun 22 01:24:04 symfony [info] {sfWebDebugLogger} View "Success" for "home/article" 245.77 ms (1)
+Jun 22 01:24:04 symfony [info] {sfWebDebugLogger} Component "home/populararticles" 0.04 ms (1)
+Jun 22 01:24:04 symfony [info] {sfWebDebugLogger} Partial "home/_populararticles" 7.33 ms (1)
+Jun 22 01:24:04 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 7.58 ms (1)
+Jun 22 01:24:04 symfony [info] {sfWebDebugLogger} Partial "home/_menu" 7.19 ms (1)
+Jun 22 01:24:04 symfony [info] {sfWebResponse} Send content (60840 o)
+Jun 22 01:24:09 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /user with parameters array (  'module' => 'user',  'action' => 'index',)
+Jun 22 01:24:10 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 01:24:10 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 22 01:24:10 symfony [info] {userActions} Call "userActions->executeIndex()"
+Jun 22 01:24:10 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/user/templates/indexSuccess.php"
+Jun 22 01:24:10 symfony [info] {main} Call "home->executePopulararticles()"
+Jun 22 01:24:10 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_populararticles.php"
+Jun 22 01:24:10 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/user/templates/_nice_thumbs.php"
+Jun 22 01:24:10 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 22 01:24:10 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 22 01:24:10 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/user/templates/_menu.php"
+Jun 22 01:24:10 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 22 01:24:10 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 22 01:24:10 symfony [info] {sfWebDebugLogger} Configuration 141.58 ms (11)
+Jun 22 01:24:10 symfony [info] {sfWebDebugLogger} Factories 179.86 ms (1)
+Jun 22 01:24:10 symfony [info] {sfWebDebugLogger} Action "user/index" 21.57 ms (1)
+Jun 22 01:24:10 symfony [info] {sfWebDebugLogger} View "Success" for "user/index" 149.80 ms (1)
+Jun 22 01:24:10 symfony [info] {sfWebDebugLogger} Component "home/populararticles" 0.04 ms (1)
+Jun 22 01:24:10 symfony [info] {sfWebDebugLogger} Partial "home/_populararticles" 7.17 ms (1)
+Jun 22 01:24:10 symfony [info] {sfWebDebugLogger} Partial "user/_nice_thumbs" 6.81 ms (1)
+Jun 22 01:24:10 symfony [info] {sfWebDebugLogger} Partial "user/_menu" 8.24 ms (1)
+Jun 22 01:24:10 symfony [info] {sfWebResponse} Send content (38399 o)

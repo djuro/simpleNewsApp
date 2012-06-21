@@ -4469,3 +4469,517 @@ Jun 21 20:46:45 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.01 ms (3
 Jun 21 20:46:45 symfony [info] {sfWebDebugLogger} Partial "articles/_form_actions" 14.57 ms (1)
 Jun 21 20:46:45 symfony [info] {sfWebDebugLogger} Partial "articles/_form_footer" 14.16 ms (1)
 Jun 21 20:46:45 symfony [info] {sfWebResponse} Send content (99337 o)
+Jun 22 00:53:32 symfony [info] {sfPatternRouting} Match route "articles" (/articles.:sf_format) for /articles with parameters array (  'module' => 'articles',  'action' => 'index',  'sf_format' => 'html',)
+Jun 22 00:53:32 symfony [info] {myUser} Automatic user logout due to timeout
+Jun 22 00:53:32 symfony [info] {myUser} User is not authenticated
+Jun 22 00:53:34 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 00:53:34 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 22 00:53:34 symfony [info] {articlesActions} Call "articlesActions->executeIndex()"
+Jun 22 00:53:34 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jun 22 00:53:34 symfony [info] {Doctrine_Connection_Mysql} query : SELECT COUNT(*) AS num_results FROM articles a - ()
+Jun 22 00:53:34 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/indexSuccess.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_assets.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_flashes.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_header.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_filters.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_filters_field.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_filters_field.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_filters_field.php"
+Jun 22 00:53:35 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_filters_field.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_filters_field.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_filters_field.php"
+Jun 22 00:53:35 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u - ()
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_filters_field.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_filters_field.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_th_tabular.php"
+Jun 22 00:53:35 symfony [info] {main} Set slot "sf_admin.current_header"
+Jun 22 00:53:35 symfony [info] {main} Get slot "sf_admin.current_header"
+Jun 22 00:53:35 symfony [info] {main} Set slot "sf_admin.current_header"
+Jun 22 00:53:35 symfony [info] {main} Get slot "sf_admin.current_header"
+Jun 22 00:53:35 symfony [info] {main} Set slot "sf_admin.current_header"
+Jun 22 00:53:35 symfony [info] {main} Get slot "sf_admin.current_header"
+Jun 22 00:53:35 symfony [info] {main} Set slot "sf_admin.current_header"
+Jun 22 00:53:35 symfony [info] {main} Get slot "sf_admin.current_header"
+Jun 22 00:53:35 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.category_id AS a__category_id, a.published_at AS a__published_at, a.read_count AS a__read_count, a.user_id AS a__user_id, a.published AS a__published, a.photo AS a__photo FROM articles a LIMIT 20 - ()
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_batch_actions.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_tabular.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_actions.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_batch_actions.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_tabular.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_actions.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_batch_actions.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_tabular.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_actions.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_batch_actions.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_tabular.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_actions.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_batch_actions.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_tabular.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_actions.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_batch_actions.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_tabular.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_actions.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_batch_actions.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_tabular.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_actions.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_batch_actions.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_tabular.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_actions.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_batch_actions.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_actions.php"
+Jun 22 00:53:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_footer.php"
+Jun 22 00:53:35 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\backend\templates/layout.php"
+Jun 22 00:53:35 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\backend\templates/layout.php"
+Jun 22 00:53:35 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 22 00:53:35 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 22 00:53:35 symfony [info] {sfWebDebugLogger} Configuration 1923.58 ms (12)
+Jun 22 00:53:35 symfony [info] {sfWebDebugLogger} Factories 209.23 ms (1)
+Jun 22 00:53:35 symfony [info] {sfWebDebugLogger} Action "articles/index" 131.07 ms (1)
+Jun 22 00:53:35 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (5)
+Jun 22 00:53:35 symfony [info] {sfWebDebugLogger} View "Success" for "articles/index" 676.78 ms (1)
+Jun 22 00:53:35 symfony [info] {sfWebDebugLogger} Partial "articles/_assets" 7.97 ms (1)
+Jun 22 00:53:35 symfony [info] {sfWebDebugLogger} Partial "articles/_flashes" 8.60 ms (1)
+Jun 22 00:53:35 symfony [info] {sfWebDebugLogger} Partial "articles/_list_header" 5.42 ms (1)
+Jun 22 00:53:35 symfony [info] {sfWebDebugLogger} Partial "articles/_filters" 166.72 ms (1)
+Jun 22 00:53:35 symfony [info] {sfWebDebugLogger} Partial "articles/_filters_field" 137.10 ms (8)
+Jun 22 00:53:35 symfony [info] {sfWebDebugLogger} Partial "articles/_list" 308.81 ms (1)
+Jun 22 00:53:35 symfony [info] {sfWebDebugLogger} Partial "articles/_list_th_tabular" 18.84 ms (1)
+Jun 22 00:53:35 symfony [info] {sfWebDebugLogger} Partial "articles/_list_td_batch_actions" 70.88 ms (8)
+Jun 22 00:53:35 symfony [info] {sfWebDebugLogger} Partial "articles/_list_td_tabular" 78.23 ms (8)
+Jun 22 00:53:35 symfony [info] {sfWebDebugLogger} Partial "articles/_list_td_actions" 90.22 ms (8)
+Jun 22 00:53:35 symfony [info] {sfWebDebugLogger} Partial "articles/_list_batch_actions" 9.14 ms (1)
+Jun 22 00:53:35 symfony [info] {sfWebDebugLogger} Partial "articles/_list_actions" 9.73 ms (1)
+Jun 22 00:53:35 symfony [info] {sfWebDebugLogger} Partial "articles/_list_footer" 5.02 ms (1)
+Jun 22 00:53:35 symfony [info] {sfWebResponse} Send content (138951 o)
+Jun 22 00:53:46 symfony [info] {sfPatternRouting} Match route "articles_new" (/articles/new.:sf_format) for /articles/new with parameters array (  'module' => 'articles',  'action' => 'new',  'sf_format' => 'html',)
+Jun 22 00:53:46 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 00:53:46 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 22 00:53:46 symfony [info] {articlesActions} Call "articlesActions->executeNew()"
+Jun 22 00:53:47 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/newSuccess.php"
+Jun 22 00:53:47 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_assets.php"
+Jun 22 00:53:47 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_flashes.php"
+Jun 22 00:53:47 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_form_header.php"
+Jun 22 00:53:47 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_form.php"
+Jun 22 00:53:47 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_form_fieldset.php"
+Jun 22 00:53:47 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_form_field.php"
+Jun 22 00:53:47 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_form_field.php"
+Jun 22 00:53:47 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_form_field.php"
+Jun 22 00:53:47 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jun 22 00:53:47 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jun 22 00:53:47 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_form_field.php"
+Jun 22 00:53:47 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_form_field.php"
+Jun 22 00:53:47 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_form_field.php"
+Jun 22 00:53:47 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u - ()
+Jun 22 00:53:47 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_form_field.php"
+Jun 22 00:53:47 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_form_field.php"
+Jun 22 00:53:47 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_form_actions.php"
+Jun 22 00:53:47 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_form_footer.php"
+Jun 22 00:53:47 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\backend\templates/layout.php"
+Jun 22 00:53:47 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\backend\templates/layout.php"
+Jun 22 00:53:47 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 22 00:53:47 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 22 00:53:47 symfony [info] {sfWebDebugLogger} Configuration 91.04 ms (11)
+Jun 22 00:53:47 symfony [info] {sfWebDebugLogger} Factories 217.60 ms (1)
+Jun 22 00:53:47 symfony [info] {sfWebDebugLogger} Action "articles/new" 136.77 ms (1)
+Jun 22 00:53:47 symfony [info] {sfWebDebugLogger} View "Success" for "articles/new" 450.53 ms (1)
+Jun 22 00:53:47 symfony [info] {sfWebDebugLogger} Partial "articles/_assets" 8.31 ms (1)
+Jun 22 00:53:47 symfony [info] {sfWebDebugLogger} Partial "articles/_flashes" 7.88 ms (1)
+Jun 22 00:53:47 symfony [info] {sfWebDebugLogger} Partial "articles/_form_header" 5.05 ms (1)
+Jun 22 00:53:47 symfony [info] {sfWebDebugLogger} Partial "articles/_form" 289.19 ms (1)
+Jun 22 00:53:47 symfony [info] {sfWebDebugLogger} Partial "articles/_form_fieldset" 249.63 ms (1)
+Jun 22 00:53:47 symfony [info] {sfWebDebugLogger} Partial "articles/_form_field" 197.98 ms (8)
+Jun 22 00:53:47 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (3)
+Jun 22 00:53:47 symfony [info] {sfWebDebugLogger} Partial "articles/_form_actions" 8.65 ms (1)
+Jun 22 00:53:47 symfony [info] {sfWebDebugLogger} Partial "articles/_form_footer" 5.00 ms (1)
+Jun 22 00:53:47 symfony [info] {sfWebResponse} Send content (99903 o)
+Jun 22 01:01:44 symfony [info] {sfPatternRouting} Match route "articles" (/articles.:sf_format) for /articles with parameters array (  'module' => 'articles',  'action' => 'index',  'sf_format' => 'html',)
+Jun 22 01:01:44 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 01:01:44 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 22 01:01:44 symfony [info] {articlesActions} Call "articlesActions->executeIndex()"
+Jun 22 01:01:44 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jun 22 01:01:44 symfony [info] {Doctrine_Connection_Mysql} query : SELECT COUNT(*) AS num_results FROM articles a - ()
+Jun 22 01:01:44 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/indexSuccess.php"
+Jun 22 01:01:44 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_assets.php"
+Jun 22 01:01:44 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_flashes.php"
+Jun 22 01:01:44 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_header.php"
+Jun 22 01:01:44 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_filters.php"
+Jun 22 01:01:44 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_filters_field.php"
+Jun 22 01:01:44 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_filters_field.php"
+Jun 22 01:01:44 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_filters_field.php"
+Jun 22 01:01:44 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jun 22 01:01:44 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_filters_field.php"
+Jun 22 01:01:44 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_filters_field.php"
+Jun 22 01:01:44 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_filters_field.php"
+Jun 22 01:01:44 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u - ()
+Jun 22 01:01:44 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_filters_field.php"
+Jun 22 01:01:44 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_filters_field.php"
+Jun 22 01:01:44 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list.php"
+Jun 22 01:01:44 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_th_tabular.php"
+Jun 22 01:01:44 symfony [info] {main} Set slot "sf_admin.current_header"
+Jun 22 01:01:44 symfony [info] {main} Get slot "sf_admin.current_header"
+Jun 22 01:01:44 symfony [info] {main} Set slot "sf_admin.current_header"
+Jun 22 01:01:44 symfony [info] {main} Get slot "sf_admin.current_header"
+Jun 22 01:01:44 symfony [info] {main} Set slot "sf_admin.current_header"
+Jun 22 01:01:44 symfony [info] {main} Get slot "sf_admin.current_header"
+Jun 22 01:01:44 symfony [info] {main} Set slot "sf_admin.current_header"
+Jun 22 01:01:44 symfony [info] {main} Get slot "sf_admin.current_header"
+Jun 22 01:01:44 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.category_id AS a__category_id, a.published_at AS a__published_at, a.read_count AS a__read_count, a.user_id AS a__user_id, a.published AS a__published, a.photo AS a__photo FROM articles a LIMIT 20 - ()
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_batch_actions.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_tabular.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_actions.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_batch_actions.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_tabular.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_actions.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_batch_actions.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_tabular.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_actions.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_batch_actions.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_tabular.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_actions.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_batch_actions.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_tabular.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_actions.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_batch_actions.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_tabular.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_actions.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_batch_actions.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_tabular.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_actions.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_batch_actions.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_tabular.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_td_actions.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_batch_actions.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_actions.php"
+Jun 22 01:01:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoArticles/templates/_list_footer.php"
+Jun 22 01:01:45 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\backend\templates/layout.php"
+Jun 22 01:01:45 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\backend\templates/layout.php"
+Jun 22 01:01:45 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 22 01:01:45 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 22 01:01:45 symfony [info] {sfWebDebugLogger} Configuration 108.93 ms (11)
+Jun 22 01:01:45 symfony [info] {sfWebDebugLogger} Factories 158.85 ms (1)
+Jun 22 01:01:45 symfony [info] {sfWebDebugLogger} Action "articles/index" 170.37 ms (1)
+Jun 22 01:01:45 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (5)
+Jun 22 01:01:45 symfony [info] {sfWebDebugLogger} View "Success" for "articles/index" 659.80 ms (1)
+Jun 22 01:01:45 symfony [info] {sfWebDebugLogger} Partial "articles/_assets" 7.94 ms (1)
+Jun 22 01:01:45 symfony [info] {sfWebDebugLogger} Partial "articles/_flashes" 8.93 ms (1)
+Jun 22 01:01:45 symfony [info] {sfWebDebugLogger} Partial "articles/_list_header" 5.17 ms (1)
+Jun 22 01:01:45 symfony [info] {sfWebDebugLogger} Partial "articles/_filters" 148.93 ms (1)
+Jun 22 01:01:45 symfony [info] {sfWebDebugLogger} Partial "articles/_filters_field" 118.19 ms (8)
+Jun 22 01:01:45 symfony [info] {sfWebDebugLogger} Partial "articles/_list" 288.45 ms (1)
+Jun 22 01:01:45 symfony [info] {sfWebDebugLogger} Partial "articles/_list_th_tabular" 10.80 ms (1)
+Jun 22 01:01:45 symfony [info] {sfWebDebugLogger} Partial "articles/_list_td_batch_actions" 67.71 ms (8)
+Jun 22 01:01:45 symfony [info] {sfWebDebugLogger} Partial "articles/_list_td_tabular" 79.80 ms (8)
+Jun 22 01:01:45 symfony [info] {sfWebDebugLogger} Partial "articles/_list_td_actions" 78.66 ms (8)
+Jun 22 01:01:45 symfony [info] {sfWebDebugLogger} Partial "articles/_list_batch_actions" 8.65 ms (1)
+Jun 22 01:01:45 symfony [info] {sfWebDebugLogger} Partial "articles/_list_actions" 8.83 ms (1)
+Jun 22 01:01:45 symfony [info] {sfWebDebugLogger} Partial "articles/_list_footer" 5.04 ms (1)
+Jun 22 01:01:45 symfony [info] {sfWebResponse} Send content (138347 o)
+Jun 22 01:02:05 symfony [info] {sfPatternRouting} Match route "comments" (/comments.:sf_format) for /comments with parameters array (  'module' => 'comments',  'action' => 'index',  'sf_format' => 'html',)
+Jun 22 01:02:06 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 01:02:06 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 22 01:02:06 symfony [info] {commentsActions} Call "commentsActions->executeIndex()"
+Jun 22 01:02:06 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jun 22 01:02:06 symfony [info] {Doctrine_Connection_Mysql} query : SELECT COUNT(*) AS num_results FROM comments c - ()
+Jun 22 01:02:06 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/indexSuccess.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_assets.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_flashes.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_header.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_filters.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_filters_field.php"
+Jun 22 01:02:06 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u - ()
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_filters_field.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_filters_field.php"
+Jun 22 01:02:06 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.category_id AS a__category_id, a.published_at AS a__published_at, a.read_count AS a__read_count, a.user_id AS a__user_id, a.published AS a__published, a.photo AS a__photo FROM articles a - ()
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_filters_field.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_filters_field.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_th_tabular.php"
+Jun 22 01:02:06 symfony [info] {main} Set slot "sf_admin.current_header"
+Jun 22 01:02:06 symfony [info] {main} Get slot "sf_admin.current_header"
+Jun 22 01:02:06 symfony [info] {main} Set slot "sf_admin.current_header"
+Jun 22 01:02:06 symfony [info] {main} Get slot "sf_admin.current_header"
+Jun 22 01:02:06 symfony [info] {main} Set slot "sf_admin.current_header"
+Jun 22 01:02:06 symfony [info] {main} Get slot "sf_admin.current_header"
+Jun 22 01:02:06 symfony [info] {main} Set slot "sf_admin.current_header"
+Jun 22 01:02:06 symfony [info] {main} Get slot "sf_admin.current_header"
+Jun 22 01:02:06 symfony [info] {main} Set slot "sf_admin.current_header"
+Jun 22 01:02:06 symfony [info] {main} Get slot "sf_admin.current_header"
+Jun 22 01:02:06 symfony [info] {main} Set slot "sf_admin.current_header"
+Jun 22 01:02:06 symfony [info] {main} Get slot "sf_admin.current_header"
+Jun 22 01:02:06 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.user_id AS c__user_id, c.text AS c__text, c.article_id AS c__article_id, c.published_at AS c__published_at, c.published AS c__published FROM comments c LIMIT 20 - ()
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_batch_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_actions.php"
+Jun 22 01:02:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_footer.php"
+Jun 22 01:02:06 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\backend\templates/layout.php"
+Jun 22 01:02:07 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\backend\templates/layout.php"
+Jun 22 01:02:07 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 22 01:02:07 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 22 01:02:07 symfony [info] {sfWebDebugLogger} Configuration 90.74 ms (11)
+Jun 22 01:02:07 symfony [info] {sfWebDebugLogger} Factories 149.31 ms (1)
+Jun 22 01:02:07 symfony [info] {sfWebDebugLogger} Action "comments/index" 147.03 ms (1)
+Jun 22 01:02:07 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (5)
+Jun 22 01:02:07 symfony [info] {sfWebDebugLogger} View "Success" for "comments/index" 779.69 ms (1)
+Jun 22 01:02:07 symfony [info] {sfWebDebugLogger} Partial "comments/_assets" 5.99 ms (1)
+Jun 22 01:02:07 symfony [info] {sfWebDebugLogger} Partial "comments/_flashes" 5.94 ms (1)
+Jun 22 01:02:07 symfony [info] {sfWebDebugLogger} Partial "comments/_list_header" 6.29 ms (1)
+Jun 22 01:02:07 symfony [info] {sfWebDebugLogger} Partial "comments/_filters" 138.62 ms (1)
+Jun 22 01:02:07 symfony [info] {sfWebDebugLogger} Partial "comments/_filters_field" 115.68 ms (5)
+Jun 22 01:02:07 symfony [info] {sfWebDebugLogger} Partial "comments/_list" 459.26 ms (1)
+Jun 22 01:02:07 symfony [info] {sfWebDebugLogger} Partial "comments/_list_th_tabular" 10.01 ms (1)
+Jun 22 01:02:07 symfony [info] {sfWebDebugLogger} Partial "comments/_list_td_batch_actions" 104.52 ms (17)
+Jun 22 01:02:07 symfony [info] {sfWebDebugLogger} Partial "comments/_list_td_tabular" 160.81 ms (17)
+Jun 22 01:02:07 symfony [info] {sfWebDebugLogger} Partial "comments/_list_td_actions" 132.84 ms (17)
+Jun 22 01:02:07 symfony [info] {sfWebDebugLogger} Partial "comments/_list_batch_actions" 7.35 ms (1)
+Jun 22 01:02:07 symfony [info] {sfWebDebugLogger} Partial "comments/_list_actions" 6.08 ms (1)
+Jun 22 01:02:07 symfony [info] {sfWebDebugLogger} Partial "comments/_list_footer" 6.11 ms (1)
+Jun 22 01:02:07 symfony [info] {sfWebResponse} Send content (171547 o)
+Jun 22 01:02:17 symfony [info] {sfPatternRouting} Match route "comments_delete" (/comments/:id.:sf_format) for /comments/14 with parameters array (  'module' => 'comments',  'action' => 'delete',  'sf_format' => 'html',  'id' => '14',)
+Jun 22 01:02:17 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 01:02:17 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 22 01:02:17 symfony [info] {commentsActions} Call "commentsActions->executeDelete()"
+Jun 22 01:02:17 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jun 22 01:02:17 symfony [info] {Doctrine_Connection_Statement} execute : SELECT c.id AS c__id, c.user_id AS c__user_id, c.text AS c__text, c.article_id AS c__article_id, c.published_at AS c__published_at, c.published AS c__published FROM comments c WHERE (c.id = ?) - (14)
+Jun 22 01:02:17 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM comments WHERE id = ? - (14)
+Jun 22 01:02:17 symfony [info] {sfFrontWebController} Redirect to "http://localhost/sfproject/web/backend_dev.php/comments"
+Jun 22 01:02:17 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Jun 22 01:02:17 symfony [info] {sfWebResponse} Send header "Location: http://localhost/sfproject/web/backend_dev.php/comments"
+Jun 22 01:02:17 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 22 01:02:17 symfony [info] {sfWebDebugLogger} Configuration 83.00 ms (10)
+Jun 22 01:02:17 symfony [info] {sfWebDebugLogger} Factories 150.13 ms (1)
+Jun 22 01:02:17 symfony [info] {sfWebDebugLogger} Action "comments/delete" 164.16 ms (1)
+Jun 22 01:02:17 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (3)
+Jun 22 01:02:17 symfony [info] {sfWebResponse} Send content (126 o)
+Jun 22 01:02:17 symfony [info] {sfPatternRouting} Match route "comments" (/comments.:sf_format) for /comments with parameters array (  'module' => 'comments',  'action' => 'index',  'sf_format' => 'html',)
+Jun 22 01:02:17 symfony [info] {myUser} Flag old flash messages ("notice")
+Jun 22 01:02:17 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 01:02:17 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 22 01:02:17 symfony [info] {commentsActions} Call "commentsActions->executeIndex()"
+Jun 22 01:02:18 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jun 22 01:02:18 symfony [info] {Doctrine_Connection_Mysql} query : SELECT COUNT(*) AS num_results FROM comments c - ()
+Jun 22 01:02:18 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/indexSuccess.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_assets.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_flashes.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_header.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_filters.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_filters_field.php"
+Jun 22 01:02:18 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u - ()
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_filters_field.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_filters_field.php"
+Jun 22 01:02:18 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.category_id AS a__category_id, a.published_at AS a__published_at, a.read_count AS a__read_count, a.user_id AS a__user_id, a.published AS a__published, a.photo AS a__photo FROM articles a - ()
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_filters_field.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_filters_field.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_th_tabular.php"
+Jun 22 01:02:18 symfony [info] {main} Set slot "sf_admin.current_header"
+Jun 22 01:02:18 symfony [info] {main} Get slot "sf_admin.current_header"
+Jun 22 01:02:18 symfony [info] {main} Set slot "sf_admin.current_header"
+Jun 22 01:02:18 symfony [info] {main} Get slot "sf_admin.current_header"
+Jun 22 01:02:18 symfony [info] {main} Set slot "sf_admin.current_header"
+Jun 22 01:02:18 symfony [info] {main} Get slot "sf_admin.current_header"
+Jun 22 01:02:18 symfony [info] {main} Set slot "sf_admin.current_header"
+Jun 22 01:02:18 symfony [info] {main} Get slot "sf_admin.current_header"
+Jun 22 01:02:18 symfony [info] {main} Set slot "sf_admin.current_header"
+Jun 22 01:02:18 symfony [info] {main} Get slot "sf_admin.current_header"
+Jun 22 01:02:18 symfony [info] {main} Set slot "sf_admin.current_header"
+Jun 22 01:02:18 symfony [info] {main} Get slot "sf_admin.current_header"
+Jun 22 01:02:18 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.user_id AS c__user_id, c.text AS c__text, c.article_id AS c__article_id, c.published_at AS c__published_at, c.published AS c__published FROM comments c LIMIT 20 - ()
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_batch_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_tabular.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_td_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_batch_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_actions.php"
+Jun 22 01:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\cache\backend\dev\modules/autoComments/templates/_list_footer.php"
+Jun 22 01:02:18 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\backend\templates/layout.php"
+Jun 22 01:02:18 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\backend\templates/layout.php"
+Jun 22 01:02:18 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 22 01:02:18 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 22 01:02:18 symfony [info] {sfWebDebugLogger} Configuration 91.29 ms (11)
+Jun 22 01:02:18 symfony [info] {sfWebDebugLogger} Factories 151.09 ms (1)
+Jun 22 01:02:18 symfony [info] {sfWebDebugLogger} Action "comments/index" 138.65 ms (1)
+Jun 22 01:02:18 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (5)
+Jun 22 01:02:18 symfony [info] {sfWebDebugLogger} View "Success" for "comments/index" 743.46 ms (1)
+Jun 22 01:02:18 symfony [info] {sfWebDebugLogger} Partial "comments/_assets" 5.98 ms (1)
+Jun 22 01:02:18 symfony [info] {sfWebDebugLogger} Partial "comments/_flashes" 5.87 ms (1)
+Jun 22 01:02:18 symfony [info] {sfWebDebugLogger} Partial "comments/_list_header" 6.02 ms (1)
+Jun 22 01:02:18 symfony [info] {sfWebDebugLogger} Partial "comments/_filters" 133.18 ms (1)
+Jun 22 01:02:18 symfony [info] {sfWebDebugLogger} Partial "comments/_filters_field" 110.43 ms (5)
+Jun 22 01:02:18 symfony [info] {sfWebDebugLogger} Partial "comments/_list" 431.43 ms (1)
+Jun 22 01:02:18 symfony [info] {sfWebDebugLogger} Partial "comments/_list_th_tabular" 9.64 ms (1)
+Jun 22 01:02:18 symfony [info] {sfWebDebugLogger} Partial "comments/_list_td_batch_actions" 96.55 ms (16)
+Jun 22 01:02:18 symfony [info] {sfWebDebugLogger} Partial "comments/_list_td_tabular" 145.47 ms (16)
+Jun 22 01:02:18 symfony [info] {sfWebDebugLogger} Partial "comments/_list_td_actions" 126.80 ms (16)
+Jun 22 01:02:18 symfony [info] {sfWebDebugLogger} Partial "comments/_list_batch_actions" 6.46 ms (1)
+Jun 22 01:02:18 symfony [info] {sfWebDebugLogger} Partial "comments/_list_actions" 6.27 ms (1)
+Jun 22 01:02:18 symfony [info] {sfWebDebugLogger} Partial "comments/_list_footer" 6.11 ms (1)
+Jun 22 01:02:19 symfony [info] {sfWebResponse} Send content (167270 o)
+Jun 22 01:02:19 symfony [info] {myUser} Remove old flash messages ("notice")
+Jun 22 01:12:32 symfony [info] {sfPatternRouting} Match route "articles" (/articles.:sf_format) for /articles with parameters array (  'module' => 'articles',  'action' => 'index',  'sf_format' => 'html',)
+Jun 22 01:12:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 01:12:33 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 22 01:12:33 symfony [info] {sfBasicSecurityFilter} Action "articles/index" requires authentication, forwarding to "default/login"
+Jun 22 01:12:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 01:12:33 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 22 01:12:33 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 22 01:12:33 symfony [info] {defaultActions} Call "defaultActions->executeLogin()"
+Jun 22 01:12:33 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\lib\vendor\symfony\lib/controller/default/templates/loginSuccess.php"
+Jun 22 01:12:33 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\lib\vendor\symfony\lib\controller\default\templates/defaultLayout.php"
+Jun 22 01:12:33 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\lib\vendor\symfony\lib\controller\default\templates/defaultLayout.php"
+Jun 22 01:12:33 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 22 01:12:33 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 22 01:12:33 symfony [info] {sfWebDebugLogger} Configuration 598.51 ms (15)
+Jun 22 01:12:33 symfony [info] {sfWebDebugLogger} Factories 152.75 ms (1)
+Jun 22 01:12:33 symfony [info] {sfWebDebugLogger} Action "default/login" 0.19 ms (1)
+Jun 22 01:12:33 symfony [info] {sfWebDebugLogger} View "Success" for "default/login" 144.45 ms (1)
+Jun 22 01:12:33 symfony [info] {sfWebResponse} Send content (32161 o)
+Jun 22 01:22:54 symfony [info] {sfPatternRouting} Match route "articles" (/articles.:sf_format) for /articles with parameters array (  'module' => 'articles',  'action' => 'index',  'sf_format' => 'html',)
+Jun 22 01:22:56 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 01:22:56 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 22 01:22:56 symfony [info] {sfBasicSecurityFilter} Action "articles/index" requires authentication, forwarding to "default/login"
+Jun 22 01:22:56 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 01:22:56 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 22 01:22:56 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 22 01:22:56 symfony [info] {defaultActions} Call "defaultActions->executeLogin()"
+Jun 22 01:22:56 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\lib\vendor\symfony\lib/controller/default/templates/loginSuccess.php"
+Jun 22 01:22:56 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\lib\vendor\symfony\lib\controller\default\templates/defaultLayout.php"
+Jun 22 01:22:56 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\lib\vendor\symfony\lib\controller\default\templates/defaultLayout.php"
+Jun 22 01:22:56 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 22 01:22:56 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 22 01:22:56 symfony [info] {sfWebDebugLogger} Configuration 2255.52 ms (15)
+Jun 22 01:22:56 symfony [info] {sfWebDebugLogger} Factories 163.48 ms (1)
+Jun 22 01:22:56 symfony [info] {sfWebDebugLogger} Action "default/login" 0.19 ms (1)
+Jun 22 01:22:56 symfony [info] {sfWebDebugLogger} View "Success" for "default/login" 71.33 ms (1)
+Jun 22 01:22:57 symfony [info] {sfWebResponse} Send content (32159 o)
+Jun 22 01:23:11 symfony [info] {sfPatternRouting} Match route "articles" (/articles.:sf_format) for /articles with parameters array (  'module' => 'articles',  'action' => 'index',  'sf_format' => 'html',)
+Jun 22 01:23:12 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 01:23:12 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 22 01:23:12 symfony [info] {sfBasicSecurityFilter} Action "articles/index" requires authentication, forwarding to "default/login"
+Jun 22 01:23:12 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 01:23:12 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 22 01:23:12 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 22 01:23:12 symfony [info] {defaultActions} Call "defaultActions->executeLogin()"
+Jun 22 01:23:12 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\lib\vendor\symfony\lib/controller/default/templates/loginSuccess.php"
+Jun 22 01:23:12 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\lib\vendor\symfony\lib\controller\default\templates/defaultLayout.php"
+Jun 22 01:23:12 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\lib\vendor\symfony\lib\controller\default\templates/defaultLayout.php"
+Jun 22 01:23:12 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 22 01:23:12 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 22 01:23:12 symfony [info] {sfWebDebugLogger} Configuration 153.86 ms (14)
+Jun 22 01:23:12 symfony [info] {sfWebDebugLogger} Factories 167.48 ms (1)
+Jun 22 01:23:12 symfony [info] {sfWebDebugLogger} Action "default/login" 0.18 ms (1)
+Jun 22 01:23:12 symfony [info] {sfWebDebugLogger} View "Success" for "default/login" 40.97 ms (1)
+Jun 22 01:23:12 symfony [info] {sfWebResponse} Send content (32158 o)
+Jun 22 01:23:24 symfony [info] {sfPatternRouting} Match route "articles" (/articles.:sf_format) for /articles with parameters array (  'module' => 'articles',  'action' => 'index',  'sf_format' => 'html',)
+Jun 22 01:23:24 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 01:23:24 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 22 01:23:24 symfony [info] {sfBasicSecurityFilter} Action "articles/index" requires authentication, forwarding to "default/login"
+Jun 22 01:23:24 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 01:23:24 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jun 22 01:23:24 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 22 01:23:24 symfony [info] {defaultActions} Call "defaultActions->executeLogin()"
+Jun 22 01:23:24 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\lib\vendor\symfony\lib/controller/default/templates/loginSuccess.php"
+Jun 22 01:23:24 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\lib\vendor\symfony\lib\controller\default\templates/defaultLayout.php"
+Jun 22 01:23:24 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\lib\vendor\symfony\lib\controller\default\templates/defaultLayout.php"
+Jun 22 01:23:24 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 22 01:23:24 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 22 01:23:24 symfony [info] {sfWebDebugLogger} Configuration 429.31 ms (15)
+Jun 22 01:23:24 symfony [info] {sfWebDebugLogger} Factories 274.89 ms (1)
+Jun 22 01:23:24 symfony [info] {sfWebDebugLogger} Action "default/login" 0.19 ms (1)
+Jun 22 01:23:24 symfony [info] {sfWebDebugLogger} View "Success" for "default/login" 76.23 ms (1)
+Jun 22 01:23:24 symfony [info] {sfWebResponse} Send content (32159 o)
