@@ -25,6 +25,7 @@ class UsersTable extends Doctrine_Table
     {
      $user_res = $this->createQuery("usr")
                  ->select("usr.username,usr.password,usr.id")
+                 ->innerJoin("usr.Roles r")
 				 ->where("usr.username=?",$username)
                  ->fetchOne();
 
@@ -36,7 +37,7 @@ class UsersTable extends Doctrine_Table
         if(sha1($password)==$user_res->getPassword())
          {
           
-          return array($usrnm,$user_res->getId(),true);
+          return array($usrnm,$user_res->getId(),$user_res->getRoles()->getName(),true);
           
          }
         else

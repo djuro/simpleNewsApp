@@ -18638,3 +18638,76 @@ Jun 22 01:24:10 symfony [info] {sfWebDebugLogger} Partial "home/_populararticles
 Jun 22 01:24:10 symfony [info] {sfWebDebugLogger} Partial "user/_nice_thumbs" 6.81 ms (1)
 Jun 22 01:24:10 symfony [info] {sfWebDebugLogger} Partial "user/_menu" 8.24 ms (1)
 Jun 22 01:24:10 symfony [info] {sfWebResponse} Send content (38399 o)
+Jun 22 01:39:21 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /user with parameters array (  'module' => 'user',  'action' => 'index',)
+Jun 22 01:39:21 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 01:39:21 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 22 01:39:21 symfony [info] {userActions} Call "userActions->executeIndex()"
+Jun 22 01:39:21 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/user/templates/indexSuccess.php"
+Jun 22 01:39:21 symfony [info] {main} Call "home->executePopulararticles()"
+Jun 22 01:39:21 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_populararticles.php"
+Jun 22 01:39:21 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/user/templates/_nice_thumbs.php"
+Jun 22 01:39:21 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 22 01:39:21 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 22 01:39:21 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/user/templates/_menu.php"
+Jun 22 01:39:21 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 22 01:39:21 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 22 01:39:21 symfony [info] {sfWebDebugLogger} Configuration 114.71 ms (11)
+Jun 22 01:39:21 symfony [info] {sfWebDebugLogger} Factories 163.69 ms (1)
+Jun 22 01:39:21 symfony [info] {sfWebDebugLogger} Action "user/index" 22.60 ms (1)
+Jun 22 01:39:21 symfony [info] {sfWebDebugLogger} View "Success" for "user/index" 146.09 ms (1)
+Jun 22 01:39:21 symfony [info] {sfWebDebugLogger} Component "home/populararticles" 0.04 ms (1)
+Jun 22 01:39:21 symfony [info] {sfWebDebugLogger} Partial "home/_populararticles" 5.78 ms (1)
+Jun 22 01:39:21 symfony [info] {sfWebDebugLogger} Partial "user/_nice_thumbs" 5.94 ms (1)
+Jun 22 01:39:21 symfony [info] {sfWebDebugLogger} Partial "user/_menu" 6.29 ms (1)
+Jun 22 01:39:22 symfony [info] {sfWebResponse} Send content (38004 o)
+Jun 22 01:39:45 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /user/login with parameters array (  'module' => 'user',  'action' => 'login',)
+Jun 22 01:39:46 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 01:39:46 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 22 01:39:46 symfony [info] {userActions} Call "userActions->executeLogin()"
+Jun 22 01:39:46 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/user/templates/loginSuccess.php"
+Jun 22 01:39:46 symfony [info] {main} Call "home->executePopulararticles()"
+Jun 22 01:39:46 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_populararticles.php"
+Jun 22 01:39:46 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/user/templates/_nice_thumbs.php"
+Jun 22 01:39:46 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 22 01:39:46 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 22 01:39:46 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/user/templates/_menu.php"
+Jun 22 01:39:46 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 22 01:39:46 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 22 01:39:46 symfony [info] {sfWebDebugLogger} Configuration 95.22 ms (11)
+Jun 22 01:39:46 symfony [info] {sfWebDebugLogger} Factories 132.44 ms (1)
+Jun 22 01:39:46 symfony [info] {sfWebDebugLogger} Action "user/login" 23.98 ms (1)
+Jun 22 01:39:46 symfony [info] {sfWebDebugLogger} View "Success" for "user/login" 141.54 ms (1)
+Jun 22 01:39:46 symfony [info] {sfWebDebugLogger} Component "home/populararticles" 0.04 ms (1)
+Jun 22 01:39:46 symfony [info] {sfWebDebugLogger} Partial "home/_populararticles" 7.22 ms (1)
+Jun 22 01:39:46 symfony [info] {sfWebDebugLogger} Partial "user/_nice_thumbs" 5.68 ms (1)
+Jun 22 01:39:46 symfony [info] {sfWebDebugLogger} Partial "user/_menu" 6.14 ms (1)
+Jun 22 01:39:46 symfony [info] {sfWebResponse} Send content (37944 o)
+Jun 22 01:39:55 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /user/login with parameters array (  'module' => 'user',  'action' => 'login',)
+Jun 22 01:39:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jun 22 01:39:55 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jun 22 01:39:55 symfony [info] {userActions} Call "userActions->executeLogin()"
+Jun 22 01:39:55 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jun 22 01:39:55 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.username AS u__username, u.password AS u__password FROM users u INNER JOIN roles r ON u.role_id = r.id WHERE (u.username = ?) - (djuro)
+Jun 22 01:39:55 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) LIMIT 1 - (2)
+Jun 22 01:39:55 symfony [info] {Doctrine_Connection_Statement} execute : SELECT r.id AS r__id, r.name AS r__name FROM roles r WHERE (r.id = ?) - (1)
+Jun 22 01:39:55 symfony [info] {myUser} User is authenticated
+Jun 22 01:39:55 symfony [info] {myUser} Add credential(s) "anonymous"
+Jun 22 01:39:55 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/user/templates/loginSuccess.php"
+Jun 22 01:39:55 symfony [info] {main} Call "home->executePopulararticles()"
+Jun 22 01:39:55 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_populararticles.php"
+Jun 22 01:39:55 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/user/templates/_nice_thumbs.php"
+Jun 22 01:39:55 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 22 01:39:55 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jun 22 01:39:55 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/user/templates/_menu.php"
+Jun 22 01:39:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jun 22 01:39:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jun 22 01:39:55 symfony [info] {sfWebDebugLogger} Configuration 99.56 ms (11)
+Jun 22 01:39:55 symfony [info] {sfWebDebugLogger} Factories 131.63 ms (1)
+Jun 22 01:39:55 symfony [info] {sfWebDebugLogger} Action "user/login" 235.54 ms (1)
+Jun 22 01:39:55 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (4)
+Jun 22 01:39:55 symfony [info] {sfWebDebugLogger} View "Success" for "user/login" 145.53 ms (1)
+Jun 22 01:39:55 symfony [info] {sfWebDebugLogger} Component "home/populararticles" 0.04 ms (1)
+Jun 22 01:39:55 symfony [info] {sfWebDebugLogger} Partial "home/_populararticles" 7.71 ms (1)
+Jun 22 01:39:55 symfony [info] {sfWebDebugLogger} Partial "user/_nice_thumbs" 5.28 ms (1)
+Jun 22 01:39:55 symfony [info] {sfWebDebugLogger} Partial "user/_menu" 6.11 ms (1)
+Jun 22 01:39:56 symfony [info] {sfWebResponse} Send content (45602 o)

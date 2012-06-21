@@ -91,18 +91,20 @@ class userActions extends sfActions
         
         $valid = $user->verifyUser($username,$password);
         
-        if($valid[2]===true)
+        if($valid[3]===true)
          {
           $this->getUser()->setAttribute("username",$valid[0]);
           $this->getUser()->setAttribute("id",$valid[1]);
           $this->getUser()->setAuthenticated(true);
           $this->getUser()->addCredential('anonymous');
+          $this->getUser()->setAttribute('uloga',$valid[2]);
          }
 
       }
       
       $this->username = $this->getUser()->getAttribute('username');
       $this->id = $this->getUser()->getAttribute('id');
+      $this->uloga = $this->getUser()->getAttribute('uloga');
       
      }
     

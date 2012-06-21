@@ -32,7 +32,7 @@
 			
 			</div-->
 			
-		<?php if(!empty($username)){echo $username.'&nbsp;' .$id;} ?>
+		<?php if(!empty($username)){echo $username.'&nbsp;' .$id.'&nbsp;'.$uloga;} ?>
 			
 			</div>
 				
