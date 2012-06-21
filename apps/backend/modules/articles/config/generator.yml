@@ -1,0 +1,25 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Articles
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          articles
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+       id: { help: "ID clanka" }
+       title:        { help: "Naslov clanka" }
+       
+      list:
+       display: [id, title, user_id,photo]
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

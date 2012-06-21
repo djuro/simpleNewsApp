@@ -1,0 +1,15 @@
+read:
+  is_secure:   false      # All users can request the read action
+
+update:
+  is_secure:   true        # The update action is only for authenticated users
+
+delete:
+  is_secure:   true        # Only for authenticated users
+  credentials: admin       # With the admin credential
+
+all:
+  is_secure:  true        # false is the default value anyway
+  
+index:
+  credentials: [anonymous]   
