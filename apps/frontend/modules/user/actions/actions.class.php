@@ -58,6 +58,11 @@ class userActions extends sfActions
    }
    
    
+   /**
+    * Prikazuje formu za login korisnika,
+    * dodjeljuje credential i preusmjerava korisnika dalje
+    *  
+    */
    public function executeLogin(sfWebRequest $request)
    {
    
@@ -89,24 +94,48 @@ class userActions extends sfActions
  
         $user = UsersTable::GetInstance();
         
-        $valid = $user->verifyUser($username,$password);
+        $user_data = $user->verifyUser($username,$password);
         
-        if($valid[3]===true)
+        if($user_data[0]===true)
          {
-          $this->getUser()->setAttribute("username",$valid[0]);
-          $this->getUser()->setAttribute("id",$valid[1]);
           $this->getUser()->setAuthenticated(true);
-          $this->getUser()->addCredential('anonymous');
-          $this->getUser()->setAttribute('uloga',$valid[2]);
+          $this->getUser()->setAttribute("id",$user_data[2]);
+          $this->getUser()->addCredential($user_data[3]);
+          $this->getUser()->setAttribute("user_name",$user_data[4]);
+          $this->getUser()->setAttribute("user_surname",$user_data[5]);
+          $this->getUser()->setAttribute("user_nickname",$user_data[6]);
+          
+          // preusmjeriti korisnika na odgovarajucu akciju
+          switch($user_data[3])
+           {
+            case 'editor':
+             $this->redirect('http://localhost/sfproject/web/backend_dev.php/articles');
+            break;
+            
+            case 'author':
+             $this->redirect('http://localhost/sfproject/web/backend_dev.php/articles');
+            break;
+            
+            case 'anonymous':
+             $this->forward('home', 'index');
+            break;
+           }
          }
-
-      }
-      
-      $this->username = $this->getUser()->getAttribute('username');
-      $this->id = $this->getUser()->getAttribute('id');
-      $this->uloga = $this->getUser()->getAttribute('uloga');
+       }
       
      }
     
+   }
+   
+   /**
+    * Odjavljuje korisnika (brise atribute i credentials)
+    *  
+    */
+   public function executeLogout(sfWebRequest $request)
+   {
+    $this->getUser()->setAuthenticated(false);
+    $this->getUser()->clearCredentials();
+    $this->getUser()->getAttributeHolder()->clear();
+    $this->forward('home', 'index');
    }
 }

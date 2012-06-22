@@ -52,7 +52,8 @@ class homeActions extends sfActions
    $this->num_comments = $articles->countComments($id);
    
    
-   //$this->art_comm = $articles->getComm($id);
-   //new dBug($this->particular_comments);
+   // varijabla za prikazati ili sakriti link za dodavanje komentara
+   $this->user_id = $this->getUser()->getAttribute('id');
+   
   }
 }

@@ -11,5 +11,3 @@ delete:
 all:
   is_secure:  true        # false is the default value anyway
   
-index:
-  credentials: [anonymous]   

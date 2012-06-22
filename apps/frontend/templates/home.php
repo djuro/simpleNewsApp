@@ -27,7 +27,7 @@ Released   : 20071218
 				<h1>SimpleNews</h1>
 			</div>
 			<!-- here was a menu -->
-			<?php include_partial('menu') ?>
+			<?php include_component('home', 'mainmenu') ?>
 		</div>
 		<!-- end #header -->
 		<?php echo $sf_content ?>

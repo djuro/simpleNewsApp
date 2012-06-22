@@ -4,7 +4,7 @@
 		 <?php 
 		  foreach($naslovi as $t)
 		   {
-		    echo '<li><a href="#">'.$t.'</a></li>';
+		    echo '<li><a href="#">'.$t->getName().'</a></li>';
 		   
 		   }
 		 ?>

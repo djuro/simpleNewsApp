@@ -5,15 +5,20 @@ class homeComponents extends sfComponents
   public function executePopulararticles()
   {
    
-    /*
-    // Doctrine
-    $query = Doctrine::getTable('News')
-              ->createQuery()
-              ->orderBy('published_at DESC')
-              ->limit(5);
+   $query = Doctrine::getTable('Categories')
+              ->createQuery();
+              
  
-    $this->news = $query->execute();
-    */
-   $this->naslovi = array('Morbi sit amet sed magna','Lacus dapibus interdum','Donec pede nisl dolore sed','Lacus dapibus et interdum','Morbi sit amet magna  etiam','Maecenas sed sem lorem','Lacus dapibus interdum','Donec pede nisl dolore');
+   $this->naslovi = $query->execute();
+   
+   //$this->naslovi = array('Morbi sit amet sed magna','Lacus dapibus interdum','Donec pede nisl dolore sed','Lacus dapibus et interdum','Morbi sit amet magna  etiam','Maecenas sed sem lorem','Lacus dapibus interdum','Donec pede nisl dolore');
+  }
+  
+  public function executeMainmenu()
+  {
+    
+    $this->user_name = $this->getUser()->getAttribute('user_name');
+    $this->user_surname = $this->getUser()->getAttribute('user_surname');
+    $this->user_nickname = $this->getUser()->getAttribute('user_nickname');
   }
 }

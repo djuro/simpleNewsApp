@@ -29,7 +29,7 @@ class commentActions extends sfActions
     $this->form = new sfForm();
     $this->form->setWidgets(array(
     'article_id'    => new sfWidgetFormInputHidden(array('default'=>$article_id)),
-    'user_id'    => new sfWidgetFormInputHidden(array('default'=>2)),
+    'user_id'    => new sfWidgetFormInputHidden(array('default'=>$this->getUser()->getAttribute('id'))),
     'text' => new sfWidgetFormTextarea(array('label'=>'Komentar'),array('rows' => '5', 'cols' => 55)),
    ));
   
@@ -63,7 +63,7 @@ class commentActions extends sfActions
       $comment->setText($text);
       $comment->setArticleId($article_id);
       $comment->setUserId($user_id);
-      $comment->setPublishedAt('2012-12-14 12:45:00');
+      $comment->setPublishedAt(date("Y-m-d G:i:s"));
       
       $comment->save();
     // ...

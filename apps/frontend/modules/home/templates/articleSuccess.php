@@ -28,17 +28,27 @@
 			        echo '<div class="entry">';
 			        echo $comment->getText();
 			        echo '</div>';
-					echo '<p style="font-size:10px;"><strong>'.$comment->getUsers()->getName().'&nbsp;'.
-					     $comment->getUsers()->getSurname().'&nbsp;'.
-					     format_datetime($comment->getPublishedAt(),'F','hr','UTF-8').'</strong></p>';
+					echo '<p style="font-size:10px;"><strong>';
+					
+					$comment_autor = $comment->getUsers()->getName();
+					if(!empty($comment_autor)):
+					     echo $comment->getUsers()->getName().'&nbsp;'.
+					          $comment->getUsers()->getSurname().'&nbsp;';
+					else:
+					     echo $comment->getUsers()->getNickname().'&nbsp;';
+					endif;
+					     echo format_datetime($comment->getPublishedAt(),'F','hr','UTF-8').'</strong></p>';
 			        echo '</div>';
 			       }
 				   
 			?>
 	 </div>
 			</div>
+			<!--  prikazuje ili skriva link za dodavanje komentara -->
+			<?php if(!empty($user_id)):?>
 			<p><a href="<?php echo url_for('comment/').'index/article/'.$article->getId()?>">Ostavite komentar</a></p>
-				
+		    <?php endif;?>
+		    
 			</div>
 			<!-- end #content -->
 			<div id="sidebar">

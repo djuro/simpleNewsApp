@@ -23,31 +23,39 @@ class UsersTable extends Doctrine_Table
      */
     public function verifyUser($username,$password)
     {
-     $user_res = $this->createQuery("usr")
-                 ->select("usr.username,usr.password,usr.id")
+     $user_result = $this->createQuery("usr")
+                 ->select("usr.username,usr.name,usr.surname,usr.password,usr.id,r.name")
                  ->innerJoin("usr.Roles r")
 				 ->where("usr.username=?",$username)
                  ->fetchOne();
 
-     if (is_object($user_res)) 
+     if (is_object($user_result)) 
      {
-      $usrnm = $user_res->getUsername();
+      $usrnm = $user_result->getUsername();
       if(!empty($usrnm))
        {
-        if(sha1($password)==$user_res->getPassword())
+        if(sha1($password)==$user_result->getPassword())
          {
           
-          return array($usrnm,$user_res->getId(),$user_res->getRoles()->getName(),true);
+          return array(
+                       true,
+                       $usrnm,
+                       $user_result->getId(),
+                       $user_result->getRoles()->getName(),
+                       $user_result->getName(),
+                       $user_result->getSurname(),
+                       $user_result->getNickname(),
+                      );
           
          }
         else
          {
-          return array(false,false,false);
+          return array(false,false,false,false);
          }
        }
       else
        {
-        return array(false,false,false);
+        return array(false,false,false,false);
        }    
      }
    

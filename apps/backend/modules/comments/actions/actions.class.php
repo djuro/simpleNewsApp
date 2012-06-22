@@ -13,4 +13,21 @@ require_once dirname(__FILE__).'/../lib/commentsGeneratorHelper.class.php';
  */
 class commentsActions extends autoCommentsActions
 {
+
+ protected function buildQuery()
+  {
+    if($this->getUser()->hasCredential('author')===true)
+   {
+    return parent::buildQuery()
+      ->select('c.id,c.user_id,c.text,c.article_id,c.published_at,c.published')
+      ->from('Comments c')
+      ->innerJoin('c.Articles a')
+      ->where('a.user_id = ?', $this->getUser()->getAttribute('id'));
+   }
+  else
+   {
+    return parent::buildQuery();
+   }
+  }
+
 }
