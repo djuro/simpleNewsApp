@@ -12,3 +12,5 @@ lib/model/doctrine/base/Base*
 lib/model/doctrine/*Plugin/base/Base*
 lib/model/om/*
 lib/model/map/*
+log/frontend_dev.log
+log/backend_dev.log

@@ -14,7 +14,8 @@ generator:
     config:
       actions: ~
       fields:  ~
-      list:    ~
+      list:
+       display: [role_name,username,active,name,surname,email,nickname]
       filter:  ~
       form:    ~
       edit:    ~

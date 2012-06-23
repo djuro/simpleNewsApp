@@ -22,6 +22,7 @@ class commentsActions extends autoCommentsActions
       ->select('c.id,c.user_id,c.text,c.article_id,c.published_at,c.published')
       ->from('Comments c')
       ->innerJoin('c.Articles a')
+      ->innerJoin('c.Users u')
       ->where('a.user_id = ?', $this->getUser()->getAttribute('id'));
    }
   else

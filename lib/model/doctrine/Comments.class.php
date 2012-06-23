@@ -13,4 +13,33 @@
 class Comments extends BaseComments
 {
 
+ 
+  /**
+  *
+  *  Vraca naslov clanka za prikaz komentara u backend app, polje navedeno u generator.yml
+  */
+  public function getArticleTitle()
+  {
+
+   return $this->getArticles()->getTitle();
+
+  }
+
+
+/**
+* Vraca ime ili nickname autora komentara, umjesto ID-a. (Backend lista komentara)
+*
+*/
+  public function getAuthorName()
+  {
+  	$ime = $this->getUsers()->getName();
+  	$prezime = $this->getUsers()->getSurname();
+    $nick = $this->getUsers()->getNickname();
+
+    if(!empty($ime)):
+  	  return $ime.' '.$prezime;
+  	else:
+  	  return $nick;
+  	endif;
+  }
 }

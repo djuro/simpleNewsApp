@@ -1,0 +1,24 @@
+
+
+/** backend menu **/
+
+#backendmenu li {
+	display:inline;
+	list-style-type:none;
+	margin:10px;
+}
+
+#backendmenu li a{
+	display:inline;
+	list-style-type:none;
+	
+	
+}
+
+#backendmenu li a:hover{
+
+    
+
+	background-color:#dedede;
+	color:#ff0000;
+}

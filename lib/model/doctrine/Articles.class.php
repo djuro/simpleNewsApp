@@ -13,4 +13,24 @@
 class Articles extends BaseArticles
 {
 
+
+
+
+	public function getCategoryName()
+	{
+
+		return $this->getCategories()->getName();
+	}
+
+
+	public function getAuthorName()
+	{
+
+	 $ime = $this->getUsers()->getName();
+  	 $prezime = $this->getUsers()->getSurname();
+  
+  	 return $ime.' '.$prezime;
+  	
+	}
+
 }

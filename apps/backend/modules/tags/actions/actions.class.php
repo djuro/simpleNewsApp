@@ -13,4 +13,21 @@ require_once dirname(__FILE__).'/../lib/tagsGeneratorHelper.class.php';
  */
 class tagsActions extends autoTagsActions
 {
+
+  protected function buildQuery()
+  {
+   if($this->getUser()->hasCredential('author')===true)
+   {
+    return parent::buildQuery()
+     ->from('Tags t')
+     ->innerJoin('t.Articles a')
+     ->innerJoin('a.Users u')
+      ->where('user_id = ?', $this->getUser()->getAttribute('id'));
+   }
+  else
+   {
+    return parent::buildQuery();
+   }
+  }
+
 }

@@ -14,7 +14,8 @@ generator:
     config:
       actions: ~
       fields:  ~
-      list:    ~
+      list:
+       display: [author_name,text,published_at,published,article_title]
       filter:  ~
       form:    ~
       edit:    ~

@@ -353,3 +353,12 @@ img.right {
 }
 
 table th {vertical-align:top;}
+
+
+/** backend menu **/
+
+#backendmenu li {
+	display:inline;
+	list-style-type:none;
+	margin-right:20px;
+}

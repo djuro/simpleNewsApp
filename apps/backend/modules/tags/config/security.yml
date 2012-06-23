@@ -1,0 +1,25 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/08-Security
+
+index:
+  is_secure: true
+  credentials: [[editor,author]]
+
+new:
+  is_secure: true
+  credentials: [[editor,author]]
+
+create:
+  is_secure: true
+  credentials: [[editor,author]]
+
+edit:
+  is_secure: true
+  credentials: [[editor,author]]
+
+update:
+  is_secure: true
+  credentials: [[editor,author]]
+
+default:
+  is_secure: true

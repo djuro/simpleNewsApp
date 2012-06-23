@@ -13,4 +13,10 @@
 class Users extends BaseUsers
 {
 
+  public function getRoleName()
+  {
+
+  	return $this->getRoles()->getName();
+  }
+
 }
