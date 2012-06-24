@@ -29,7 +29,7 @@ class ArticlesTable extends Doctrine_Table
 
       $q = Doctrine_Manager::getInstance()->getCurrentConnection();
 
-      $result = $q->execute("SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id
+      $result = $q->execute("SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id,a.photo
                              FROM articles a
                              INNER JOIN
                              (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM

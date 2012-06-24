@@ -35,7 +35,7 @@ abstract class BaseArticlesForm extends BaseFormDoctrine
       'read_count'   => new sfValidatorInteger(),
       'user_id'      => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Users'))),
       'published'    => new sfValidatorInteger(),
-      'photo'        => new sfValidatorString(array('max_length' => 60)),
+      'photo'        => new sfValidatorString(array('max_length' => 255)),
     ));
 
     $this->widgetSchema->setNameFormat('articles[%s]');

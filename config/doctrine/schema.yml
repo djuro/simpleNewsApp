@@ -58,7 +58,7 @@ Articles:
       notnull: true
       autoincrement: false
     photo:
-      type: string(60)
+      type: string(255)
       fixed: false
       unsigned: false
       primary: false

@@ -64,7 +64,7 @@ public function executeCreate(sfWebRequest $request)
        $artcl->setText($articles['text']);
        $artcl->setCategoryId($articles['category_id']);
        $artcl->setUserId($articles['user_id']);
-       $artcl->setPhoto($filename);
+       $artcl->setPhoto($filename.$extension);
 
        // ako je clanak odmah 'objavljen' stavljamo sadasnje vrijeme kao vrijeme objavljivanja
        $published = $articles['published'];

@@ -129,14 +129,14 @@ abstract class BaseArticles extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 1,
              ));
-        $this->hasColumn('photo', 'string', 60, array(
+        $this->hasColumn('photo', 'string', 255, array(
              'type' => 'string',
              'fixed' => 0,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 60,
+             'length' => 255,
              ));
     }
 

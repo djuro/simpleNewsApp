@@ -11,6 +11,7 @@
 				?>
 			<h2 class="title"><?php echo $article['title'];?></h2>
 			<div class="entry">
+				<img src="<?php echo '/sfproject/web/uploads/'.$article['photo']?>" width="150" height="100" style="display:inline;">
 			<?php echo truncate_text($article['text'],255,'...',true)?>
 			</div>
 			<p class="meta"><a href="<?php echo url_for('home/category').'/id/'.$article['c_id']?>"><?php echo $article['name']?></a>&nbsp;&nbsp;&nbsp;<?php echo format_datetime($article['published_at'],'F','hr','UTF-8')?><a href="<?php echo url_for('home/article').'/id/'.$article['id']?>" class="permalink">Read more</a></p>
