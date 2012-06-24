@@ -16,7 +16,9 @@ class articlesActions extends autoArticlesActions
 
 
  
-
+/**
+*  Selecta clanke koji pripadaju logiranom 'autoru' ili sve clanke ako je korisnik 'editor'
+*/
 protected function buildQuery()
 {
   if($this->getUser()->hasCredential('author')===true)
@@ -32,31 +34,57 @@ protected function buildQuery()
 
 
 
-}
-
-
-
-
-
-
-/*
-protected function buildQuery()
+public function executeCreate(sfWebRequest $request)
   {
-    $tableMethod = $this->configuration->getTableMethod();
-    if (null === $this->filters)
-    {
-      $this->filters = $this->configuration->getFilterForm($this->getFilters());
-    }
+    if ($request->isMethod('post'))
+     {
+      $this->form = $this->configuration->getForm();
+      $this->articles = $this->form->getObject();
 
-    $this->filters->setTableMethod($tableMethod);
+      $this->form->bind($request->getParameter('articles'), $request->getFiles('articles'));
+      if ($this->form->isValid())
+      {
+       // Handle the form submission
+       $articles = $this->form->getValues();
 
-    $query = $this->filters->buildQuery($this->getFilters());
+       $title = $articles['title'];
+       $text = $articles['text'];
 
-    $this->addSortQuery($query);
+       // sfValidatedFile radi objekt "od" uploadanog fajla
+       $file = $this->form->getValue('photo');
 
-    $event = $this->dispatcher->filter(new sfEvent($this, 'admin.build_query'), $query);
-    $query = $event->getReturnValue();
+       $filename = 'article_photo_'.sha1($file->getOriginalName());
+       $extension = $file->getExtension($file->getOriginalExtension());
+       $file->save(sfConfig::get('sf_upload_dir').'/'.$filename.$extension);
+    
+       // spremanje clanka
+       $artcl = new Articles();
+        
+       $artcl->setTitle($articles['title']);
+       $artcl->setText($articles['text']);
+       $artcl->setCategoryId($articles['category_id']);
+       $artcl->setUserId($articles['user_id']);
+       $artcl->setPhoto($filename);
 
-    return $query;
+       // ako je clanak odmah 'objavljen' stavljamo sadasnje vrijeme kao vrijeme objavljivanja
+       $published = $articles['published'];
+
+       if($published==1):
+        $artcl->setPublished(1);
+        $artcl->setPublishedAt(date("Y-m-d g:i:s"));
+       else:
+        $artcl->setPublished(0);
+        $artcl->setPublishedAt(date("0000-00-00 00:00:00"));
+       endif;
+       
+       $artcl->save();
+      }
+
+     }
+
+    $this->setTemplate('new');
   }
-*/
+
+
+
+}
