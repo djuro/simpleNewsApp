@@ -13,4 +13,11 @@
 class Tags extends BaseTags
 {
 
+
+ public function getArticleTitle()
+ {
+
+  return $this->getArticles()->getTitle();
+ }
+
 }

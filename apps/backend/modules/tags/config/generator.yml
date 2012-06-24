@@ -13,8 +13,11 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
-      list:    ~
+      fields:
+       text: {label:Tag text}
+       article_title: {label:Article title}
+      list:
+       display: [text,article_title]
       filter:  ~
       form:    ~
       edit:    ~
