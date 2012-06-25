@@ -19,12 +19,13 @@ class UsersTable extends Doctrine_Table
     
     
     /**
-     *  'Selecta' korisnika na osnovu username-a i vraca objekt ako taj user postoji 
+     *  'Selecta' korisnika na osnovu username-a, provjerava je li aktivan, 
+     *   provjerava password i vraca array ako su uvjeti ispunjeni
      */
     public function verifyUser($username,$password)
     {
      $user_result = $this->createQuery("usr")
-                 ->select("usr.username,usr.name,usr.surname,usr.password,usr.id,r.name")
+                 ->select("usr.username,usr.name,usr.surname,usr.password,usr.id,r.name,usr.active")
                  ->innerJoin("usr.Roles r")
 				 ->where("usr.username=?",$username)
                  ->fetchOne();
@@ -32,8 +33,13 @@ class UsersTable extends Doctrine_Table
      if (is_object($user_result)) 
      {
       $usrnm = $user_result->getUsername();
-      if(!empty($usrnm))
+      $active = $user_result->getActive();
+
+      // provjera postoji li  dati username i da li je taj user aktivan
+      if(!empty($usrnm) && $active==1)
        {
+
+        // user je aktivan, provjera passworda
         if(sha1($password)==$user_result->getPassword())
          {
           
@@ -46,7 +52,6 @@ class UsersTable extends Doctrine_Table
                        $user_result->getSurname(),
                        $user_result->getNickname(),
                       );
-          
          }
         else
          {

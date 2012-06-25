@@ -5,21 +5,35 @@
 <div id="page">
 			<div id="content">
 			
-			<div class="post">
-				<?php
-                  foreach($articles as $article):
-				?>
-			<h2 class="title"><?php echo $article['title'];?></h2>
-			<div class="entry">
-				<img src="<?php echo '/sfproject/web/uploads/'.$article['photo']?>" width="150" height="100" style="display:inline;">
-			<?php echo truncate_text($article['text'],255,'...',true)?>
-			</div>
-			<p class="meta"><a href="<?php echo url_for('home/category').'/id/'.$article['c_id']?>"><?php echo $article['name']?></a>&nbsp;&nbsp;&nbsp;<?php echo format_datetime($article['published_at'],'F','hr','UTF-8')?><a href="<?php echo url_for('home/article').'/id/'.$article['id']?>" class="permalink">Read more</a></p>
-
-		<?php endforeach; ?>
 			
-			</div>
+			<?php
+                foreach($articles as $article):
+			?>
+			<!-- 'post' sadrzi odlomak jednog clanka -->
+            <div class="post">
+			<h2 class="title"><a href="<?php echo url_for('home/article').'/id/'.$article['id']?>"><?php echo $article['title'];?></a></h2>
+			<div class="entry">
 				
+			 <!-- slika, smanjen prikaz -->
+			 <a href="<?php echo url_for('home/article').'/id/'.$article['id']?>">
+			  <img src="<?php echo '/sfproject/web/uploads/'.$article['photo']?>" width="138" height="93" class="left">
+			 </a>
+			
+			
+			<!-- odlomak clanka -->
+			<p><?php echo truncate_text($article['text'],255,'...',true)?></p>
+	
+		
+			</div>
+			<p class="meta"><a href="<?php echo url_for('home/category').'/id/'.$article['c_id']?>">
+			  <?php echo $article['name']?></a>&nbsp;&nbsp;&nbsp;
+			  <?php echo format_datetime($article['published_at'],'F','hr','UTF-8')?>
+			  <a href="<?php echo url_for('home/article').'/id/'.$article['id']?>" class="permalink">Read more</a></p>
+            </div>
+		    <?php endforeach; ?>
+			
+			
+				</div>
 			</div>
 			<!-- end #content -->
 			<div id="sidebar">

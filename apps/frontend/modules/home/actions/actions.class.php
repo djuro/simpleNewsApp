@@ -54,6 +54,13 @@ class homeActions extends sfActions
    
    // varijabla za prikazati ili sakriti link za dodavanje komentara
    $this->user_id = $this->getUser()->getAttribute('id');
+
+   // povecava read_count za jedan, oznacava koliko je puta clanak citan
+   Doctrine_Query::create()
+  ->update('Articles a')
+  ->set('a.read_count', '(read_count+1)')
+  ->where('a.id = ?', $id)
+  ->execute();
    
   }
 }

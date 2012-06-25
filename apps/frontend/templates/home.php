@@ -24,7 +24,7 @@ Released   : 20071218
 	<div id="wrapper2">
 		<div id="header">
 			<div id="logo">
-				<h1>SimpleNews</h1>
+				<h1><a href="<?php echo url_for('home/index')?>"><span style="font-weight:normal;">Simple</span>News</a></h1>
 			</div>
 			<!-- here was a menu -->
 			<?php include_component('home', 'mainmenu') ?>

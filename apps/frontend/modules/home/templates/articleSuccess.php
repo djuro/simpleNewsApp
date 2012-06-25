@@ -10,6 +10,8 @@
 			<div class="post">
 
 			<h2 class="title"><?php echo $article->getTitle();?></h2>
+			<img src="<?php echo '/sfproject/web/uploads/'.$article->getPhoto();?>">
+			<p>&nbsp;</p>
 			<div class="entry"><?php echo nl2br($article->getText())?>
 			</div>
 			
@@ -46,7 +48,10 @@
 			</div>
 			<!--  prikazuje ili skriva link za dodavanje komentara -->
 			<?php if(!empty($user_id)):?>
+
 			<p><a href="<?php echo url_for('comment/').'index/article/'.$article->getId()?>">Ostavite komentar</a></p>
+		    <?php else:?>
+		     <p><a href="<?php echo url_for('user/index')?>">Ostavite komentar</a></p>
 		    <?php endif;?>
 		    
 			</div>

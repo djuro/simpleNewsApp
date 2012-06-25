@@ -5,19 +5,26 @@
 <div id="page">
 			<div id="content">
 			
-			<div class="post">
+			
 				<?php
                   foreach($articles_category as $article):
 				?>
-			<h2 class="title"><?php echo $article->getTitle();?></h2>
+			<div class="post">
+			<h2 class="title">
+			  <a href="<?php echo url_for('home/article').'/id/'.$article['id']?>"><?php echo $article->getTitle();?></a>
+			</h2>
 			<div class="entry">
-			<?php echo truncate_text($article->getText(),255,'...',true)?>
+			  <!-- slika -->
+			  <a href="<?php echo url_for('home/article').'/id/'.$article['id']?>">
+			  <img src="<?php echo '/sfproject/web/uploads/'.$article['photo']?>" width="138" height="93" class="left">
+			  </a>
+			<p><?php echo truncate_text($article->getText(),255,'...',true)?></p>
 			</div>
 			<p class="meta"><a href="#"><?php echo $article->Categories->getName()?></a>&nbsp;&nbsp;&nbsp;<?php echo format_datetime($article->getPublishedAt(),'F','hr','UTF-8')?><a href="<?php echo url_for('home/article').'/id/'.$article->getId()?>" class="permalink">Read more</a> </p>
-
+           </div>
 		<?php endforeach; ?>
 			
-			</div>
+			
 				<!-- >div class="post">
 					<h2 class="title"><a href="#">Welcome to Pluralism</a></h2>
 					<div class="entry"> <img src="/symfony/web/images/img06.jpg" alt="" width="138" height="93" class="left" />
