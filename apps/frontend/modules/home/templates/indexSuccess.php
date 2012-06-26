@@ -40,11 +40,13 @@
 				<ul>
 					
 					<li>
-						<h3>Veroeros etiam</h3>
+						<!--h3>Veroeros etiam</h3>
 						<p><strong>Morbi sit amet</strong> mauris Nam vitae nibh eu sapien dictum pharetra. Vestibulum elementum neque vel lacus. Proin auctor dolor loremmassa. Phasellus sit. <a href="#">More&hellip;</a></p>
-					</li>
+					</li-->
+					<?php include_component('home', 'toparticles') ?>
 					<!--  here was a list of sidebar links -->
 					<?php include_component('home', 'categorieslist') ?>
+				</li>
 				</ul>
 			</div>
 			<!-- end #sidebar -->

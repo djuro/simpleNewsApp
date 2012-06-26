@@ -25,7 +25,14 @@ class homeComponents extends sfComponents
 
   public function executeToparticles()
   {
+    $query = Doctrine::getTable('Articles')
+              ->createQuery('a')
+              ->select('a.id,a.title')
+              ->from('Articles a')
+              ->orderBy('a.read_count DESC')
+              ->limit('5');
 
+    $this->top_articles = $query->execute();
     
   }
 }

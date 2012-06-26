@@ -367,3 +367,6 @@ table th {vertical-align:top;}
 
 #kategorije li:hover{background-color:#ccccff;}
 #kategorije a {text-decoration:none;}
+
+#toparticles li {font-size:12px;}
+#toparticles a {color:#565656;}
