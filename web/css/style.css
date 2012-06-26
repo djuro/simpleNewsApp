@@ -362,3 +362,8 @@ table th {vertical-align:top;}
 	list-style-type:none;
 	margin-right:20px;
 }
+
+
+
+#kategorije li:hover{background-color:#ccccff;}
+#kategorije a {text-decoration:none;}

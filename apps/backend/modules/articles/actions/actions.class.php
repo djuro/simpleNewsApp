@@ -44,6 +44,7 @@ public function executeCreate(sfWebRequest $request)
       $this->form->bind($request->getParameter('articles'), $request->getFiles('articles'));
       if ($this->form->isValid())
       {
+        
        // Handle the form submission
        $articles = $this->form->getValues();
 
@@ -53,10 +54,14 @@ public function executeCreate(sfWebRequest $request)
        // sfValidatedFile radi objekt "od" uploadanog fajla
        $file = $this->form->getValue('photo');
 
-       $filename = 'article_photo_'.sha1($file->getOriginalName());
-       $extension = $file->getExtension($file->getOriginalExtension());
-       $file->save(sfConfig::get('sf_upload_dir').'/'.$filename.$extension);
-    
+       if(is_object($file)):
+         $filename = 'article_photo_'.sha1($file->getOriginalName());
+         $extension = $file->getExtension($file->getOriginalExtension());
+         $file->save(sfConfig::get('sf_upload_dir').'/'.$filename.$extension);
+       else:
+         $filename = NULL;
+         $extension = NULL;
+      endif;
        // spremanje clanka
        $artcl = new Articles();
         

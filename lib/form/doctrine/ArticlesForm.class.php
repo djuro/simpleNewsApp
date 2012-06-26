@@ -33,7 +33,7 @@ class ArticlesForm extends BaseArticlesForm
       'photo'  => new sfValidatorFile(array('max_size' =>'512000',
                                             'mime_types' => 'web_images', //you can set your own of course
 	                                        'path'       => sfConfig::get('sf_upload_dir'),
-	                                        'required' => true
+	                                        'required' => false
 	                                        )),
       ));
 

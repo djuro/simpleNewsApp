@@ -49,16 +49,14 @@ class commentActions extends sfActions
       $this->form->bind($request->getParameter('commentf'));
       if ($this->form->isValid())
       {
-      // Handle the form submission
-      //$comment_form = $this->form->getValues();
-      
+
+      // preuzimanje vrijednosti
       $text = $this->form->getValue('text');
       $article_id = $this->form->getValue('article_id');
       $user_id = $this->form->getValue('user_id');
-      // Or to get a specific value
-      //$name = $this->form->getValue('name');
+     
  
-      // Do stuff
+      // spremanje komentara
       $comment = new Comments();
       $comment->setText($text);
       $comment->setArticleId($article_id);

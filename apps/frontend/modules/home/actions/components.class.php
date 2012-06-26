@@ -2,7 +2,7 @@
  
 class homeComponents extends sfComponents
 {
-  public function executePopulararticles()
+  public function executeCategorieslist()
   {
    
    $query = Doctrine::getTable('Categories')
@@ -20,5 +20,12 @@ class homeComponents extends sfComponents
     $this->user_name = $this->getUser()->getAttribute('user_name');
     $this->user_surname = $this->getUser()->getAttribute('user_surname');
     $this->user_nickname = $this->getUser()->getAttribute('user_nickname');
+  }
+
+
+  public function executeToparticles()
+  {
+
+    
   }
 }

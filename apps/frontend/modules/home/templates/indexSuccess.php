@@ -44,7 +44,7 @@
 						<p><strong>Morbi sit amet</strong> mauris Nam vitae nibh eu sapien dictum pharetra. Vestibulum elementum neque vel lacus. Proin auctor dolor loremmassa. Phasellus sit. <a href="#">More&hellip;</a></p>
 					</li>
 					<!--  here was a list of sidebar links -->
-					<?php include_component('home', 'populararticles') ?>
+					<?php include_component('home', 'categorieslist') ?>
 				</ul>
 			</div>
 			<!-- end #sidebar -->
