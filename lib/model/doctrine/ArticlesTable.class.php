@@ -120,12 +120,67 @@ class ArticlesTable extends Doctrine_Table
           
     }
 	
-	public function findHisComments($id) {
+	  public function findHisComments($id) {
         return $this->createQuery("as")
                 ->leftJoin("as.Comments c")
 				->where("as.id=?",$id)
                 ->execute();
     }
+
+
+  /**
+  * Selecta sve clanke za backend listu s tim da joina categories i users
+  */
+   public function getArticlesByCredential()
+   {
+    $userId = sfContext::getInstance()->getUser()->getAttribute( 'user_id' );
+
+    if(sfContext::getInstance()->getUser()->hasCredential('author')===true):
+
+      $crdntl = 'author';
+  
+    else:
+   
+      $crdntl = 'editor';
+
+    endif;
+    
+    if($crdntl=='editor'):
+
+      $q = $this->createQuery('a')
+         ->select('a.id,a.title,a.text,a.published,a.read_count,a.category_id,a.published_at,a.user_id,a.photo,u.name AS u_name,u.surname AS u_surname,c.name AS c_name')
+         ->from('Articles a')
+         ->innerJoin('a.Users u')
+         ->innerJoin('a.Categories c');
+      return $q;//->execute();
+    
+    else:
+      
+      $q = $this->createQuery('a')
+        ->select('a.id,a.title,a.text,a.published,a.read_count,a.category_id,a.published_at,a.user_id,a.photo,u.name AS u_name,u.surname AS u_surname,c.name AS c_name')
+        ->from('Articles a')
+        ->innerJoin('a.Users u')
+        ->innerJoin('a.Categories c')
+        ->where('user_id = ?', $userId);
+      return $q;//->execute();
+    
+    endif;
+   }
+
+
+  /**
+  * Selecta sve clanke za backend listu koji pripadaju logiranom autoru
+  */
+   public function getAuthorsArticles()
+   {
+    $q = $articles->createQuery('a')
+        ->select('a.id,a.title,a.text,a.published,a.read_count,a.category_id,a.published_at,a.user_id,a.photo,u.name AS u_name,u.surname AS u_surname,c.name AS c_name')
+        ->from('Articles a')
+        ->innerJoin('a.Users u')
+        ->innerJoin('a.Categories c')
+        ->where('user_id = ?', $this->getUser()->getAttribute('id'));
+    return $q->execute();
+   }
   
 
 }

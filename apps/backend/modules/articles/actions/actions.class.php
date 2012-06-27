@@ -19,6 +19,7 @@ class articlesActions extends autoArticlesActions
 /**
 *  Selecta clanke koji pripadaju logiranom 'autoru' ili sve clanke ako je korisnik 'editor'
 */
+/*
 protected function buildQuery()
 {
   if($this->getUser()->hasCredential('author')===true)
@@ -31,9 +32,27 @@ protected function buildQuery()
     return parent::buildQuery();
    }
 }
+*/
+/*
+protected function buildQuery()
+{
+  $articles = ArticlesTable::getInstance();
 
+  if($this->getUser()->hasCredential('author')===true):
 
+    $crdntl = 'author';
+  
+  else:
+   
+   $crdntl = 'editor';
 
+  endif;
+
+  // poziv model metodi
+  return $articles->getArticlesByCredential($crdntl);
+
+}
+*/
 public function executeCreate(sfWebRequest $request)
   {
     if ($request->isMethod('post'))

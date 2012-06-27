@@ -15,7 +15,8 @@ generator:
       actions: ~
       fields: ~
       list:
-       display: [title,text,category_name,published_at,read_count,author_name,published,photo]
+       table_method: getArticlesByCredential
+       display: [title,text,c_name,published_at,read_count,u_name,published,photo]
       filter:  ~
       form:    ~
       edit:    ~
