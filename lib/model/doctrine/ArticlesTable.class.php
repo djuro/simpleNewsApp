@@ -145,14 +145,14 @@ class ArticlesTable extends Doctrine_Table
 
     endif;
     
-    if($crdntl=='editor'):
+    if($crdntl =='editor'):
 
       $q = $this->createQuery('a')
-         ->select('a.id,a.title,a.text,a.published,a.read_count,a.category_id,a.published_at,a.user_id,a.photo,u.name AS u_name,u.surname AS u_surname,c.name AS c_name')
+         ->select('a.id,a.title,a.text,a.published,a.read_count,a.category_id,a.published_at,a.user_id,a.photo,CONCAT(u.name," ",u.surname) AS author,c.name AS c_name')
          ->from('Articles a')
          ->innerJoin('a.Users u')
          ->innerJoin('a.Categories c');
-      return $q;//->execute();
+      return $q;
     
     else:
       
@@ -162,7 +162,7 @@ class ArticlesTable extends Doctrine_Table
         ->innerJoin('a.Users u')
         ->innerJoin('a.Categories c')
         ->where('user_id = ?', $userId);
-      return $q;//->execute();
+      return $q;
     
     endif;
    }
@@ -183,4 +183,17 @@ class ArticlesTable extends Doctrine_Table
    }
   
 
+/**
+*  Prima ID clanka i varijablu published: 1 ili 0. Vrsi update recorda.
+*/
+  public function updateArticle($id,$pub)
+  {
+    $q = $this->createQuery()
+        ->update('Articles')
+        ->set('published','?',$pub)
+        ->where('id=?',$id);
+
+    $q->execute();
+    return 'ok';
+  }
 }

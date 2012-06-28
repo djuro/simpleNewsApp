@@ -1,7 +1,9 @@
 <?php if($author===true):?>
 
-<ul id="backendmenu">
-	
+<ul id="backendmenu" style="position:relative;">
+
+	<img src="/sfproject/web/images/ajax-loader.gif" id="ajxload" style="display:none;position:absolute;z-index:100;left:500px;top:-20px;">
+
 	<li style="list-style-type:none;display:inline;"><a href="<?php echo url_for('articles/index')?>">Articles</a></li>
 	<li style="list-style-type:none;display:inline;"><a href="<?php echo url_for('comments/index')?>">Comments</a></li>
 	<li style="list-style-type:none;display:inline;"><a href="<?php echo url_for('tags/index')?>">Tags</a></li>
@@ -11,8 +13,10 @@
 
 <?php else: ?>
 
-<ul id="backendmenu">
-	
+<ul id="backendmenu" style="position:relative;">
+
+	<img src="/sfproject/web/images/ajax-loader.gif" id="ajxload" style="display:none;position:absolute;z-index:100;left:500px;top:-20px;">
+
 	<li style="list-style-type:none;display:inline;"><a href="<?php echo url_for('articles/index')?>">Articles</a></li>
 	<li style="list-style-type:none;display:inline;"><a href="<?php echo url_for('comments/index')?>">Comments</a></li>
 	<li style="list-style-type:none;display:inline;"><a href="<?php echo url_for('categories/index')?>">Categories</a></li>

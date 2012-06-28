@@ -110,5 +110,40 @@ public function executeCreate(sfWebRequest $request)
   }
 
 
+/**
+* Prima Ajax-om postan ID clanka sa articles liste u backendu, kontaktira metodu u modelu, vraca 
+* naslov i tekst clanka za prikaz u cjelosti unutar dialogbox-a.
+*/
+public function executeCompletetext(sfWebRequest $request)
+{
+  $articles = ArticlesTable::getInstance();
+
+  if ($request->isXmlHttpRequest())
+  {
+    $artcl_id = $request->getParameter('artcl_id');
+    $a = $articles->getOneArticle($artcl_id);
+
+    return $this->renderText(nl2br('<h2>'.$a->getTitle().'</h2><p>'.$a->getText().'</p>'));
+  }
+}
+
+/**
+* Prima Ajaxom postan ID clanka i varijablu published:1/0, kontaktira model funkciju za promjenu statusa clanka u bazi
+*
+*/
+public function executeChangepublished(sfWebRequest $request)
+{
+ $articles = ArticlesTable::getInstance();
+
+ if ($request->isXmlHttpRequest())
+  {
+    $article_id = $request->getParameter('article_id');
+    $published = $request->getParameter('published');
+    $a = $articles->updateArticle($article_id,$published);
+
+    return $this->renderText($a);
+  }
+}
+
 
 }

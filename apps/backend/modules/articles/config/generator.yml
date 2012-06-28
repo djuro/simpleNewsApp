@@ -13,10 +13,18 @@ generator:
 
     config:
       actions: ~
-      fields: ~
+      fields:
+       title: {label: Title}
+       text: {label: Text}
+       c_name: {label: Category}
+       published_at: {label: Published at}
+       read_count: {label: Read}
+       author: {label:Author}
+       published: {label:Published}
+       photo: {label:Image}
       list:
        table_method: getArticlesByCredential
-       display: [title,text,c_name,published_at,read_count,u_name,published,photo]
+       display: [title,_text,c_name,published_at,read_count,author,_published,_photo]
       filter:  ~
       form:    ~
       edit:    ~
