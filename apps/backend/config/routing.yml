@@ -1,3 +1,12 @@
+articles_tags:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ArticlesTags
+    module:               articles_tags
+    prefix_path:          /articles_tags
+    column:               id
+    with_wildcard_routes: true
+
 categories:
   class: sfDoctrineRouteCollection
   options:

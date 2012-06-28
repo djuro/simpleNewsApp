@@ -15,15 +15,13 @@ abstract class BaseTagsForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id'         => new sfWidgetFormInputHidden(),
-      'text'       => new sfWidgetFormInputText(),
-      'article_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Articles'), 'add_empty' => false)),
+      'id'   => new sfWidgetFormInputHidden(),
+      'text' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
-      'id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'text'       => new sfValidatorString(array('max_length' => 255)),
-      'article_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Articles'))),
+      'id'   => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'text' => new sfValidatorString(array('max_length' => 255)),
     ));
 
     $this->widgetSchema->setNameFormat('tags[%s]');

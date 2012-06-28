@@ -73,14 +73,47 @@ Articles:
       local: user_id
       foreign: id
       type: one
+    ArticlesTags:
+      local: id
+      foreign: article_id
+      type: many
     Comments:
       local: id
       foreign: article_id
       type: many
+ArticlesTags:
+  connection: doctrine
+  tableName: articles_tags
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    article_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    tag_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
     Tags:
-      local: id
-      foreign: article_id
-      type: many
+      local: tag_id
+      foreign: id
+      type: one
+    Articles:
+      local: article_id
+      foreign: id
+      type: one
 Categories:
   connection: doctrine
   tableName: categories
@@ -200,18 +233,11 @@ Tags:
       primary: false
       notnull: true
       autoincrement: false
-    article_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
   relations:
-    Articles:
-      local: article_id
-      foreign: id
-      type: one
+    ArticlesTags:
+      local: id
+      foreign: tag_id
+      type: many
 Users:
   connection: doctrine
   tableName: users

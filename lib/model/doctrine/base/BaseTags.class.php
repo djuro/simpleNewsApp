@@ -9,17 +9,14 @@ Doctrine_Manager::getInstance()->bindComponent('Tags', 'doctrine');
  * 
  * @property integer $id
  * @property string $text
- * @property integer $article_id
- * @property Articles $Articles
+ * @property Doctrine_Collection $ArticlesTags
  * 
- * @method integer  getId()         Returns the current record's "id" value
- * @method string   getText()       Returns the current record's "text" value
- * @method integer  getArticleId()  Returns the current record's "article_id" value
- * @method Articles getArticles()   Returns the current record's "Articles" value
- * @method Tags     setId()         Sets the current record's "id" value
- * @method Tags     setText()       Sets the current record's "text" value
- * @method Tags     setArticleId()  Sets the current record's "article_id" value
- * @method Tags     setArticles()   Sets the current record's "Articles" value
+ * @method integer             getId()           Returns the current record's "id" value
+ * @method string              getText()         Returns the current record's "text" value
+ * @method Doctrine_Collection getArticlesTags() Returns the current record's "ArticlesTags" collection
+ * @method Tags                setId()           Sets the current record's "id" value
+ * @method Tags                setText()         Sets the current record's "text" value
+ * @method Tags                setArticlesTags() Sets the current record's "ArticlesTags" collection
  * 
  * @package    simplenews
  * @subpackage model
@@ -48,22 +45,13 @@ abstract class BaseTags extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 255,
              ));
-        $this->hasColumn('article_id', 'integer', 4, array(
-             'type' => 'integer',
-             'fixed' => 0,
-             'unsigned' => false,
-             'primary' => false,
-             'notnull' => true,
-             'autoincrement' => false,
-             'length' => 4,
-             ));
     }
 
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('Articles', array(
-             'local' => 'article_id',
-             'foreign' => 'id'));
+        $this->hasMany('ArticlesTags', array(
+             'local' => 'id',
+             'foreign' => 'tag_id'));
     }
 }

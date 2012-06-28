@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * articles_tags module helper.
+ *
+ * @package    simplenews
+ * @subpackage articles_tags
+ * @author     Your name here
+ * @version    SVN: $Id: helper.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
+ */
+class articles_tagsGeneratorHelper extends BaseArticles_tagsGeneratorHelper
+{
+}

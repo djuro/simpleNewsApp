@@ -18,8 +18,8 @@ Doctrine_Manager::getInstance()->bindComponent('Articles', 'doctrine');
  * @property string $photo
  * @property Categories $Categories
  * @property Users $Users
+ * @property Doctrine_Collection $ArticlesTags
  * @property Doctrine_Collection $Comments
- * @property Doctrine_Collection $Tags
  * 
  * @method integer             getId()           Returns the current record's "id" value
  * @method string              getTitle()        Returns the current record's "title" value
@@ -32,8 +32,8 @@ Doctrine_Manager::getInstance()->bindComponent('Articles', 'doctrine');
  * @method string              getPhoto()        Returns the current record's "photo" value
  * @method Categories          getCategories()   Returns the current record's "Categories" value
  * @method Users               getUsers()        Returns the current record's "Users" value
+ * @method Doctrine_Collection getArticlesTags() Returns the current record's "ArticlesTags" collection
  * @method Doctrine_Collection getComments()     Returns the current record's "Comments" collection
- * @method Doctrine_Collection getTags()         Returns the current record's "Tags" collection
  * @method Articles            setId()           Sets the current record's "id" value
  * @method Articles            setTitle()        Sets the current record's "title" value
  * @method Articles            setText()         Sets the current record's "text" value
@@ -45,8 +45,8 @@ Doctrine_Manager::getInstance()->bindComponent('Articles', 'doctrine');
  * @method Articles            setPhoto()        Sets the current record's "photo" value
  * @method Articles            setCategories()   Sets the current record's "Categories" value
  * @method Articles            setUsers()        Sets the current record's "Users" value
+ * @method Articles            setArticlesTags() Sets the current record's "ArticlesTags" collection
  * @method Articles            setComments()     Sets the current record's "Comments" collection
- * @method Articles            setTags()         Sets the current record's "Tags" collection
  * 
  * @package    simplenews
  * @subpackage model
@@ -151,11 +151,11 @@ abstract class BaseArticles extends sfDoctrineRecord
              'local' => 'user_id',
              'foreign' => 'id'));
 
-        $this->hasMany('Comments', array(
+        $this->hasMany('ArticlesTags', array(
              'local' => 'id',
              'foreign' => 'article_id'));
 
-        $this->hasMany('Tags', array(
+        $this->hasMany('Comments', array(
              'local' => 'id',
              'foreign' => 'article_id'));
     }
