@@ -20,9 +20,10 @@ class tagsActions extends autoTagsActions
    {
     return parent::buildQuery()
      ->from('Tags t')
-     ->innerJoin('t.Articles a')
+     ->leftJoin('t.ArticlesTags at')
+     ->leftJoin('at.Articles a')
      ->innerJoin('a.Users u')
-      ->where('user_id = ?', $this->getUser()->getAttribute('id'));
+     ->where('user_id = ?', $this->getUser()->getAttribute('id'));
    }
   else
    {

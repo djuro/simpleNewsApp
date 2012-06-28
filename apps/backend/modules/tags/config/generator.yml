@@ -15,9 +15,8 @@ generator:
       actions: ~
       fields:
        text: {label:Tag text}
-       article_title: {label:Article title}
       list:
-       display: [text,article_title]
+       display: [text]
       filter:  ~
       form:    ~
       edit:    ~
