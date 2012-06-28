@@ -3,4 +3,4 @@
 <?php use_javascript("backend_magic.js");?>
 <?php include_component('articles', 'mainmenu') ?>
 
-<div id="complete_text" title="Article text" style="display:none;"></div>
+<div id="complete_text" title="Article text" style="display:none;padding:20px;"></div>

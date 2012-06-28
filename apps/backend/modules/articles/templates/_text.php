@@ -1,2 +1,2 @@
 <?php use_helper('text')?>
-<?php echo truncate_text($articles->getText(),255,'...',true).'<a href="#" class="article_lnk" onClick="return false;" data-idartcl="'.$articles->getId().'">vi&#353;e</a>' ?>
+<?php echo truncate_text($articles->getText(),255,'...',true).'<a href="#" class="article_lnk" onClick="return false;" data-idartcl="'.$articles->getId().'" style="color:#0000ff;">vi&#353;e</a>' ?>

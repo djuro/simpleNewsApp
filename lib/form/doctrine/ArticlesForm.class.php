@@ -21,6 +21,7 @@ class ArticlesForm extends BaseArticlesForm
   'published' => new sfWidgetFormChoice(array('choices' => array('0', '1'))),
   'user_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Users'), 'add_empty' => false)),
   'photo' => new sfWidgetFormInputFile(),
+  'tags' => new sfWidgetFormInput(),
 ));
 
 
@@ -35,6 +36,7 @@ class ArticlesForm extends BaseArticlesForm
 	                                        'path'       => sfConfig::get('sf_upload_dir'),
 	                                        'required' => false
 	                                        )),
+      'tags'  => new sfValidatorString(),
       ));
 
 

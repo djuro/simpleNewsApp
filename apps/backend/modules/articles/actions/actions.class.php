@@ -53,6 +53,18 @@ protected function buildQuery()
 
 }
 */
+
+public function executeNew(sfWebRequest $request)
+  {
+    $tags = new Tags();
+    $this->form = $this->configuration->getForm();
+    $this->articles = $this->form->getObject();
+    $this->tags = $this->articles->$tags->getObject();
+    
+    
+  }
+
+
 public function executeCreate(sfWebRequest $request)
   {
     if ($request->isMethod('post'))
@@ -69,6 +81,8 @@ public function executeCreate(sfWebRequest $request)
 
        $title = $articles['title'];
        $text = $articles['text'];
+       $newtags = $articles['tags'];
+       
 
        // sfValidatedFile radi objekt "od" uploadanog fajla
        $file = $this->form->getValue('photo');
@@ -81,6 +95,7 @@ public function executeCreate(sfWebRequest $request)
          $filename = NULL;
          $extension = NULL;
       endif;
+
        // spremanje clanka
        $artcl = new Articles();
         
@@ -100,8 +115,20 @@ public function executeCreate(sfWebRequest $request)
         $artcl->setPublished(0);
         $artcl->setPublishedAt(date("0000-00-00 00:00:00"));
        endif;
+
+       // spremanje tagova
+       $tags = new Tags();
+
+       $tags_array=explode(",",$newtags);
        
+       //$i=0;
+       foreach($tags_array as $k=>$v):
+        $artcl->Tags[$k]->setText($v);
+       endforeach;
+
+       //$artcl->Tags[] = $tags;
        $artcl->save();
+       //$artcl->save();
       }
 
      }
