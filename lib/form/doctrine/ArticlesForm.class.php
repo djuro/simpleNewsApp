@@ -16,7 +16,7 @@ class ArticlesForm extends BaseArticlesForm
   	//$this->form = new sfForm();
     $this->setWidgets(array(
   'title'    => new sfWidgetFormInput(array('label' => 'Article title'), array('size' => 25, 'class' => 'foo')),
-  'text'   => new sfWidgetFormTextarea(array('default' => '', 'label' => 'Text'), array('onclick' => 'this.value = "";')),
+  'text'   => new sfWidgetFormTextarea(array('default' => '', 'label' => 'Text')),
   'category_id'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Categories'), 'add_empty' => false)),
   'published' => new sfWidgetFormChoice(array('choices' => array('0', '1'))),
   'user_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Users'), 'add_empty' => false)),

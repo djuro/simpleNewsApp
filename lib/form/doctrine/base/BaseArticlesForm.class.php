@@ -24,6 +24,7 @@ abstract class BaseArticlesForm extends BaseFormDoctrine
       'user_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Users'), 'add_empty' => false)),
       'published'    => new sfWidgetFormInputText(),
       'photo'        => new sfWidgetFormInputText(),
+      'tags_list'    => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Tags')),
     ));
 
     $this->setValidators(array(
@@ -36,6 +37,7 @@ abstract class BaseArticlesForm extends BaseFormDoctrine
       'user_id'      => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Users'))),
       'published'    => new sfValidatorInteger(),
       'photo'        => new sfValidatorString(array('max_length' => 255)),
+      'tags_list'    => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Tags', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('articles[%s]');
@@ -50,6 +52,62 @@ abstract class BaseArticlesForm extends BaseFormDoctrine
   public function getModelName()
   {
     return 'Articles';
+  }
+
+  public function updateDefaultsFromObject()
+  {
+    parent::updateDefaultsFromObject();
+
+    if (isset($this->widgetSchema['tags_list']))
+    {
+      $this->setDefault('tags_list', $this->object->Tags->getPrimaryKeys());
+    }
+
+  }
+
+  protected function doSave($con = null)
+  {
+    $this->saveTagsList($con);
+
+    parent::doSave($con);
+  }
+
+  public function saveTagsList($con = null)
+  {
+    if (!$this->isValid())
+    {
+      throw $this->getErrorSchema();
+    }
+
+    if (!isset($this->widgetSchema['tags_list']))
+    {
+      // somebody has unset this widget
+      return;
+    }
+
+    if (null === $con)
+    {
+      $con = $this->getConnection();
+    }
+
+    $existing = $this->object->Tags->getPrimaryKeys();
+    $values = $this->getValue('tags_list');
+    if (!is_array($values))
+    {
+      $values = array();
+    }
+
+    $unlink = array_diff($existing, $values);
+    if (count($unlink))
+    {
+      $this->object->unlink('Tags', array_values($unlink));
+    }
+
+    $link = array_diff($values, $existing);
+    if (count($link))
+    {
+      $this->object->link('Tags', array_values($link));
+    }
   }
 
 }

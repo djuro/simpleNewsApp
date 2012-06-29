@@ -59,7 +59,7 @@ public function executeNew(sfWebRequest $request)
     $tags = new Tags();
     $this->form = $this->configuration->getForm();
     $this->articles = $this->form->getObject();
-    $this->tags = $this->articles->$tags->getObject();
+   
     
     
   }

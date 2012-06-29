@@ -21,6 +21,7 @@ abstract class BaseArticlesFormFilter extends BaseFormFilterDoctrine
       'user_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Users'), 'add_empty' => true)),
       'published'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'photo'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'tags_list'    => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Tags')),
     ));
 
     $this->setValidators(array(
@@ -32,6 +33,7 @@ abstract class BaseArticlesFormFilter extends BaseFormFilterDoctrine
       'user_id'      => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Users'), 'column' => 'id')),
       'published'    => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'photo'        => new sfValidatorPass(array('required' => false)),
+      'tags_list'    => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Tags', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('articles_filters[%s]');
@@ -41,6 +43,24 @@ abstract class BaseArticlesFormFilter extends BaseFormFilterDoctrine
     $this->setupInheritance();
 
     parent::setup();
+  }
+
+  public function addTagsListColumnQuery(Doctrine_Query $query, $field, $values)
+  {
+    if (!is_array($values))
+    {
+      $values = array($values);
+    }
+
+    if (!count($values))
+    {
+      return;
+    }
+
+    $query
+      ->leftJoin($query->getRootAlias().'.ArticlesTags ArticlesTags')
+      ->andWhereIn('ArticlesTags.Tags', $values)
+    ;
   }
 
   public function getModelName()
@@ -60,6 +80,7 @@ abstract class BaseArticlesFormFilter extends BaseFormFilterDoctrine
       'user_id'      => 'ForeignKey',
       'published'    => 'Number',
       'photo'        => 'Text',
+      'tags_list'    => 'ManyKey',
     );
   }
 }

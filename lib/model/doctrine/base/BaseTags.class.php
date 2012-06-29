@@ -9,13 +9,16 @@ Doctrine_Manager::getInstance()->bindComponent('Tags', 'doctrine');
  * 
  * @property integer $id
  * @property string $text
+ * @property Doctrine_Collection $Articles
  * @property Doctrine_Collection $ArticlesTags
  * 
  * @method integer             getId()           Returns the current record's "id" value
  * @method string              getText()         Returns the current record's "text" value
+ * @method Doctrine_Collection getArticles()     Returns the current record's "Articles" collection
  * @method Doctrine_Collection getArticlesTags() Returns the current record's "ArticlesTags" collection
  * @method Tags                setId()           Sets the current record's "id" value
  * @method Tags                setText()         Sets the current record's "text" value
+ * @method Tags                setArticles()     Sets the current record's "Articles" collection
  * @method Tags                setArticlesTags() Sets the current record's "ArticlesTags" collection
  * 
  * @package    simplenews
@@ -50,8 +53,13 @@ abstract class BaseTags extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
+        $this->hasMany('Articles', array(
+             'refClass' => 'ArticlesTags',
+             'local' => 'Tags',
+             'foreign' => 'Articles'));
+
         $this->hasMany('ArticlesTags', array(
              'local' => 'id',
-             'foreign' => 'tag_id'));
+             'foreign' => 'tags_id'));
     }
 }

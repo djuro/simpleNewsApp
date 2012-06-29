@@ -73,10 +73,11 @@ Articles:
       local: user_id
       foreign: id
       type: one
-    ArticlesTags:
-      local: id
-      foreign: article_id
-      type: many
+    Tags:
+      class: Tags
+      refClass: ArticlesTags
+      local: Articles
+      foreign: Tags
     Comments:
       local: id
       foreign: article_id
@@ -85,35 +86,26 @@ ArticlesTags:
   connection: doctrine
   tableName: articles_tags
   columns:
-    id:
+    articles_id:
       type: integer(4)
       fixed: false
       unsigned: false
       primary: true
-      autoincrement: true
-    article_id:
-      type: integer(4)
-      fixed: false
-      unsigned: false
-      primary: false
       notnull: true
       autoincrement: false
-    tag_id:
+    tags_id:
       type: integer(4)
       fixed: false
       unsigned: false
-      primary: false
+      primary: true
       notnull: true
       autoincrement: false
   relations:
-    Tags:
-      local: tag_id
-      foreign: id
-      type: one
     Articles:
-      local: article_id
-      foreign: id
-      type: one
+      foreignAlias: ArticlesTags
+    Tags:
+      foreignAlias: ArticlesTags
+
 Categories:
   connection: doctrine
   tableName: categories
@@ -234,10 +226,11 @@ Tags:
       notnull: true
       autoincrement: false
   relations:
-    ArticlesTags:
-      local: id
-      foreign: tag_id
-      type: many
+    Articles:
+      class: Articles
+      refClass: ArticlesTags
+      local: Tags
+      foreign: Articles
 Users:
   connection: doctrine
   tableName: users
