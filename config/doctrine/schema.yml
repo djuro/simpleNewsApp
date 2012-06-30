@@ -76,8 +76,8 @@ Articles:
     Tags:
       class: Tags
       refClass: ArticlesTags
-      local: Articles
-      foreign: Tags
+      local: articles_id
+      foreign: tags_id
     Comments:
       local: id
       foreign: article_id
@@ -229,8 +229,8 @@ Tags:
     Articles:
       class: Articles
       refClass: ArticlesTags
-      local: Tags
-      foreign: Articles
+      local: tags_id
+      foreign: articles_id
 Users:
   connection: doctrine
   tableName: users

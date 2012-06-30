@@ -55,8 +55,8 @@ abstract class BaseTags extends sfDoctrineRecord
         parent::setUp();
         $this->hasMany('Articles', array(
              'refClass' => 'ArticlesTags',
-             'local' => 'Tags',
-             'foreign' => 'Articles'));
+             'local' => 'tags_id',
+             'foreign' => 'articles_id'));
 
         $this->hasMany('ArticlesTags', array(
              'local' => 'id',

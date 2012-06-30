@@ -33,4 +33,10 @@ class Articles extends BaseArticles
   	
 	}
 
+	public function getArttags()
+	{
+
+	  return implode(',',$this->getTags()->getText());
+	}
+
 }

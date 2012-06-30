@@ -156,8 +156,8 @@ abstract class BaseArticles extends sfDoctrineRecord
 
         $this->hasMany('Tags', array(
              'refClass' => 'ArticlesTags',
-             'local' => 'Articles',
-             'foreign' => 'Tags'));
+             'local' => 'articles_id',
+             'foreign' => 'tags_id'));
 
         $this->hasMany('Comments', array(
              'local' => 'id',

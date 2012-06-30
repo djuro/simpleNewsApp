@@ -56,12 +56,35 @@ protected function buildQuery()
 
 public function executeNew(sfWebRequest $request)
   {
-    $tags = new Tags();
-    $this->form = $this->configuration->getForm();
-    $this->articles = $this->form->getObject();
-   
-    
-    
+    $this->form = $this->configuration->getForm(array(), array('vrijednost' => "7654321"));
+    $this->articles = $this->form->getObject(); 
+  }
+
+public function executeEdit(sfWebRequest $request)
+  {
+    $this->articles = $this->getRoute()->getObject();
+     $tags = $this->articles->getTags();
+    $tagstr = "";
+    foreach($tags as $t):
+      $tagstr = $tagstr.$t->getText().', ';
+    endforeach;
+    $this->form = $this->configuration->getForm($this->articles,array('val'=>$tagstr));
+  }
+
+ public function executeUpdate(sfWebRequest $request)
+  {
+    $this->articles = $this->getRoute()->getObject();
+    $this->form = $this->configuration->getForm($this->articles);
+
+    $this->form->bind($request->getParameter('articles'), $request->getFiles('articles'));
+    if ($this->form->isValid())
+     {
+
+      echo "forma jest validna";
+
+     }
+
+    $this->setTemplate('edit');
   }
 
 
@@ -171,6 +194,8 @@ public function executeChangepublished(sfWebRequest $request)
     return $this->renderText($a);
   }
 }
+
+
 
 
 }

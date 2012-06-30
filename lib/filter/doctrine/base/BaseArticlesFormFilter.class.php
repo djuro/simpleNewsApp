@@ -59,7 +59,7 @@ abstract class BaseArticlesFormFilter extends BaseFormFilterDoctrine
 
     $query
       ->leftJoin($query->getRootAlias().'.ArticlesTags ArticlesTags')
-      ->andWhereIn('ArticlesTags.Tags', $values)
+      ->andWhereIn('ArticlesTags.tags_id', $values)
     ;
   }
 
