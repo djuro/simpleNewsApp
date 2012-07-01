@@ -22,7 +22,8 @@ class ArticlesForm extends BaseArticlesForm
   'user_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Users'), 'add_empty' => false)),
   'photo' => new sfWidgetFormInputFile(),
   //'tags' => new sfWidgetFormInput(),
-  'tags' => new sfCustomTagsWidget(array(),array('value'=>$this->getOption('val'))),
+  //'tags_list'    => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Tags')),
+  'tags' => new sfWidgetFormInput(array(),array('size'=>'100','value'=>$this->getOption('val'))),
 ));
 
 

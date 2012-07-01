@@ -16,43 +16,7 @@ class articlesActions extends autoArticlesActions
 
 
  
-/**
-*  Selecta clanke koji pripadaju logiranom 'autoru' ili sve clanke ako je korisnik 'editor'
-*/
-/*
-protected function buildQuery()
-{
-  if($this->getUser()->hasCredential('author')===true)
-   {
-    return parent::buildQuery()
-      ->where('user_id = ?', $this->getUser()->getAttribute('id'));
-   }
-  else
-   {
-    return parent::buildQuery();
-   }
-}
-*/
-/*
-protected function buildQuery()
-{
-  $articles = ArticlesTable::getInstance();
 
-  if($this->getUser()->hasCredential('author')===true):
-
-    $crdntl = 'author';
-  
-  else:
-   
-   $crdntl = 'editor';
-
-  endif;
-
-  // poziv model metodi
-  return $articles->getArticlesByCredential($crdntl);
-
-}
-*/
 
 public function executeNew(sfWebRequest $request)
   {
@@ -60,17 +24,27 @@ public function executeNew(sfWebRequest $request)
     $this->articles = $this->form->getObject(); 
   }
 
+
+/**
+* Prikazuje formu sa podacima, za edit
+*/
 public function executeEdit(sfWebRequest $request)
   {
     $this->articles = $this->getRoute()->getObject();
      $tags = $this->articles->getTags();
     $tagstr = "";
+    //$tagsarray = array();
     foreach($tags as $t):
-      $tagstr = $tagstr.$t->getText().', ';
+      $tagstr = $tagstr.$t->getText().',';
+      //$tagsarray[$t->getId()] = $t->getText();
     endforeach;
-    $this->form = $this->configuration->getForm($this->articles,array('val'=>$tagstr));
+    $tagstr = trim($tagstr);
+    $this->form = $this->configuration->getForm($this->articles,array('val'=>rtrim($tagstr,",")));
   }
 
+/**
+*  
+*/
  public function executeUpdate(sfWebRequest $request)
   {
     $this->articles = $this->getRoute()->getObject();
@@ -80,11 +54,84 @@ public function executeEdit(sfWebRequest $request)
     if ($this->form->isValid())
      {
 
-      echo "forma jest validna";
+      $articles = $this->form->getValues();
 
+      $title = $articles['title'];
+      $text = $articles['text'];
+      
+
+      $category = $articles['category_id'];
+      $published = $articles['published'];
+      $user = $articles['user_id'];
+
+      $tags = $articles['tags'];
+
+      $file = $this->form->getValue('photo');
+
+       if(is_object($file)):
+         $filename = 'article_photo_'.sha1($file->getOriginalName());
+         $extension = $file->getExtension($file->getOriginalExtension());
+         $file->save(sfConfig::get('sf_upload_dir').'/'.$filename.$extension);
+       else:
+         $filename = NULL;
+         $extension = NULL;
+      endif;
+      $photo =  $filename.$extension;
+
+      $article_id = $this->articles->getId();
+      
+      $tags_array = explode(",",$tags);
+      $new_tags = array_map('trim', $tags_array);
+      
+      $atbl = ArticlesTable::getInstance();
+      $atbl->updateArticletotal($title,$text,$category,$published,$user,$photo,$article_id);
+      
+      //$atbl->deleteAlltags($article_id);
+
+      // kolekcija objekata Tags
+      $old_tags_objekti = $this->articles->getTags();
+      
+      $old_tags = array();
+      
+      // pretvaranje u array
+      foreach($old_tags_objekti as $obj):
+        $old_tags[$obj->getId()] = trim($obj->getText());
+      endforeach;
+      
+      // brisanje tagova u articles_tags
+      //$atbl->deleteTags($article_id);
+      
+      $rslt_insert = array_diff($new_tags,$old_tags);
+      $rslt_delete = array_diff($old_tags,$new_tags); 
+
+      
+
+      if(count($rslt_insert)>0):
+        
+        foreach($rslt_insert as $k=>$tag):
+        //if($k!='' && $tag!=''):
+          $this->articles->Tags[$k]->setText($tag);
+        //endif;
+        endforeach;
+
+        $this->articles->save();
+        
+        //$vraceno = $atbl->insertTags($article_id,$rslt_insert);
+      endif;
+      
+    
+      
+      if(count($rslt_delete)>0):
+        $atbl->deleteTags($article_id,$rslt_delete);
+      endif;
      }
 
-    $this->setTemplate('edit');
+     print_r($rslt_insert);
+     print_r($rslt_delete);
+     echo '<br />';
+     echo $vraceno;
+
+    $this->forward('articles', 'index');
   }
 
 
@@ -99,13 +146,12 @@ public function executeCreate(sfWebRequest $request)
       if ($this->form->isValid())
       {
         
-       // Handle the form submission
+       
        $articles = $this->form->getValues();
 
        $title = $articles['title'];
        $text = $articles['text'];
        $newtags = $articles['tags'];
-       
 
        // sfValidatedFile radi objekt "od" uploadanog fajla
        $file = $this->form->getValue('photo');
@@ -149,9 +195,9 @@ public function executeCreate(sfWebRequest $request)
         $artcl->Tags[$k]->setText($v);
        endforeach;
 
-       //$artcl->Tags[] = $tags;
+       
        $artcl->save();
-       //$artcl->save();
+       
       }
 
      }

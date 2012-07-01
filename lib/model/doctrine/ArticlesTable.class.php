@@ -196,4 +196,48 @@ class ArticlesTable extends Doctrine_Table
     $q->execute();
     return 'ok';
   }
+
+
+
+  /**
+  * Izvrsava update query za clanak
+  */
+  public function updateArticletotal($title,$text,$cat,$pub,$usr,$photo,$id)
+  {
+    /*
+   $connection = Doctrine_Manager::connection();
+   $query = "UPDATE articles SET title='".$title."',text='".$text."',category_id='".$cat."',published='".$pub."',user_id='".$usr."',photo='".$photo."' WHERE id=".$id;
+   $statement = $connection->execute($query);
+   $statement->execute();
+
+*/
+   $q = $this->createQuery()
+          ->update('Articles a')
+          ->set('a.title','?',$title)
+          ->set('a.text','?',$text)
+          ->set('a.category_id','?',$cat)
+          ->set('a.published','?',$pub)
+          ->set('a.user_id','?',$usr)
+          ->set('a.photo','?',$photo)
+          ->where('a.id=?',$id);
+   $q->execute();
+   
+  }
+
+  /**
+  * Brise tagove pri update-u clanka, koji su izbrisani na formi
+  */
+  public function deleteTags($id,$tags_arr)
+  {
+    foreach($tags_arr as $key=>$tag):
+
+    $q = $this->createQuery()
+              ->delete('ArticlesTags at')
+              ->where('at.articles_id=?',$id)
+              ->andWhere('at.tags_id=?',$key);
+    $q->execute();
+
+    endforeach;
+  }
+
 }
