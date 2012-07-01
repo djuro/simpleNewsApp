@@ -15,7 +15,7 @@ generator:
       actions: ~
       fields:  ~
       list:
-       display: [author_name,text,published_at,published,article_title]
+       display: [author_name,_text,published_at,_published,article_title]
       filter:  ~
       form:    ~
       edit:    ~

@@ -18,4 +18,34 @@ class CommentsTable extends Doctrine_Table
     }
     
     
+  /**
+   *  Prima ID clanka i varijablu published: 1 ili 0. Vrsi update samo property-ja 'published'.
+   *  Akcija pokrenuta iz ajax-a
+   */
+  public function updateComment($id,$pub)
+  {
+    $q = $this->createQuery()
+        ->update('Comments')
+        ->set('published','?',$pub)
+        ->where('id=?',$id);
+
+    $q->execute();
+    return 'ok';
+  }
+
+
+  /**
+     * 'Selecta' jedan komentar za prikaz u dialogbox-u
+     * 
+     * @param integer comments.id
+     */
+
+    public function getOneComment($id)
+    {
+      $q = $this->createQuery()
+      ->from('Comments c')
+      ->where('c.id=?',$id);
+     
+      return $q->fetchOne();
+    }
 }

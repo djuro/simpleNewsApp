@@ -31,4 +31,42 @@ class commentsActions extends autoCommentsActions
    }
   }
 
+
+ /**
+ * Prima Ajaxom postan ID clanka i varijablu published:1/0, kontaktira model funkciju za promjenu 
+ * svojstva 'published' comment-a u bazi
+ *
+ */
+ public function executeChangepublished(sfWebRequest $request)
+ {
+  $comments = CommentsTable::getInstance();
+
+  if ($request->isXmlHttpRequest())
+   {
+     $comment_id = $request->getParameter('comment_id');
+     $published = $request->getParameter('published');
+     $c = $comments->updateComment($comment_id,$published);
+
+     return $this->renderText($c);
+   }
+ }
+
+
+ /**
+* Prima Ajax-om postan ID komentara sa comments liste u backendu, kontaktira metodu u modelu, vraca 
+* tekst komentara za prikaz u cjelosti unutar dialogbox-a.
+*/
+public function executeCompletetext(sfWebRequest $request)
+{
+  $comments = CommentsTable::getInstance();
+
+  if ($request->isXmlHttpRequest())
+  {
+    $comment_id = $request->getParameter('comment_id');
+    $c = $comments->getOneComment($comment_id);
+
+    return $this->renderText(nl2br('<p>'.$c->getText().'</p>'));
+  }
+}
+
 }

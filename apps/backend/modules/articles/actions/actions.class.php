@@ -125,12 +125,11 @@ public function executeEdit(sfWebRequest $request)
         $atbl->deleteTags($article_id,$rslt_delete);
       endif;
      }
-
+     /*
      print_r($rslt_insert);
      print_r($rslt_delete);
-     echo '<br />';
-     echo $vraceno;
-
+     */
+     
     $this->forward('articles', 'index');
   }
 
@@ -205,6 +204,31 @@ public function executeCreate(sfWebRequest $request)
     $this->setTemplate('new');
   }
 
+
+public function executeDelete(sfWebRequest $request)
+{
+  $article = $this->getRoute()->getObject();
+
+  //echo $article->getTitle();
+
+  $atags_tbl = ArticlesTagsTable::getInstance();
+  
+  $article_id = $article->getId();
+  $q_at = $atags_tbl->createQuery()
+               ->delete('ArticlesTags at')
+               ->where('at.articles_id=?',$article_id);
+  $q_at->execute();
+  
+  $articles = ArticlesTable::getInstance();
+
+  $q_a = $articles->createQuery()
+                  ->delete('Articles a')
+                  ->where('a.id=?',$article_id);
+  $q_a->execute();   
+
+  $this->forward('articles', 'index');        
+
+}
 
 /**
 * Prima Ajax-om postan ID clanka sa articles liste u backendu, kontaktira metodu u modelu, vraca 

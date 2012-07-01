@@ -19426,3 +19426,42 @@ Jul 01 12:51:13 symfony [info] {sfWebDebugLogger} Factories 185.42 ms (1)
 Jul 01 12:51:13 symfony [info] {sfWebDebugLogger} Action "user/login" 359.82 ms (1)
 Jul 01 12:51:13 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (3)
 Jul 01 12:51:13 symfony [info] {sfWebResponse} Send content (126 o)
+Jul 01 16:23:45 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jul 01 16:23:46 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 01 16:23:46 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 01 16:23:46 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jul 01 16:23:46 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 01 16:23:46 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id,a.photo
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id - ()
+Jul 01 16:23:46 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jul 01 16:23:46 symfony [info] {main} Call "home->executeToparticles()"
+Jul 01 16:23:46 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.title AS a__title FROM articles a ORDER BY a.read_count DESC LIMIT 5 - ()
+Jul 01 16:23:46 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 01 16:23:46 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 01 16:23:46 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 01 16:23:46 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 01 16:23:46 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jul 01 16:23:46 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:23:46 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:23:46 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 01 16:23:46 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 01 16:23:46 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 01 16:23:46 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 01 16:23:46 symfony [info] {sfWebDebugLogger} Configuration 196.42 ms (15)
+Jul 01 16:23:46 symfony [info] {sfWebDebugLogger} Factories 143.54 ms (1)
+Jul 01 16:23:46 symfony [info] {sfWebDebugLogger} Action "home/index" 76.10 ms (1)
+Jul 01 16:23:46 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (4)
+Jul 01 16:23:46 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 431.69 ms (1)
+Jul 01 16:23:46 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 59.11 ms (1)
+Jul 01 16:23:46 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 16.94 ms (1)
+Jul 01 16:23:46 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 8.83 ms (1)
+Jul 01 16:23:46 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 11.17 ms (1)
+Jul 01 16:23:46 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 10.77 ms (1)
+Jul 01 16:23:46 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.08 ms (1)
+Jul 01 16:23:46 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 8.85 ms (1)
+Jul 01 16:23:46 symfony [info] {sfWebResponse} Send content (49518 o)
