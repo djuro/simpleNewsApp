@@ -33,7 +33,7 @@
 		    <?php endforeach; ?>
 			
 			
-				</div>
+			
 			</div>
 			<!-- end #content -->
 			<div id="sidebar">
@@ -48,6 +48,7 @@
 					<?php include_component('home', 'categorieslist') ?>
 				</li>
 				</ul>
+				<?php include_component('home', 'tagcloud') ?>
 			</div>
 			<!-- end #sidebar -->
 			<div style="clear: both;">&nbsp;</div>
@@ -78,3 +79,4 @@
 			</div>
 			<!-- end #widebar -->
 		</div>
+	

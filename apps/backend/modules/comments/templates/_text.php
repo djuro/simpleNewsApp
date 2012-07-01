@@ -1,2 +1,2 @@
 <?php use_helper('text')?>
-<?php echo truncate_text($comments->getText(),255,'...',true).'&nbsp;<a href="#" class="comment_lnk" onClick="return false;" data-idcomment="'.$comments->getId().'" style="color:#0000ff;">vi&#353;e</a>' ?>
+<?php echo truncate_text($comments->getText(),150,'...',true).'&nbsp;<a href="#" class="comment_lnk" onClick="return false;" data-idcomment="'.$comments->getId().'" style="color:#0000ff;">vi&#353;e</a>' ?>

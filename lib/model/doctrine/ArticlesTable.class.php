@@ -133,7 +133,7 @@ class ArticlesTable extends Doctrine_Table
   */
    public function getArticlesByCredential()
    {
-    $userId = sfContext::getInstance()->getUser()->getAttribute( 'user_id' );
+    $userId = sfContext::getInstance()->getUser()->getAttribute( 'id' );
 
     if(sfContext::getInstance()->getUser()->hasCredential('author')===true):
 
@@ -157,7 +157,7 @@ class ArticlesTable extends Doctrine_Table
     else:
       
       $q = $this->createQuery('a')
-        ->select('a.id,a.title,a.text,a.published,a.read_count,a.category_id,a.published_at,a.user_id,a.photo,u.name AS u_name,u.surname AS u_surname,c.name AS c_name')
+        ->select('a.id,a.title,a.text,a.published,a.read_count,a.category_id,a.published_at,a.user_id,a.photo,CONCAT(u.name," ",u.surname) AS author,c.name AS c_name')
         ->from('Articles a')
         ->innerJoin('a.Users u')
         ->innerJoin('a.Categories c')

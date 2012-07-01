@@ -47,10 +47,10 @@ class userActions extends sfActions
         
         $user->setUsername($email);
         $user->setEmail($email);
-		$user->setPassword(sha1($password));
-		$user->setRoleId(3);
-		$user->setActive(1);
-		$user->setNickname($nickname);
+		    $user->setPassword(sha1($password));
+		    $user->setRoleId(3);
+		    $user->setActive(1);
+		    $user->setNickname($nickname);
      
         $user->save();
       }
@@ -95,7 +95,7 @@ class userActions extends sfActions
         $user = UsersTable::GetInstance();
         
         $user_data = $user->verifyUser($username,$password);
-        
+  //print_r($user_data);
         if($user_data[0]===true)
          {
           $this->getUser()->setAuthenticated(true);

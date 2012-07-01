@@ -27,7 +27,7 @@ class UsersTable extends Doctrine_Table
      $user_result = $this->createQuery("usr")
                  ->select("usr.username,usr.name,usr.surname,usr.password,usr.id,r.name,usr.active")
                  ->innerJoin("usr.Roles r")
-				 ->where("usr.username=?",$username)
+				         ->where("usr.username=?",$username)
                  ->fetchOne();
 
      if (is_object($user_result)) 

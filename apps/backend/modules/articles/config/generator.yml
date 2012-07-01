@@ -25,7 +25,7 @@ generator:
       list:
        table_method: getArticlesByCredential
        display: [title,_text,c_name,published_at,read_count,author,_published,_photo]
-      filter:  ~
+      filter:  ~ 
       form:    ~
       edit:    ~
       new:     ~
