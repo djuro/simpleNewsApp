@@ -201,27 +201,40 @@ class ArticlesTable extends Doctrine_Table
 
   /**
   * Izvrsava update query za clanak
+  *
+  * @param string $title string naslov clanka
+  * @param string $text tekst clanka
+  * @param int $cat category_id
+  * @param int $pub published
+  * @param int $usr user_id
+  * @param string $photo url slike
+  * @param int $id id clanka
   */
   public function updateArticletotal($title,$text,$cat,$pub,$usr,$photo,$id)
   {
-    /*
-   $connection = Doctrine_Manager::connection();
-   $query = "UPDATE articles SET title='".$title."',text='".$text."',category_id='".$cat."',published='".$pub."',user_id='".$usr."',photo='".$photo."' WHERE id=".$id;
-   $statement = $connection->execute($query);
-   $statement->execute();
-
-*/
-   $q = $this->createQuery()
-          ->update('Articles a')
-          ->set('a.title','?',$title)
-          ->set('a.text','?',$text)
-          ->set('a.category_id','?',$cat)
-          ->set('a.published','?',$pub)
-          ->set('a.user_id','?',$usr)
-          ->set('a.photo','?',$photo)
-          ->where('a.id=?',$id);
-   $q->execute();
    
+    if($photo!=''):
+      $q = $this->createQuery()
+                ->update('Articles a')
+                ->set('a.title','?',$title)
+                ->set('a.text','?',$text)
+                ->set('a.category_id','?',$cat)
+                ->set('a.published','?',$pub)
+                ->set('a.user_id','?',$usr)
+                ->set('a.photo','?',$photo)
+                ->where('a.id=?',$id);
+    else:
+      $q = $this->createQuery()
+                ->update('Articles a')
+                ->set('a.title','?',$title)
+                ->set('a.text','?',$text)
+                ->set('a.category_id','?',$cat)
+                ->set('a.published','?',$pub)
+                ->set('a.user_id','?',$usr)
+                ->where('a.id=?',$id);
+    endif;
+
+    $q->execute();
   }
 
   /**

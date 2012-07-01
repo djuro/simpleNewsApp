@@ -19465,3 +19465,533 @@ Jul 01 16:23:46 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 10
 Jul 01 16:23:46 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.08 ms (1)
 Jul 01 16:23:46 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 8.85 ms (1)
 Jul 01 16:23:46 symfony [info] {sfWebResponse} Send content (49518 o)
+Jul 01 16:39:54 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jul 01 16:39:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 01 16:39:55 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 01 16:39:55 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jul 01 16:39:55 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 01 16:39:55 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id,a.photo
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id - ()
+Jul 01 16:39:55 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jul 01 16:39:55 symfony [info] {main} Call "home->executeToparticles()"
+Jul 01 16:39:55 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.title AS a__title FROM articles a ORDER BY a.read_count DESC LIMIT 5 - ()
+Jul 01 16:39:55 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 01 16:39:55 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 01 16:39:55 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 01 16:39:55 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 01 16:39:55 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jul 01 16:39:55 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:39:55 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:39:55 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 01 16:39:55 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 01 16:39:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 01 16:39:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 01 16:39:55 symfony [info] {sfWebDebugLogger} Configuration 177.62 ms (15)
+Jul 01 16:39:55 symfony [info] {sfWebDebugLogger} Factories 185.12 ms (1)
+Jul 01 16:39:55 symfony [info] {sfWebDebugLogger} Action "home/index" 63.04 ms (1)
+Jul 01 16:39:55 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (4)
+Jul 01 16:39:55 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 339.33 ms (1)
+Jul 01 16:39:55 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 55.65 ms (1)
+Jul 01 16:39:55 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 15.06 ms (1)
+Jul 01 16:39:55 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 8.88 ms (1)
+Jul 01 16:39:55 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 8.28 ms (1)
+Jul 01 16:39:55 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 4.94 ms (1)
+Jul 01 16:39:55 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.09 ms (1)
+Jul 01 16:39:55 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 5.62 ms (1)
+Jul 01 16:39:55 symfony [info] {sfWebResponse} Send content (49425 o)
+Jul 01 16:44:35 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jul 01 16:44:35 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 01 16:44:35 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 01 16:44:35 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jul 01 16:44:35 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 01 16:44:35 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id,a.photo
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id - ()
+Jul 01 16:44:35 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jul 01 16:44:35 symfony [info] {main} Call "home->executeToparticles()"
+Jul 01 16:44:35 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.title AS a__title FROM articles a ORDER BY a.read_count DESC LIMIT 5 - ()
+Jul 01 16:44:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 01 16:44:35 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 01 16:44:35 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 01 16:44:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 01 16:44:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jul 01 16:44:35 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:44:35 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:44:35 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 01 16:44:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 01 16:44:35 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 01 16:44:35 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 01 16:44:35 symfony [info] {sfWebDebugLogger} Configuration 184.77 ms (15)
+Jul 01 16:44:35 symfony [info] {sfWebDebugLogger} Factories 170.66 ms (1)
+Jul 01 16:44:35 symfony [info] {sfWebDebugLogger} Action "home/index" 70.05 ms (1)
+Jul 01 16:44:35 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (4)
+Jul 01 16:44:35 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 347.04 ms (1)
+Jul 01 16:44:35 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 60.86 ms (1)
+Jul 01 16:44:35 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 17.57 ms (1)
+Jul 01 16:44:35 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 7.99 ms (1)
+Jul 01 16:44:35 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 9.38 ms (1)
+Jul 01 16:44:35 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 6.41 ms (1)
+Jul 01 16:44:35 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.09 ms (1)
+Jul 01 16:44:35 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 6.37 ms (1)
+Jul 01 16:44:35 symfony [info] {sfWebResponse} Send content (49538 o)
+Jul 01 16:44:38 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /home/article/id/7 with parameters array (  'module' => 'home',  'action' => 'article',  'id' => '7',)
+Jul 01 16:44:39 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 01 16:44:39 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 01 16:44:39 symfony [info] {homeActions} Call "homeActions->executeArticle()"
+Jul 01 16:44:39 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 01 16:44:39 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.published_at AS a__published_at, u.id AS u__id FROM articles a INNER JOIN users u ON a.user_id = u.id LEFT JOIN comments c ON a.id = c.article_id WHERE (a.id = ?) - (7)
+Jul 01 16:44:39 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, COUNT(c.article_id) AS c__0 FROM articles a INNER JOIN comments c ON a.id = c.article_id WHERE (c.article_id = ?) - (7)
+Jul 01 16:44:39 symfony [info] {Doctrine_Connection_Statement} execute : UPDATE articles SET read_count = (read_count+1) WHERE (id = ?) - (7)
+Jul 01 16:44:39 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/articleSuccess.php"
+Jul 01 16:44:39 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.category_id AS a__category_id, a.published_at AS a__published_at, a.read_count AS a__read_count, a.user_id AS a__user_id, a.published AS a__published, a.photo AS a__photo FROM articles a WHERE (a.id = ?) LIMIT 1 - (7)
+Jul 01 16:44:39 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) LIMIT 1 - (1)
+Jul 01 16:44:39 symfony [info] {Doctrine_Connection_Statement} execute : SELECT c.id AS c__id, c.user_id AS c__user_id, c.text AS c__text, c.article_id AS c__article_id, c.published_at AS c__published_at, c.published AS c__published FROM comments c WHERE (c.article_id IN (?)) - (7)
+Jul 01 16:44:39 symfony [info] {main} Call "home->executeToparticles()"
+Jul 01 16:44:39 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.title AS a__title FROM articles a ORDER BY a.read_count DESC LIMIT 5 - ()
+Jul 01 16:44:39 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 01 16:44:39 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 01 16:44:39 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 01 16:44:39 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 01 16:44:39 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jul 01 16:44:39 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:44:39 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:44:39 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 01 16:44:39 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 01 16:44:39 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 01 16:44:39 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 01 16:44:39 symfony [info] {sfWebDebugLogger} Configuration 136.37 ms (15)
+Jul 01 16:44:39 symfony [info] {sfWebDebugLogger} Factories 138.77 ms (1)
+Jul 01 16:44:39 symfony [info] {sfWebDebugLogger} Action "home/article" 212.17 ms (1)
+Jul 01 16:44:39 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.07 ms (9)
+Jul 01 16:44:39 symfony [info] {sfWebDebugLogger} View "Success" for "home/article" 284.59 ms (1)
+Jul 01 16:44:39 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 9.86 ms (1)
+Jul 01 16:44:39 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 6.65 ms (1)
+Jul 01 16:44:39 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 10.30 ms (1)
+Jul 01 16:44:39 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 7.75 ms (1)
+Jul 01 16:44:39 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 4.68 ms (1)
+Jul 01 16:44:39 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.09 ms (1)
+Jul 01 16:44:39 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 5.11 ms (1)
+Jul 01 16:44:39 symfony [info] {sfWebResponse} Send content (55903 o)
+Jul 01 16:44:42 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /comment/index/article/7 with parameters array (  'module' => 'comment',  'action' => 'index',  'article' => '7',)
+Jul 01 16:44:43 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 01 16:44:43 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Jul 01 16:44:43 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 01 16:44:43 symfony [info] {commentActions} Call "commentActions->executeIndex()"
+Jul 01 16:44:43 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 01 16:44:43 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.category_id AS a__category_id, a.published_at AS a__published_at, a.read_count AS a__read_count, a.user_id AS a__user_id, a.published AS a__published, a.photo AS a__photo FROM articles a WHERE (a.id = ?) LIMIT 1 - (7)
+Jul 01 16:44:43 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/comment/templates/indexSuccess.php"
+Jul 01 16:44:43 symfony [info] {main} Call "home->executeToparticles()"
+Jul 01 16:44:43 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.title AS a__title FROM articles a ORDER BY a.read_count DESC LIMIT 5 - ()
+Jul 01 16:44:43 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 01 16:44:43 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 01 16:44:43 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 01 16:44:43 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 01 16:44:43 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/comment/templates/_nice_thumbs.php"
+Jul 01 16:44:43 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:44:43 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:44:43 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 01 16:44:43 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 01 16:44:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 01 16:44:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 01 16:44:43 symfony [info] {sfWebDebugLogger} Configuration 532.00 ms (16)
+Jul 01 16:44:43 symfony [info] {sfWebDebugLogger} Factories 125.99 ms (1)
+Jul 01 16:44:43 symfony [info] {sfWebDebugLogger} Action "comment/index" 141.23 ms (1)
+Jul 01 16:44:43 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (4)
+Jul 01 16:44:43 symfony [info] {sfWebDebugLogger} View "Success" for "comment/index" 321.91 ms (1)
+Jul 01 16:44:43 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 12.85 ms (1)
+Jul 01 16:44:43 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 4.19 ms (1)
+Jul 01 16:44:43 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 11.66 ms (1)
+Jul 01 16:44:43 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 5.37 ms (1)
+Jul 01 16:44:43 symfony [info] {sfWebDebugLogger} Partial "comment/_nice_thumbs" 8.07 ms (1)
+Jul 01 16:44:43 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.09 ms (1)
+Jul 01 16:44:43 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 2.72 ms (1)
+Jul 01 16:44:43 symfony [info] {sfWebResponse} Send content (49321 o)
+Jul 01 16:44:46 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jul 01 16:44:46 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 01 16:44:46 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 01 16:44:46 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jul 01 16:44:46 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 01 16:44:46 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id,a.photo
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id - ()
+Jul 01 16:44:46 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jul 01 16:44:46 symfony [info] {main} Call "home->executeToparticles()"
+Jul 01 16:44:46 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.title AS a__title FROM articles a ORDER BY a.read_count DESC LIMIT 5 - ()
+Jul 01 16:44:46 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 01 16:44:46 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 01 16:44:46 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 01 16:44:46 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 01 16:44:46 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jul 01 16:44:46 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:44:46 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:44:46 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 01 16:44:46 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 01 16:44:46 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 01 16:44:46 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 01 16:44:46 symfony [info] {sfWebDebugLogger} Configuration 119.54 ms (15)
+Jul 01 16:44:46 symfony [info] {sfWebDebugLogger} Factories 163.91 ms (1)
+Jul 01 16:44:46 symfony [info] {sfWebDebugLogger} Action "home/index" 68.22 ms (1)
+Jul 01 16:44:46 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (4)
+Jul 01 16:44:46 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 210.58 ms (1)
+Jul 01 16:44:46 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 47.95 ms (1)
+Jul 01 16:44:46 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 8.65 ms (1)
+Jul 01 16:44:46 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 6.66 ms (1)
+Jul 01 16:44:46 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 4.76 ms (1)
+Jul 01 16:44:46 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 3.48 ms (1)
+Jul 01 16:44:46 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.11 ms (1)
+Jul 01 16:44:46 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 2.15 ms (1)
+Jul 01 16:44:46 symfony [info] {sfWebResponse} Send content (49583 o)
+Jul 01 16:44:55 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /home/category/id/4 with parameters array (  'module' => 'home',  'action' => 'category',  'id' => '4',)
+Jul 01 16:44:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 01 16:44:55 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 01 16:44:55 symfony [info] {homeActions} Call "homeActions->executeCategory()"
+Jul 01 16:44:55 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 01 16:44:55 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.published_at AS a__published_at, c.id AS c__id, c.name AS c__name FROM articles a INNER JOIN categories c ON a.category_id = c.id WHERE (c.id = ?) - (4)
+Jul 01 16:44:55 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/categorySuccess.php"
+Jul 01 16:44:55 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.category_id AS a__category_id, a.published_at AS a__published_at, a.read_count AS a__read_count, a.user_id AS a__user_id, a.published AS a__published, a.photo AS a__photo FROM articles a WHERE (a.id = ?) LIMIT 1 - (2)
+Jul 01 16:44:55 symfony [info] {main} Call "home->executeToparticles()"
+Jul 01 16:44:55 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.title AS a__title FROM articles a ORDER BY a.read_count DESC LIMIT 5 - ()
+Jul 01 16:44:55 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 01 16:44:55 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 01 16:44:55 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 01 16:44:55 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 01 16:44:55 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jul 01 16:44:55 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:44:55 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:44:55 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 01 16:44:55 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 01 16:44:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 01 16:44:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 01 16:44:55 symfony [info] {sfWebDebugLogger} Configuration 117.69 ms (15)
+Jul 01 16:44:55 symfony [info] {sfWebDebugLogger} Factories 156.18 ms (1)
+Jul 01 16:44:55 symfony [info] {sfWebDebugLogger} Action "home/category" 140.21 ms (1)
+Jul 01 16:44:55 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (5)
+Jul 01 16:44:55 symfony [info] {sfWebDebugLogger} View "Success" for "home/category" 175.60 ms (1)
+Jul 01 16:44:55 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 7.57 ms (1)
+Jul 01 16:44:55 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 3.69 ms (1)
+Jul 01 16:44:55 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 3.71 ms (1)
+Jul 01 16:44:55 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 4.98 ms (1)
+Jul 01 16:44:55 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 3.43 ms (1)
+Jul 01 16:44:55 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.09 ms (1)
+Jul 01 16:44:55 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 2.41 ms (1)
+Jul 01 16:44:55 symfony [info] {sfWebResponse} Send content (49537 o)
+Jul 01 16:45:06 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jul 01 16:45:06 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 01 16:45:06 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 01 16:45:06 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jul 01 16:45:06 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 01 16:45:06 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id,a.photo
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id - ()
+Jul 01 16:45:06 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jul 01 16:45:07 symfony [info] {main} Call "home->executeToparticles()"
+Jul 01 16:45:07 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.title AS a__title FROM articles a ORDER BY a.read_count DESC LIMIT 5 - ()
+Jul 01 16:45:07 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 01 16:45:07 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 01 16:45:07 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 01 16:45:07 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 01 16:45:07 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jul 01 16:45:07 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:45:07 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:45:07 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 01 16:45:07 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 01 16:45:07 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 01 16:45:07 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 01 16:45:07 symfony [info] {sfWebDebugLogger} Configuration 123.93 ms (15)
+Jul 01 16:45:07 symfony [info] {sfWebDebugLogger} Factories 164.75 ms (1)
+Jul 01 16:45:07 symfony [info] {sfWebDebugLogger} Action "home/index" 69.01 ms (1)
+Jul 01 16:45:07 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (4)
+Jul 01 16:45:07 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 217.60 ms (1)
+Jul 01 16:45:07 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 48.81 ms (1)
+Jul 01 16:45:07 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 8.82 ms (1)
+Jul 01 16:45:07 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 6.96 ms (1)
+Jul 01 16:45:07 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 5.09 ms (1)
+Jul 01 16:45:07 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 3.56 ms (1)
+Jul 01 16:45:07 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.11 ms (1)
+Jul 01 16:45:07 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 2.75 ms (1)
+Jul 01 16:45:07 symfony [info] {sfWebResponse} Send content (49577 o)
+Jul 01 16:45:19 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jul 01 16:45:19 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 01 16:45:19 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 01 16:45:19 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jul 01 16:45:19 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 01 16:45:19 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id,a.photo
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id - ()
+Jul 01 16:45:19 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jul 01 16:45:19 symfony [info] {main} Call "home->executeToparticles()"
+Jul 01 16:45:19 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.title AS a__title FROM articles a ORDER BY a.read_count DESC LIMIT 5 - ()
+Jul 01 16:45:19 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 01 16:45:19 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 01 16:45:19 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 01 16:45:19 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 01 16:45:19 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jul 01 16:45:19 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:45:19 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:45:19 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 01 16:45:19 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 01 16:45:19 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 01 16:45:19 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 01 16:45:19 symfony [info] {sfWebDebugLogger} Configuration 121.18 ms (15)
+Jul 01 16:45:19 symfony [info] {sfWebDebugLogger} Factories 156.31 ms (1)
+Jul 01 16:45:19 symfony [info] {sfWebDebugLogger} Action "home/index" 45.59 ms (1)
+Jul 01 16:45:19 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (4)
+Jul 01 16:45:19 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 215.69 ms (1)
+Jul 01 16:45:19 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 61.06 ms (1)
+Jul 01 16:45:19 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 8.25 ms (1)
+Jul 01 16:45:19 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 6.24 ms (1)
+Jul 01 16:45:19 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 4.77 ms (1)
+Jul 01 16:45:19 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 3.42 ms (1)
+Jul 01 16:45:19 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.09 ms (1)
+Jul 01 16:45:19 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 2.43 ms (1)
+Jul 01 16:45:19 symfony [info] {sfWebResponse} Send content (49563 o)
+Jul 01 16:45:23 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jul 01 16:45:24 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 01 16:45:24 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 01 16:45:24 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jul 01 16:45:24 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 01 16:45:24 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id,a.photo
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id - ()
+Jul 01 16:45:24 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jul 01 16:45:24 symfony [info] {main} Call "home->executeToparticles()"
+Jul 01 16:45:24 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.title AS a__title FROM articles a ORDER BY a.read_count DESC LIMIT 5 - ()
+Jul 01 16:45:24 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 01 16:45:24 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 01 16:45:24 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 01 16:45:24 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 01 16:45:24 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jul 01 16:45:24 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:45:24 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:45:24 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 01 16:45:24 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 01 16:45:24 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 01 16:45:24 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 01 16:45:24 symfony [info] {sfWebDebugLogger} Configuration 135.92 ms (15)
+Jul 01 16:45:24 symfony [info] {sfWebDebugLogger} Factories 163.07 ms (1)
+Jul 01 16:45:24 symfony [info] {sfWebDebugLogger} Action "home/index" 53.23 ms (1)
+Jul 01 16:45:24 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (4)
+Jul 01 16:45:24 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 232.49 ms (1)
+Jul 01 16:45:24 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 49.34 ms (1)
+Jul 01 16:45:24 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 9.10 ms (1)
+Jul 01 16:45:24 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 8.50 ms (1)
+Jul 01 16:45:24 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 4.88 ms (1)
+Jul 01 16:45:24 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 3.58 ms (1)
+Jul 01 16:45:24 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.08 ms (1)
+Jul 01 16:45:24 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 2.01 ms (1)
+Jul 01 16:45:24 symfony [info] {sfWebResponse} Send content (49563 o)
+Jul 01 16:45:45 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jul 01 16:45:45 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 01 16:45:45 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 01 16:45:45 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jul 01 16:45:46 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 01 16:45:46 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id,a.photo
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id - ()
+Jul 01 16:45:46 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jul 01 16:45:46 symfony [info] {main} Call "home->executeToparticles()"
+Jul 01 16:45:46 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.title AS a__title FROM articles a ORDER BY a.read_count DESC LIMIT 5 - ()
+Jul 01 16:45:46 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 01 16:45:46 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 01 16:45:46 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 01 16:45:46 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 01 16:45:46 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jul 01 16:45:46 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:45:46 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:45:46 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 01 16:45:46 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 01 16:45:46 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 01 16:45:46 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 01 16:45:46 symfony [info] {sfWebDebugLogger} Configuration 132.56 ms (15)
+Jul 01 16:45:46 symfony [info] {sfWebDebugLogger} Factories 163.59 ms (1)
+Jul 01 16:45:46 symfony [info] {sfWebDebugLogger} Action "home/index" 53.83 ms (1)
+Jul 01 16:45:46 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.05 ms (4)
+Jul 01 16:45:46 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 234.02 ms (1)
+Jul 01 16:45:46 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 49.67 ms (1)
+Jul 01 16:45:46 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 8.68 ms (1)
+Jul 01 16:45:46 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 6.53 ms (1)
+Jul 01 16:45:46 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 20.00 ms (1)
+Jul 01 16:45:46 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 3.39 ms (1)
+Jul 01 16:45:46 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.08 ms (1)
+Jul 01 16:45:46 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 2.38 ms (1)
+Jul 01 16:45:46 symfony [info] {sfWebResponse} Send content (49564 o)
+Jul 01 16:46:11 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jul 01 16:46:11 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 01 16:46:11 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 01 16:46:11 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jul 01 16:46:11 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 01 16:46:11 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id,a.photo
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id - ()
+Jul 01 16:46:11 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jul 01 16:46:11 symfony [info] {main} Call "home->executeToparticles()"
+Jul 01 16:46:11 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.title AS a__title FROM articles a ORDER BY a.read_count DESC LIMIT 5 - ()
+Jul 01 16:46:11 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 01 16:46:11 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 01 16:46:11 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 01 16:46:11 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 01 16:46:11 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jul 01 16:46:11 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:46:11 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:46:11 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 01 16:46:11 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 01 16:46:11 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 01 16:46:11 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 01 16:46:11 symfony [info] {sfWebDebugLogger} Configuration 186.70 ms (15)
+Jul 01 16:46:11 symfony [info] {sfWebDebugLogger} Factories 183.18 ms (1)
+Jul 01 16:46:11 symfony [info] {sfWebDebugLogger} Action "home/index" 51.77 ms (1)
+Jul 01 16:46:11 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (4)
+Jul 01 16:46:11 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 381.81 ms (1)
+Jul 01 16:46:11 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 50.07 ms (1)
+Jul 01 16:46:11 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 16.53 ms (1)
+Jul 01 16:46:11 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 8.29 ms (1)
+Jul 01 16:46:11 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 10.28 ms (1)
+Jul 01 16:46:11 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 6.80 ms (1)
+Jul 01 16:46:11 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.09 ms (1)
+Jul 01 16:46:11 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 9.50 ms (1)
+Jul 01 16:46:11 symfony [info] {sfWebResponse} Send content (49565 o)
+Jul 01 16:46:14 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /home/category/id/1 with parameters array (  'module' => 'home',  'action' => 'category',  'id' => '1',)
+Jul 01 16:46:14 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 01 16:46:14 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 01 16:46:14 symfony [info] {homeActions} Call "homeActions->executeCategory()"
+Jul 01 16:46:15 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 01 16:46:15 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.published_at AS a__published_at, c.id AS c__id, c.name AS c__name FROM articles a INNER JOIN categories c ON a.category_id = c.id WHERE (c.id = ?) - (1)
+Jul 01 16:46:15 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/categorySuccess.php"
+Jul 01 16:46:15 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.category_id AS a__category_id, a.published_at AS a__published_at, a.read_count AS a__read_count, a.user_id AS a__user_id, a.published AS a__published, a.photo AS a__photo FROM articles a WHERE (a.id = ?) LIMIT 1 - (7)
+Jul 01 16:46:15 symfony [info] {main} Call "home->executeToparticles()"
+Jul 01 16:46:15 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.title AS a__title FROM articles a ORDER BY a.read_count DESC LIMIT 5 - ()
+Jul 01 16:46:15 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 01 16:46:15 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 01 16:46:15 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 01 16:46:15 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 01 16:46:15 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jul 01 16:46:15 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:46:15 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:46:15 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 01 16:46:15 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 01 16:46:15 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 01 16:46:15 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 01 16:46:15 symfony [info] {sfWebDebugLogger} Configuration 168.78 ms (15)
+Jul 01 16:46:15 symfony [info] {sfWebDebugLogger} Factories 159.43 ms (1)
+Jul 01 16:46:15 symfony [info] {sfWebDebugLogger} Action "home/category" 128.27 ms (1)
+Jul 01 16:46:15 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (5)
+Jul 01 16:46:15 symfony [info] {sfWebDebugLogger} View "Success" for "home/category" 352.80 ms (1)
+Jul 01 16:46:15 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 29.43 ms (1)
+Jul 01 16:46:15 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 10.07 ms (1)
+Jul 01 16:46:15 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 5.15 ms (1)
+Jul 01 16:46:15 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 11.74 ms (1)
+Jul 01 16:46:15 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 6.81 ms (1)
+Jul 01 16:46:15 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.08 ms (1)
+Jul 01 16:46:15 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 7.89 ms (1)
+Jul 01 16:46:15 symfony [info] {sfWebResponse} Send content (49268 o)
+Jul 01 16:46:17 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jul 01 16:46:18 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 01 16:46:18 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 01 16:46:18 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jul 01 16:46:18 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 01 16:46:18 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id,a.photo
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id - ()
+Jul 01 16:46:18 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jul 01 16:46:18 symfony [info] {main} Call "home->executeToparticles()"
+Jul 01 16:46:18 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.title AS a__title FROM articles a ORDER BY a.read_count DESC LIMIT 5 - ()
+Jul 01 16:46:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 01 16:46:18 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 01 16:46:18 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 01 16:46:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 01 16:46:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jul 01 16:46:18 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:46:18 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:46:18 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 01 16:46:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 01 16:46:18 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 01 16:46:18 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 01 16:46:18 symfony [info] {sfWebDebugLogger} Configuration 190.77 ms (15)
+Jul 01 16:46:18 symfony [info] {sfWebDebugLogger} Factories 172.07 ms (1)
+Jul 01 16:46:18 symfony [info] {sfWebDebugLogger} Action "home/index" 54.74 ms (1)
+Jul 01 16:46:18 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (4)
+Jul 01 16:46:18 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 377.38 ms (1)
+Jul 01 16:46:18 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 60.28 ms (1)
+Jul 01 16:46:18 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 16.92 ms (1)
+Jul 01 16:46:18 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 7.72 ms (1)
+Jul 01 16:46:18 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 10.32 ms (1)
+Jul 01 16:46:18 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 6.95 ms (1)
+Jul 01 16:46:18 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.08 ms (1)
+Jul 01 16:46:18 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 7.67 ms (1)
+Jul 01 16:46:18 symfony [info] {sfWebResponse} Send content (49579 o)
+Jul 01 16:56:55 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jul 01 16:56:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 01 16:56:55 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 01 16:56:55 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jul 01 16:56:55 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 01 16:56:55 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id,a.photo
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id - ()
+Jul 01 16:56:55 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jul 01 16:56:55 symfony [info] {main} Call "home->executeToparticles()"
+Jul 01 16:56:55 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.title AS a__title FROM articles a ORDER BY a.read_count DESC LIMIT 5 - ()
+Jul 01 16:56:55 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 01 16:56:55 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 01 16:56:55 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 01 16:56:55 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 01 16:56:55 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_nice_thumbs.php"
+Jul 01 16:56:55 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:56:55 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 01 16:56:55 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 01 16:56:55 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 01 16:56:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 01 16:56:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 01 16:56:55 symfony [info] {sfWebDebugLogger} Configuration 133.00 ms (15)
+Jul 01 16:56:55 symfony [info] {sfWebDebugLogger} Factories 154.18 ms (1)
+Jul 01 16:56:55 symfony [info] {sfWebDebugLogger} Action "home/index" 60.84 ms (1)
+Jul 01 16:56:55 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (4)
+Jul 01 16:56:55 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 303.35 ms (1)
+Jul 01 16:56:55 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 50.58 ms (1)
+Jul 01 16:56:55 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 14.61 ms (1)
+Jul 01 16:56:55 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 8.04 ms (1)
+Jul 01 16:56:55 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 8.94 ms (1)
+Jul 01 16:56:55 symfony [info] {sfWebDebugLogger} Partial "home/_nice_thumbs" 5.66 ms (1)
+Jul 01 16:56:55 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.08 ms (1)
+Jul 01 16:56:55 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 6.43 ms (1)
+Jul 01 16:56:55 symfony [info] {sfWebResponse} Send content (49564 o)

@@ -72,12 +72,17 @@ public function executeEdit(sfWebRequest $request)
          $filename = 'article_photo_'.sha1($file->getOriginalName());
          $extension = $file->getExtension($file->getOriginalExtension());
          $file->save(sfConfig::get('sf_upload_dir').'/'.$filename.$extension);
+         $photo =  $filename.$extension;
        else:
-         $filename = NULL;
-         $extension = NULL;
+         //$filename = NULL;
+         //$extension = NULL;
+         $photo = '';
+         if($file==0):
+           $photo = 0;
+         endif;
       endif;
-      $photo =  $filename.$extension;
-
+      
+    
       $article_id = $this->articles->getId();
       
       $tags_array = explode(",",$tags);
