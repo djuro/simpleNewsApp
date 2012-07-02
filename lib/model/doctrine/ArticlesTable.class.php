@@ -35,13 +35,8 @@ class ArticlesTable extends Doctrine_Table
                              (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
                              articles  GROUP BY articles.category_id) b ON
                              a.category_id=b.category_id AND a.published_at=b.latest
-                             INNER JOIN categories c ON a.category_id=c.id");
-/*
-      $result = $this->createQuery('article')
-                ->innerJoin('(select a.category_id, MAX(a.published_at) as latest from Articles a group by a.category_id) ' .
-                              ' max_article ON article.category_id = max_article.category_id and article.published_at = max_article.published_at')
-                ->innerJoin()
-   */
+                             INNER JOIN categories c ON a.category_id=c.id WHERE a.published=1");
+
       return $result->fetchAll();
     }
     
@@ -60,7 +55,8 @@ class ArticlesTable extends Doctrine_Table
       ->select('a.id,a.title,a.text,a.published_at,c.name')
       ->from('Articles a')
       ->innerJoin('a.Categories c')
-      ->where('c.id=?',$id);
+      ->where('c.id=?',$id)
+      ->andWhere('a.published=?',1);
       
       return $q->execute();
     }
@@ -78,9 +74,9 @@ class ArticlesTable extends Doctrine_Table
       ->select('a.id,a.title,a.text,a.published_at,u.id,p.id,p.name,p.surname')
       ->from('Articles a')
       ->innerJoin('a.Users u')
-      //->innerJoin('u.Profiles p')
-	  ->leftJoin('a.Comments c')
-      ->where('a.id=?',$id);
+	    ->leftJoin('a.Comments c')
+      ->where('a.id=?',$id)
+      ->andWhere('a.published=?',1);
      
       return $q->fetchOne();
     }
@@ -119,14 +115,16 @@ class ArticlesTable extends Doctrine_Table
           return $q->execute();
           
     }
-	
+
+	/*
 	  public function findHisComments($id) {
         return $this->createQuery("as")
-                ->leftJoin("as.Comments c")
-				->where("as.id=?",$id)
-                ->execute();
+                    ->leftJoin("as.Comments c")
+				            ->where("as.id=?",$id)
+                    ->execute();
     }
 
+  */
 
   /**
   * Selecta sve clanke za backend listu s tim da joina categories i users
@@ -171,6 +169,7 @@ class ArticlesTable extends Doctrine_Table
   /**
   * Selecta sve clanke za backend listu koji pripadaju logiranom autoru
   */
+  /*
    public function getAuthorsArticles()
    {
     $q = $articles->createQuery('a')
@@ -181,7 +180,7 @@ class ArticlesTable extends Doctrine_Table
         ->where('user_id = ?', $this->getUser()->getAttribute('id'));
     return $q->execute();
    }
-  
+  */
 
 /**
 *  Prima ID clanka i varijablu published: 1 ili 0. Vrsi update recorda.
@@ -202,7 +201,7 @@ class ArticlesTable extends Doctrine_Table
   /**
   * Izvrsava update query za clanak
   *
-  * @param string $title string naslov clanka
+  * @param string $title naslov clanka
   * @param string $text tekst clanka
   * @param int $cat category_id
   * @param int $pub published
@@ -253,4 +252,35 @@ class ArticlesTable extends Doctrine_Table
     endforeach;
   }
 
+ 
+  /**
+  * Selecta i vraca clanke koji imaju odabrani tag
+  */
+  public function getTaggedArticles($tag)
+  {
+   
+   $q = $this->createQuery('a')
+             ->select('a.id,a.title,a.text,t.text AS tagtext,c.name,c.id AS categoryId')
+             ->from('Articles a')
+             ->innerJoin('a.Tags t')
+             ->innerJoin('a.Categories c')
+             ->where('t.text=?',rawurldecode($tag))
+             ->andWhere('a.published=?',1);
+
+   return $q->execute();
+  }
+
+
+  /**
+  * Povecava read_count clanka za 1
+  */
+  public function articleIncrement($id)
+  {
+    $q = $this->createQuery()
+              ->update('Articles a')
+              ->set('a.read_count', '(read_count+1)')
+              ->where('a.id = ?', $id);
+
+    $q->execute();
+  }
 }

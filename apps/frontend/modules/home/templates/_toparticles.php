@@ -4,7 +4,7 @@
 		 <?php 
 		  foreach($top_articles as $t)
 		   {
-		    echo '<li><a href="'.url_for('home/article').'/id/'.$t->getId().'">'.$t->getTitle().'</a></li>';
+		    echo '<li style="margin-bottom:8px;"><a href="'.url_for('home/article').'/id/'.$t->getId().'">'.$t->getTitle().'</a></li>';
 		   }
 		 ?>
 		</ul>

@@ -1,9 +1,10 @@
+<?php $tagovi_css = $sf_data->getRaw('tagovi_css')?>
 <li style="list-style-type:none;">
     <h3>Tags</h3>
-		<div style="height:200px;width:2oopx;border:solid 1px #ff0000;">
+		<div id="cloud" style="padding:5px;width:200px;">
 			<?php 
-              foreach($tagcloud as $tag):
-              	echo '<span>'.$tag->getTagtext().' '.$tag->getBroj().'</span> ';
+              foreach($tagovi_css as $tag):
+              	echo $tag.' ';
               endforeach;
 			?>
 		</div>

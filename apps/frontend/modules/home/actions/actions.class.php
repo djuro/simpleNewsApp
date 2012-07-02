@@ -44,23 +44,33 @@ class homeActions extends sfActions
   public function executeArticle(sfWebRequest $request)
   {
    $id = $request->getParameter('id');
+
    $articles = ArticlesTable::getInstance();
    
    $this->article = $articles->getOneArticle($id);
    
-   
    $this->num_comments = $articles->countComments($id);
    
-   
-   // varijabla za prikazati ili sakriti link za dodavanje komentara
    $this->user_id = $this->getUser()->getAttribute('id');
 
-   // povecava read_count za jedan, oznacava koliko je puta clanak citan
-   Doctrine_Query::create()
-  ->update('Articles a')
-  ->set('a.read_count', '(read_count+1)')
-  ->where('a.id = ?', $id)
-  ->execute();
+   $articles->articleIncrement($id);
    
+   $this->forward404Unless($this->article);
+  }
+
+  /**
+  * Selecta i prikazuje clanke kojima je pridruzen tag na koji je kliknuto u cloud-u
+  */
+  public function executeTagresult(sfWebRequest $request)
+  {
+   $tag = $request->getParameter('tag');
+
+   $articles = ArticlesTable::getInstance();
+
+   $this->tagged_articles = $articles->getTaggedArticles($tag);
+   $obj = $this->tagged_articles->getFirst();
+   $this->tag = $obj->toArray();
+
+   $this->forward404Unless($this->tagged_articles);
   }
 }

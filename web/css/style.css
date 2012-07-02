@@ -370,3 +370,15 @@ table th {vertical-align:top;}
 
 #toparticles li {font-size:12px;}
 #toparticles a {color:#565656;}
+
+#cloud { padding: 2px; line-height: 2em; text-align: center; }
+#cloud a { padding: 0px;color:#3366CC;}
+
+#cloud a.tag1 { font-size: 10px; font-weight: 100; }
+#cloud a.tag2 { font-size: 14px; font-weight: 200; }
+#cloud a.tag3 { font-size: 18px; font-weight: 300; }
+#cloud a.tag4 { font-size: 22px; font-weight: 400; }
+#cloud a.tag5 { font-size: 26px; font-weight: 500; }
+#cloud a.tag6 { font-size: 30px; font-weight: 600; }
+
+#content .entry{font-size:15px;}

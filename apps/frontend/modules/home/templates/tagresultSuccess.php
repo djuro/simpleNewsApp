@@ -4,31 +4,35 @@
 ?>
 <div id="page">
 			<div id="content">
-			
-			
+			<br />
+			<?php 
+            //tag = $tagged_articles->getFirst();
+
+			echo '<h1>Odabrani tag: '.$tag['tagtext'].'</h1>'?>
 			<?php
-                foreach($articles as $article):
+                foreach($tagged_articles as $article):
 			?>
 			<!-- 'post' sadrzi odlomak jednog clanka -->
             <div class="post">
-			<h2 class="title"><a href="<?php echo url_for('home/article').'/id/'.$article['id']?>"><?php echo $article['title'];?></a></h2>
+			<h2 class="title"><a href="<?php echo url_for('home/article').'/id/'.$article->getId()?>">
+			<?php echo $article->getTitle();?></a></h2>
 			<div class="entry">
 				
 			 <!-- slika, smanjen prikaz -->
-			 <a href="<?php echo url_for('home/article').'/id/'.$article['id']?>">
-			  <img src="<?php echo '/sfproject/web/uploads/'.$article['photo']?>" width="138" height="93" class="left">
+			 <a href="<?php echo url_for('home/article').'/id/'.$article->getId()?>">
+			  <img src="<?php echo '/sfproject/web/uploads/'.$article->getPhoto()?>" width="138" height="93" class="left">
 			 </a>
 			
 			
 			<!-- odlomak clanka -->
-			<p><?php echo truncate_text($article['text'],255,'...',true)?></p>
+			<p><?php echo truncate_text($article->getText(),255,'...',true)?></p>
 	
 		
 			</div>
-			<p class="meta"><a href="<?php echo url_for('home/category').'/id/'.$article['c_id']?>">
-			  <?php echo $article['name']?></a>&nbsp;&nbsp;&nbsp;
-			  <?php echo format_datetime($article['published_at'],'F','hr','UTF-8')?>
-			  <a href="<?php echo url_for('home/article').'/id/'.$article['id']?>" class="permalink">Read more</a></p>
+			<p class="meta"><a href="<?php echo url_for('home/category').'/id/'.$article->getCategoryId()?>">
+			  <?php echo $article->getCategories()->getName()?></a>&nbsp;&nbsp;&nbsp;
+			  <?php echo format_datetime($article->getPublishedAt(),'F','hr','UTF-8')?>
+			  <a href="<?php echo url_for('home/article').'/id/'.$article->getId()?>" class="permalink">Read more</a></p>
             </div>
 		    <?php endforeach; ?>
 			
@@ -40,9 +44,7 @@
 				<ul>
 					
 					<li>
-						<!--h3>Veroeros etiam</h3>
-						<p><strong>Morbi sit amet</strong> mauris Nam vitae nibh eu sapien dictum pharetra. Vestibulum elementum neque vel lacus. Proin auctor dolor loremmassa. Phasellus sit. <a href="#">More&hellip;</a></p>
-					</li-->
+						
 					<?php include_component('home', 'toparticles') ?>
 					<!--  here was a list of sidebar links -->
 					<?php include_component('home', 'categorieslist') ?>
