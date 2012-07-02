@@ -110,7 +110,8 @@ class ArticlesTable extends Doctrine_Table
           ->select('a.id,c.text,c.published_at')
           ->from('Articles a')
           ->innerJoin('a.Comments c')
-          ->where('c.article_id=?',$id);
+          ->where('c.article_id=?',$id)
+          ->andWhere('c.published=?',1);
      
           return $q->execute();
           
@@ -127,7 +128,7 @@ class ArticlesTable extends Doctrine_Table
   */
 
   /**
-  * Selecta sve clanke za backend listu s tim da joina categories i users
+  * Selecta sve clanke za backend listu s tim da joina categories i users. Select zavisi od credentiala i username-a.
   */
    public function getArticlesByCredential()
    {
@@ -149,7 +150,8 @@ class ArticlesTable extends Doctrine_Table
          ->select('a.id,a.title,a.text,a.published,a.read_count,a.category_id,a.published_at,a.user_id,a.photo,CONCAT(u.name," ",u.surname) AS author,c.name AS c_name')
          ->from('Articles a')
          ->innerJoin('a.Users u')
-         ->innerJoin('a.Categories c');
+         ->innerJoin('a.Categories c')
+         ->orderBy('a.published_at DESC');
       return $q;
     
     else:
@@ -159,7 +161,8 @@ class ArticlesTable extends Doctrine_Table
         ->from('Articles a')
         ->innerJoin('a.Users u')
         ->innerJoin('a.Categories c')
-        ->where('user_id = ?', $userId);
+        ->where('user_id = ?', $userId)
+        ->orderBy('a.published_at DESC');
       return $q;
     
     endif;

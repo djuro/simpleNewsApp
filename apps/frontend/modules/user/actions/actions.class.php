@@ -53,6 +53,8 @@ class userActions extends sfActions
 		    $user->setNickname($nickname);
      
         $user->save();
+
+        // slanje maila
       }
      }
    }
@@ -109,11 +111,11 @@ class userActions extends sfActions
           switch($user_data[3])
            {
             case 'editor':
-             $this->redirect('http://localhost/sfproject/web/backend_dev.php/articles');
+             $this->redirect('http://localhost/sfproject/web/backend.php/articles');
             break;
             
             case 'author':
-             $this->redirect('http://localhost/sfproject/web/backend_dev.php/articles');
+             $this->redirect('http://localhost/sfproject/web/backend.php/articles');
             break;
             
             case 'anonymous':
