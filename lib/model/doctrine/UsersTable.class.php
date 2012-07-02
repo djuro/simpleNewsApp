@@ -120,17 +120,17 @@ class UsersTable extends Doctrine_Table
 
 
     /**
-    * Salje mail sa passwordom, novom registriranom korisniku
+    * Salje mail koji sadrzi password, novom registriranom korisniku
     */
     public function sendEmail($nick,$email,$passwd)
     {
       $mailer = sfContext::getInstance()->getMailer();
 
       $mailer->composeAndSend(
-              $email,
               'djuro.mandinic@gmail.com',
+               $email,
               'Welcome to SimpleNews',
-              'Hello '.$nick.', \n Your account password is:'.$passwd);
+              'Hello '.$nick.',  Your account password is: '.$passwd);
     }
 
 }
