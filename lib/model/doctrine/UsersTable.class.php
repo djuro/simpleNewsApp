@@ -79,4 +79,58 @@ class UsersTable extends Doctrine_Table
      $passwd = $brojA.$brojB;
      return $passwd;
     }
+
+
+    /**
+    * 
+    * Radi update preuredjenih korisnikovih podataka
+    */
+    public function updateUserData($id,$data)
+    {
+
+      $passwd = $data['password'];
+      
+      if($passwd !=''):
+        $q = $this->createQuery()
+                  ->update('Users')
+                  ->set('role_id','?',$data['role_id'])
+                  ->set('username','?',$data['username'])
+                  ->set('password','?',sha1($data['password']))
+                  ->set('name','?',$data['name'])
+                  ->set('surname','?',$data['surname'])
+                  ->set('active','?',$data['active'])
+                  ->set('email','?',$data['email'])
+                  ->set('nickname','?',$data['nickname'])
+                  ->where('id=?',$id);
+      else:
+        $q = $this->createQuery()
+                  ->update('Users')
+                  ->set('role_id','?',$data['role_id'])
+                  ->set('username','?',$data['username'])
+                  ->set('name','?',$data['name'])
+                  ->set('surname','?',$data['surname'])
+                  ->set('active','?',$data['active'])
+                  ->set('email','?',$data['email'])
+                  ->set('nickname','?',$data['nickname'])
+                  ->where('id=?',$id);
+      endif;
+
+      $q->execute();
+    }
+
+
+    /**
+    * Salje mail sa passwordom, novom registriranom korisniku
+    */
+    public function sendEmail($nick,$email,$passwd)
+    {
+      $mailer = sfContext::getInstance()->getMailer();
+
+      $mailer->composeAndSend(
+              $email,
+              'djuro.mandinic@gmail.com',
+              'Welcome to SimpleNews',
+              'Hello '.$nick.', \n Your account password is:'.$passwd);
+    }
+
 }

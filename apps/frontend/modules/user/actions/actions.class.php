@@ -55,6 +55,7 @@ class userActions extends sfActions
         $user->save();
 
         // slanje maila
+        UsersTable::getInstance()->sendEmail($nickname,$email,$password);
       }
      }
    }
@@ -97,7 +98,7 @@ class userActions extends sfActions
         $user = UsersTable::GetInstance();
         
         $user_data = $user->verifyUser($username,$password);
-  //print_r($user_data);
+  
         if($user_data[0]===true)
          {
           $this->getUser()->setAuthenticated(true);
@@ -111,11 +112,11 @@ class userActions extends sfActions
           switch($user_data[3])
            {
             case 'editor':
-             $this->redirect('http://localhost/sfproject/web/backend.php/articles');
+             $this->redirect('http://localhost/sfproject/web/backend_dev.php/articles');
             break;
             
             case 'author':
-             $this->redirect('http://localhost/sfproject/web/backend.php/articles');
+             $this->redirect('http://localhost/sfproject/web/backend_dev.php/articles');
             break;
             
             case 'anonymous':
@@ -140,4 +141,5 @@ class userActions extends sfActions
     $this->getUser()->getAttributeHolder()->clear();
     $this->forward('home', 'index');
    }
+
 }

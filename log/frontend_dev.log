@@ -30543,3 +30543,594 @@ Jul 02 14:42:45 symfony [info] {sfWebDebugLogger} Partial "home/_tagcloud" 6.18 
 Jul 02 14:42:45 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.08 ms (1)
 Jul 02 14:42:45 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 5.77 ms (1)
 Jul 02 14:42:46 symfony [info] {sfWebResponse} Send content (55218 o)
+Jul 02 17:04:54 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jul 02 17:04:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 02 17:04:55 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 02 17:04:55 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jul 02 17:04:55 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 02 17:04:55 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id,a.photo
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id WHERE a.published=1 - ()
+Jul 02 17:04:55 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jul 02 17:04:56 symfony [info] {main} Call "home->executeToparticles()"
+Jul 02 17:04:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title FROM articles a WHERE (a.published = ?) ORDER BY a.read_count DESC LIMIT 5 - (1)
+Jul 02 17:04:57 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 02 17:04:57 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 02 17:04:57 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 02 17:04:57 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 02 17:04:57 symfony [info] {main} Call "home->executeTagcloud()"
+Jul 02 17:04:57 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,count(t.id) AS broj,t.text 
+              FROM articles a 
+              INNER JOIN articles_tags at ON a.id=at.articles_id 
+              INNER JOIN tags t ON at.tags_id=t.id 
+              GROUP BY t.text - ()
+Jul 02 17:04:58 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_tagcloud.php"
+Jul 02 17:04:58 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 17:04:58 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 17:04:58 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 02 17:04:58 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 02 17:04:58 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 02 17:04:58 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 02 17:04:58 symfony [info] {sfWebDebugLogger} Configuration 345.02 ms (17)
+Jul 02 17:04:58 symfony [info] {sfWebDebugLogger} Factories 907.65 ms (1)
+Jul 02 17:04:58 symfony [info] {sfWebDebugLogger} Action "home/index" 489.13 ms (1)
+Jul 02 17:04:58 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (5)
+Jul 02 17:04:58 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 3423.05 ms (1)
+Jul 02 17:04:58 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 1138.31 ms (1)
+Jul 02 17:04:58 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 79.48 ms (1)
+Jul 02 17:04:58 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 34.82 ms (1)
+Jul 02 17:04:58 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 25.72 ms (1)
+Jul 02 17:04:58 symfony [info] {sfWebDebugLogger} Component "home/tagcloud" 1204.91 ms (1)
+Jul 02 17:04:58 symfony [info] {sfWebDebugLogger} Partial "home/_tagcloud" 18.42 ms (1)
+Jul 02 17:04:58 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.05 ms (1)
+Jul 02 17:04:58 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 22.45 ms (1)
+Jul 02 17:04:59 symfony [info] {sfWebResponse} Send content (54467 o)
+Jul 02 17:05:03 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jul 02 17:05:03 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 02 17:05:03 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 02 17:05:03 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jul 02 17:05:03 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 02 17:05:03 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id,a.photo
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id WHERE a.published=1 - ()
+Jul 02 17:05:03 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jul 02 17:05:03 symfony [info] {main} Call "home->executeToparticles()"
+Jul 02 17:05:04 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title FROM articles a WHERE (a.published = ?) ORDER BY a.read_count DESC LIMIT 5 - (1)
+Jul 02 17:05:04 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 02 17:05:04 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 02 17:05:04 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 02 17:05:04 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 02 17:05:04 symfony [info] {main} Call "home->executeTagcloud()"
+Jul 02 17:05:04 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,count(t.id) AS broj,t.text 
+              FROM articles a 
+              INNER JOIN articles_tags at ON a.id=at.articles_id 
+              INNER JOIN tags t ON at.tags_id=t.id 
+              GROUP BY t.text - ()
+Jul 02 17:05:05 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_tagcloud.php"
+Jul 02 17:05:05 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 17:05:05 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 17:05:06 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 02 17:05:06 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 02 17:05:06 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 02 17:05:06 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 02 17:05:06 symfony [info] {sfWebDebugLogger} Configuration 287.97 ms (17)
+Jul 02 17:05:06 symfony [info] {sfWebDebugLogger} Factories 253.35 ms (1)
+Jul 02 17:05:06 symfony [info] {sfWebDebugLogger} Action "home/index" 129.64 ms (1)
+Jul 02 17:05:06 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (5)
+Jul 02 17:05:06 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 2428.16 ms (1)
+Jul 02 17:05:06 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 201.47 ms (1)
+Jul 02 17:05:06 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 26.93 ms (1)
+Jul 02 17:05:06 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 430.47 ms (1)
+Jul 02 17:05:06 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 14.29 ms (1)
+Jul 02 17:05:06 symfony [info] {sfWebDebugLogger} Component "home/tagcloud" 1244.74 ms (1)
+Jul 02 17:05:06 symfony [info] {sfWebDebugLogger} Partial "home/_tagcloud" 12.69 ms (1)
+Jul 02 17:05:06 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.06 ms (1)
+Jul 02 17:05:06 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 13.02 ms (1)
+Jul 02 17:05:06 symfony [info] {sfWebResponse} Send content (54827 o)
+Jul 02 17:05:09 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /home/tagresult with parameters array (  'module' => 'home',  'action' => 'tagresult',)
+Jul 02 17:05:09 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 02 17:05:09 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 02 17:05:09 symfony [info] {homeActions} Call "homeActions->executeTagresult()"
+Jul 02 17:05:10 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 02 17:05:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, t.id AS t__id, t.text AS t__0, c.id AS c__id, c.name AS c__name, t.text AS t__0, c.id AS c__1 FROM articles a INNER JOIN articles_tags a2 ON (a.id = a2.articles_id) INNER JOIN tags t ON t.id = a2.tags_id INNER JOIN categories c ON a.category_id = c.id WHERE (t.text = ? AND a.published = ?) - (Španjolska, 1)
+Jul 02 17:05:10 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/tagresultSuccess.php"
+Jul 02 17:05:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.category_id AS a__category_id, a.published_at AS a__published_at, a.read_count AS a__read_count, a.user_id AS a__user_id, a.published AS a__published, a.photo AS a__photo FROM articles a WHERE (a.id = ?) LIMIT 1 - (12)
+Jul 02 17:05:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.category_id AS a__category_id, a.published_at AS a__published_at, a.read_count AS a__read_count, a.user_id AS a__user_id, a.published AS a__published, a.photo AS a__photo FROM articles a WHERE (a.id = ?) LIMIT 1 - (13)
+Jul 02 17:05:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.category_id AS a__category_id, a.published_at AS a__published_at, a.read_count AS a__read_count, a.user_id AS a__user_id, a.published AS a__published, a.photo AS a__photo FROM articles a WHERE (a.id = ?) LIMIT 1 - (14)
+Jul 02 17:05:10 symfony [info] {main} Call "home->executeToparticles()"
+Jul 02 17:05:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title FROM articles a WHERE (a.published = ?) ORDER BY a.read_count DESC LIMIT 5 - (1)
+Jul 02 17:05:10 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 02 17:05:10 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 02 17:05:10 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 02 17:05:10 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 02 17:05:10 symfony [info] {main} Call "home->executeTagcloud()"
+Jul 02 17:05:10 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,count(t.id) AS broj,t.text 
+              FROM articles a 
+              INNER JOIN articles_tags at ON a.id=at.articles_id 
+              INNER JOIN tags t ON at.tags_id=t.id 
+              GROUP BY t.text - ()
+Jul 02 17:05:11 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_tagcloud.php"
+Jul 02 17:05:11 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 17:05:12 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 17:05:12 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 02 17:05:12 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 02 17:05:12 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 02 17:05:12 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 02 17:05:12 symfony [info] {sfWebDebugLogger} Configuration 287.14 ms (17)
+Jul 02 17:05:12 symfony [info] {sfWebDebugLogger} Factories 255.67 ms (1)
+Jul 02 17:05:12 symfony [info] {sfWebDebugLogger} Action "home/tagresult" 451.34 ms (1)
+Jul 02 17:05:12 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (8)
+Jul 02 17:05:12 symfony [info] {sfWebDebugLogger} View "Success" for "home/tagresult" 1947.41 ms (1)
+Jul 02 17:05:12 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 25.40 ms (1)
+Jul 02 17:05:12 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 14.27 ms (1)
+Jul 02 17:05:12 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 2.17 ms (1)
+Jul 02 17:05:12 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 14.58 ms (1)
+Jul 02 17:05:12 symfony [info] {sfWebDebugLogger} Component "home/tagcloud" 1333.39 ms (1)
+Jul 02 17:05:12 symfony [info] {sfWebDebugLogger} Partial "home/_tagcloud" 13.21 ms (1)
+Jul 02 17:05:12 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.05 ms (1)
+Jul 02 17:05:12 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 12.92 ms (1)
+Jul 02 17:05:12 symfony [info] {sfWebResponse} Send content (61577 o)
+Jul 02 17:05:34 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /home/category/id/2 with parameters array (  'module' => 'home',  'action' => 'category',  'id' => '2',)
+Jul 02 17:05:34 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 02 17:05:34 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 02 17:05:34 symfony [info] {homeActions} Call "homeActions->executeCategory()"
+Jul 02 17:05:34 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 02 17:05:34 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.published_at AS a__published_at, c.id AS c__id, c.name AS c__name FROM articles a INNER JOIN categories c ON a.category_id = c.id WHERE (c.id = ? AND a.published = ?) - (2, 1)
+Jul 02 17:05:35 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/categorySuccess.php"
+Jul 02 17:05:35 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.category_id AS a__category_id, a.published_at AS a__published_at, a.read_count AS a__read_count, a.user_id AS a__user_id, a.published AS a__published, a.photo AS a__photo FROM articles a WHERE (a.id = ?) LIMIT 1 - (12)
+Jul 02 17:05:35 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.category_id AS a__category_id, a.published_at AS a__published_at, a.read_count AS a__read_count, a.user_id AS a__user_id, a.published AS a__published, a.photo AS a__photo FROM articles a WHERE (a.id = ?) LIMIT 1 - (13)
+Jul 02 17:05:35 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.category_id AS a__category_id, a.published_at AS a__published_at, a.read_count AS a__read_count, a.user_id AS a__user_id, a.published AS a__published, a.photo AS a__photo FROM articles a WHERE (a.id = ?) LIMIT 1 - (14)
+Jul 02 17:05:35 symfony [info] {main} Call "home->executeToparticles()"
+Jul 02 17:05:35 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title FROM articles a WHERE (a.published = ?) ORDER BY a.read_count DESC LIMIT 5 - (1)
+Jul 02 17:05:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 02 17:05:35 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 02 17:05:35 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 02 17:05:35 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 02 17:05:35 symfony [info] {main} Call "home->executeTagcloud()"
+Jul 02 17:05:35 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,count(t.id) AS broj,t.text 
+              FROM articles a 
+              INNER JOIN articles_tags at ON a.id=at.articles_id 
+              INNER JOIN tags t ON at.tags_id=t.id 
+              GROUP BY t.text - ()
+Jul 02 17:05:36 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_tagcloud.php"
+Jul 02 17:05:36 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 17:05:36 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 17:05:36 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 02 17:05:36 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 02 17:05:36 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 02 17:05:36 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 02 17:05:36 symfony [info] {sfWebDebugLogger} Configuration 281.64 ms (17)
+Jul 02 17:05:36 symfony [info] {sfWebDebugLogger} Factories 254.75 ms (1)
+Jul 02 17:05:36 symfony [info] {sfWebDebugLogger} Action "home/category" 316.05 ms (1)
+Jul 02 17:05:36 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (8)
+Jul 02 17:05:36 symfony [info] {sfWebDebugLogger} View "Success" for "home/category" 1906.89 ms (1)
+Jul 02 17:05:36 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 24.26 ms (1)
+Jul 02 17:05:36 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 14.54 ms (1)
+Jul 02 17:05:36 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 2.16 ms (1)
+Jul 02 17:05:36 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 16.06 ms (1)
+Jul 02 17:05:36 symfony [info] {sfWebDebugLogger} Component "home/tagcloud" 1305.76 ms (1)
+Jul 02 17:05:36 symfony [info] {sfWebDebugLogger} Partial "home/_tagcloud" 13.07 ms (1)
+Jul 02 17:05:36 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.05 ms (1)
+Jul 02 17:05:36 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 13.29 ms (1)
+Jul 02 17:05:36 symfony [info] {sfWebResponse} Send content (60523 o)
+Jul 02 17:05:44 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jul 02 17:05:45 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 02 17:05:45 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 02 17:05:45 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jul 02 17:05:45 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 02 17:05:45 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id,a.photo
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id WHERE a.published=1 - ()
+Jul 02 17:05:45 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jul 02 17:05:45 symfony [info] {main} Call "home->executeToparticles()"
+Jul 02 17:05:45 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title FROM articles a WHERE (a.published = ?) ORDER BY a.read_count DESC LIMIT 5 - (1)
+Jul 02 17:05:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 02 17:05:45 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 02 17:05:45 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 02 17:05:45 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 02 17:05:45 symfony [info] {main} Call "home->executeTagcloud()"
+Jul 02 17:05:45 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,count(t.id) AS broj,t.text 
+              FROM articles a 
+              INNER JOIN articles_tags at ON a.id=at.articles_id 
+              INNER JOIN tags t ON at.tags_id=t.id 
+              GROUP BY t.text - ()
+Jul 02 17:05:47 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_tagcloud.php"
+Jul 02 17:05:47 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 17:05:47 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 17:05:47 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 02 17:05:47 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 02 17:05:47 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 02 17:05:47 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 02 17:05:47 symfony [info] {sfWebDebugLogger} Configuration 283.91 ms (17)
+Jul 02 17:05:47 symfony [info] {sfWebDebugLogger} Factories 249.76 ms (1)
+Jul 02 17:05:47 symfony [info] {sfWebDebugLogger} Action "home/index" 117.49 ms (1)
+Jul 02 17:05:47 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (5)
+Jul 02 17:05:47 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 2143.22 ms (1)
+Jul 02 17:05:47 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 197.66 ms (1)
+Jul 02 17:05:47 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 27.22 ms (1)
+Jul 02 17:05:47 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 14.33 ms (1)
+Jul 02 17:05:47 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 14.33 ms (1)
+Jul 02 17:05:47 symfony [info] {sfWebDebugLogger} Component "home/tagcloud" 1386.85 ms (1)
+Jul 02 17:05:47 symfony [info] {sfWebDebugLogger} Partial "home/_tagcloud" 19.09 ms (1)
+Jul 02 17:05:47 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.05 ms (1)
+Jul 02 17:05:47 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 12.86 ms (1)
+Jul 02 17:05:47 symfony [info] {sfWebResponse} Send content (54839 o)
+Jul 02 17:06:00 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /user/login with parameters array (  'module' => 'user',  'action' => 'login',)
+Jul 02 17:06:00 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 02 17:06:00 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 02 17:06:00 symfony [info] {userActions} Call "userActions->executeLogin()"
+Jul 02 17:06:01 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/user/templates/loginSuccess.php"
+Jul 02 17:06:01 symfony [info] {main} Call "home->executeToparticles()"
+Jul 02 17:06:01 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 02 17:06:01 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title FROM articles a WHERE (a.published = ?) ORDER BY a.read_count DESC LIMIT 5 - (1)
+Jul 02 17:06:01 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 02 17:06:01 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 02 17:06:01 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 02 17:06:01 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 02 17:06:01 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/user/templates/_nice_thumbs.php"
+Jul 02 17:06:01 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 17:06:01 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 17:06:01 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 02 17:06:01 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 02 17:06:01 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 02 17:06:01 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 02 17:06:01 symfony [info] {sfWebDebugLogger} Configuration 258.91 ms (15)
+Jul 02 17:06:01 symfony [info] {sfWebDebugLogger} Factories 253.30 ms (1)
+Jul 02 17:06:01 symfony [info] {sfWebDebugLogger} Action "user/login" 166.40 ms (1)
+Jul 02 17:06:01 symfony [info] {sfWebDebugLogger} View "Success" for "user/login" 880.61 ms (1)
+Jul 02 17:06:01 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 320.32 ms (1)
+Jul 02 17:06:01 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.01 ms (3)
+Jul 02 17:06:01 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 27.12 ms (1)
+Jul 02 17:06:01 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 13.27 ms (1)
+Jul 02 17:06:01 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 14.55 ms (1)
+Jul 02 17:06:01 symfony [info] {sfWebDebugLogger} Partial "user/_nice_thumbs" 21.07 ms (1)
+Jul 02 17:06:01 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.05 ms (1)
+Jul 02 17:06:01 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 12.97 ms (1)
+Jul 02 17:06:02 symfony [info] {sfWebResponse} Send content (45999 o)
+Jul 02 17:06:14 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /user/login with parameters array (  'module' => 'user',  'action' => 'login',)
+Jul 02 17:06:14 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 02 17:06:14 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 02 17:06:14 symfony [info] {userActions} Call "userActions->executeLogin()"
+Jul 02 17:06:15 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 02 17:06:15 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.username AS u__username, u.name AS u__name, u.surname AS u__surname, u.password AS u__password, u.active AS u__active, r.id AS r__id, r.name AS r__name FROM users u INNER JOIN roles r ON u.role_id = r.id WHERE (u.username = ?) - (djuro)
+Jul 02 17:06:15 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) LIMIT 1 - (1)
+Jul 02 17:06:15 symfony [info] {myUser} User is authenticated
+Jul 02 17:06:15 symfony [info] {myUser} Add credential(s) "editor"
+Jul 02 17:06:15 symfony [info] {sfFrontWebController} Redirect to "http://localhost/sfproject/web/backend.php/articles"
+Jul 02 17:06:15 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Jul 02 17:06:15 symfony [info] {sfWebResponse} Send header "Location: http://localhost/sfproject/web/backend.php/articles"
+Jul 02 17:06:15 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 02 17:06:15 symfony [info] {sfWebDebugLogger} Configuration 133.73 ms (8)
+Jul 02 17:06:15 symfony [info] {sfWebDebugLogger} Factories 254.41 ms (1)
+Jul 02 17:06:15 symfony [info] {sfWebDebugLogger} Action "user/login" 467.59 ms (1)
+Jul 02 17:06:15 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.01 ms (3)
+Jul 02 17:06:15 symfony [info] {sfWebResponse} Send content (122 o)
+Jul 02 17:09:14 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jul 02 17:09:14 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 02 17:09:14 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 02 17:09:14 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jul 02 17:09:14 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 02 17:09:14 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id,a.photo
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id WHERE a.published=1 - ()
+Jul 02 17:09:14 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jul 02 17:09:14 symfony [info] {main} Call "home->executeToparticles()"
+Jul 02 17:09:15 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title FROM articles a WHERE (a.published = ?) ORDER BY a.read_count DESC LIMIT 5 - (1)
+Jul 02 17:09:15 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 02 17:09:15 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 02 17:09:15 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 02 17:09:15 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 02 17:09:15 symfony [info] {main} Call "home->executeTagcloud()"
+Jul 02 17:09:15 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,count(t.id) AS broj,t.text 
+              FROM articles a 
+              INNER JOIN articles_tags at ON a.id=at.articles_id 
+              INNER JOIN tags t ON at.tags_id=t.id 
+              GROUP BY t.text - ()
+Jul 02 17:09:16 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_tagcloud.php"
+Jul 02 17:09:16 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 17:09:16 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 17:09:16 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 02 17:09:17 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 02 17:09:17 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 02 17:09:17 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 02 17:09:17 symfony [info] {sfWebDebugLogger} Configuration 525.03 ms (17)
+Jul 02 17:09:17 symfony [info] {sfWebDebugLogger} Factories 476.81 ms (1)
+Jul 02 17:09:17 symfony [info] {sfWebDebugLogger} Action "home/index" 100.02 ms (1)
+Jul 02 17:09:17 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (5)
+Jul 02 17:09:17 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 2350.98 ms (1)
+Jul 02 17:09:17 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 135.52 ms (1)
+Jul 02 17:09:17 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 29.90 ms (1)
+Jul 02 17:09:17 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 19.87 ms (1)
+Jul 02 17:09:17 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 21.45 ms (1)
+Jul 02 17:09:17 symfony [info] {sfWebDebugLogger} Component "home/tagcloud" 1500.21 ms (1)
+Jul 02 17:09:17 symfony [info] {sfWebDebugLogger} Partial "home/_tagcloud" 19.01 ms (1)
+Jul 02 17:09:17 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.06 ms (1)
+Jul 02 17:09:17 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 19.05 ms (1)
+Jul 02 17:09:17 symfony [info] {sfWebResponse} Send content (55268 o)
+Jul 02 17:36:47 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /home/article/id/9 with parameters array (  'module' => 'home',  'action' => 'article',  'id' => '9',)
+Jul 02 17:36:48 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 02 17:36:48 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 02 17:36:48 symfony [info] {homeActions} Call "homeActions->executeArticle()"
+Jul 02 17:36:48 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 02 17:36:48 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.published_at AS a__published_at, u.id AS u__id FROM articles a INNER JOIN users u ON a.user_id = u.id LEFT JOIN comments c ON a.id = c.article_id WHERE (a.id = ? AND a.published = ?) - (9, 1)
+Jul 02 17:36:48 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, COUNT(c.article_id) AS c__0 FROM articles a INNER JOIN comments c ON a.id = c.article_id WHERE (c.article_id = ?) - (9)
+Jul 02 17:36:48 symfony [info] {Doctrine_Connection_Statement} execute : UPDATE articles SET read_count = (read_count+1) WHERE (id = ?) - (9)
+Jul 02 17:36:48 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/articleSuccess.php"
+Jul 02 17:36:48 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.category_id AS a__category_id, a.published_at AS a__published_at, a.read_count AS a__read_count, a.user_id AS a__user_id, a.published AS a__published, a.photo AS a__photo FROM articles a WHERE (a.id = ?) LIMIT 1 - (9)
+Jul 02 17:36:48 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) LIMIT 1 - (2)
+Jul 02 17:36:48 symfony [info] {Doctrine_Connection_Statement} execute : SELECT c.id AS c__id, c.user_id AS c__user_id, c.text AS c__text, c.article_id AS c__article_id, c.published_at AS c__published_at, c.published AS c__published FROM comments c WHERE (c.article_id IN (?)) - (9)
+Jul 02 17:36:49 symfony [info] {main} Call "home->executeToparticles()"
+Jul 02 17:36:49 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title FROM articles a WHERE (a.published = ?) ORDER BY a.read_count DESC LIMIT 5 - (1)
+Jul 02 17:36:49 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 02 17:36:49 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 02 17:36:49 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 02 17:36:49 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 02 17:36:49 symfony [info] {main} Call "home->executeTagcloud()"
+Jul 02 17:36:49 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,count(t.id) AS broj,t.text 
+              FROM articles a 
+              INNER JOIN articles_tags at ON a.id=at.articles_id 
+              INNER JOIN tags t ON at.tags_id=t.id 
+              GROUP BY t.text - ()
+Jul 02 17:36:50 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_tagcloud.php"
+Jul 02 17:36:50 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 17:36:50 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 17:36:50 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 02 17:36:50 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 02 17:36:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 02 17:36:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 02 17:36:50 symfony [info] {sfWebDebugLogger} Configuration 281.83 ms (17)
+Jul 02 17:36:50 symfony [info] {sfWebDebugLogger} Factories 504.07 ms (1)
+Jul 02 17:36:50 symfony [info] {sfWebDebugLogger} Action "home/article" 576.52 ms (1)
+Jul 02 17:36:50 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.05 ms (10)
+Jul 02 17:36:50 symfony [info] {sfWebDebugLogger} View "Success" for "home/article" 1641.71 ms (1)
+Jul 02 17:36:50 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 25.40 ms (1)
+Jul 02 17:36:50 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 14.81 ms (1)
+Jul 02 17:36:50 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 26.67 ms (1)
+Jul 02 17:36:50 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 17.30 ms (1)
+Jul 02 17:36:50 symfony [info] {sfWebDebugLogger} Component "home/tagcloud" 878.07 ms (1)
+Jul 02 17:36:50 symfony [info] {sfWebDebugLogger} Partial "home/_tagcloud" 13.95 ms (1)
+Jul 02 17:36:50 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.05 ms (1)
+Jul 02 17:36:50 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 13.77 ms (1)
+Jul 02 17:36:50 symfony [info] {sfWebResponse} Send content (63749 o)
+Jul 02 17:38:19 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jul 02 17:38:20 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 02 17:38:20 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 02 17:38:20 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jul 02 17:38:20 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 02 17:38:20 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id,a.photo
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id WHERE a.published=1 - ()
+Jul 02 17:38:20 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jul 02 17:38:20 symfony [info] {main} Call "home->executeToparticles()"
+Jul 02 17:38:20 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title FROM articles a WHERE (a.published = ?) ORDER BY a.read_count DESC LIMIT 5 - (1)
+Jul 02 17:38:20 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 02 17:38:20 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 02 17:38:20 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 02 17:38:20 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 02 17:38:20 symfony [info] {main} Call "home->executeTagcloud()"
+Jul 02 17:38:20 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,count(t.id) AS broj,t.text 
+              FROM articles a 
+              INNER JOIN articles_tags at ON a.id=at.articles_id 
+              INNER JOIN tags t ON at.tags_id=t.id 
+              GROUP BY t.text - ()
+Jul 02 17:38:22 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_tagcloud.php"
+Jul 02 17:38:22 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 17:38:22 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 17:38:22 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 02 17:38:22 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 02 17:38:22 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 02 17:38:22 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 02 17:38:22 symfony [info] {sfWebDebugLogger} Configuration 265.68 ms (17)
+Jul 02 17:38:22 symfony [info] {sfWebDebugLogger} Factories 190.74 ms (1)
+Jul 02 17:38:22 symfony [info] {sfWebDebugLogger} Action "home/index" 73.66 ms (1)
+Jul 02 17:38:22 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (5)
+Jul 02 17:38:22 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 1910.24 ms (1)
+Jul 02 17:38:22 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 105.52 ms (1)
+Jul 02 17:38:22 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 20.15 ms (1)
+Jul 02 17:38:22 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 12.46 ms (1)
+Jul 02 17:38:22 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 9.84 ms (1)
+Jul 02 17:38:22 symfony [info] {sfWebDebugLogger} Component "home/tagcloud" 1319.67 ms (1)
+Jul 02 17:38:22 symfony [info] {sfWebDebugLogger} Partial "home/_tagcloud" 8.36 ms (1)
+Jul 02 17:38:22 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.05 ms (1)
+Jul 02 17:38:22 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 8.38 ms (1)
+Jul 02 17:38:22 symfony [info] {sfWebResponse} Send content (55425 o)
+Jul 02 20:02:02 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jul 02 20:02:02 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 02 20:02:02 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 02 20:02:02 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jul 02 20:02:02 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 02 20:02:02 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id,a.photo
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id WHERE a.published=1 - ()
+Jul 02 20:02:02 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jul 02 20:02:03 symfony [info] {main} Call "home->executeToparticles()"
+Jul 02 20:02:03 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title FROM articles a WHERE (a.published = ?) ORDER BY a.read_count DESC LIMIT 5 - (1)
+Jul 02 20:02:03 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 02 20:02:03 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 02 20:02:03 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 02 20:02:03 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 02 20:02:03 symfony [info] {main} Call "home->executeTagcloud()"
+Jul 02 20:02:03 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,count(t.id) AS broj,t.text 
+              FROM articles a 
+              INNER JOIN articles_tags at ON a.id=at.articles_id 
+              INNER JOIN tags t ON at.tags_id=t.id 
+              GROUP BY t.text - ()
+Jul 02 20:02:04 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_tagcloud.php"
+Jul 02 20:02:04 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 20:02:04 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 20:02:04 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 02 20:02:04 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 02 20:02:04 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 02 20:02:04 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 02 20:02:04 symfony [info] {sfWebDebugLogger} Configuration 399.64 ms (17)
+Jul 02 20:02:04 symfony [info] {sfWebDebugLogger} Factories 271.22 ms (1)
+Jul 02 20:02:04 symfony [info] {sfWebDebugLogger} Action "home/index" 101.38 ms (1)
+Jul 02 20:02:04 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (5)
+Jul 02 20:02:04 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 1684.39 ms (1)
+Jul 02 20:02:04 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 173.66 ms (1)
+Jul 02 20:02:04 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 35.03 ms (1)
+Jul 02 20:02:04 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 12.72 ms (1)
+Jul 02 20:02:04 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 29.59 ms (1)
+Jul 02 20:02:04 symfony [info] {sfWebDebugLogger} Component "home/tagcloud" 840.28 ms (1)
+Jul 02 20:02:04 symfony [info] {sfWebDebugLogger} Partial "home/_tagcloud" 19.22 ms (1)
+Jul 02 20:02:04 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.05 ms (1)
+Jul 02 20:02:04 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 19.81 ms (1)
+Jul 02 20:02:04 symfony [info] {sfWebResponse} Send content (55292 o)
+Jul 02 20:02:10 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /home/tagresult with parameters array (  'module' => 'home',  'action' => 'tagresult',)
+Jul 02 20:02:10 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 02 20:02:10 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 02 20:02:10 symfony [info] {homeActions} Call "homeActions->executeTagresult()"
+Jul 02 20:02:10 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 02 20:02:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, t.id AS t__id, t.text AS t__0, c.id AS c__id, c.name AS c__name, t.text AS t__0, c.id AS c__1 FROM articles a INNER JOIN articles_tags a2 ON (a.id = a2.articles_id) INNER JOIN tags t ON t.id = a2.tags_id INNER JOIN categories c ON a.category_id = c.id WHERE (t.text = ? AND a.published = ?) - (Španjolska, 1)
+Jul 02 20:02:10 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/tagresultSuccess.php"
+Jul 02 20:02:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.category_id AS a__category_id, a.published_at AS a__published_at, a.read_count AS a__read_count, a.user_id AS a__user_id, a.published AS a__published, a.photo AS a__photo FROM articles a WHERE (a.id = ?) LIMIT 1 - (12)
+Jul 02 20:02:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.category_id AS a__category_id, a.published_at AS a__published_at, a.read_count AS a__read_count, a.user_id AS a__user_id, a.published AS a__published, a.photo AS a__photo FROM articles a WHERE (a.id = ?) LIMIT 1 - (13)
+Jul 02 20:02:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.category_id AS a__category_id, a.published_at AS a__published_at, a.read_count AS a__read_count, a.user_id AS a__user_id, a.published AS a__published, a.photo AS a__photo FROM articles a WHERE (a.id = ?) LIMIT 1 - (14)
+Jul 02 20:02:10 symfony [info] {main} Call "home->executeToparticles()"
+Jul 02 20:02:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title FROM articles a WHERE (a.published = ?) ORDER BY a.read_count DESC LIMIT 5 - (1)
+Jul 02 20:02:10 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 02 20:02:10 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 02 20:02:10 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 02 20:02:10 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 02 20:02:11 symfony [info] {main} Call "home->executeTagcloud()"
+Jul 02 20:02:11 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,count(t.id) AS broj,t.text 
+              FROM articles a 
+              INNER JOIN articles_tags at ON a.id=at.articles_id 
+              INNER JOIN tags t ON at.tags_id=t.id 
+              GROUP BY t.text - ()
+Jul 02 20:02:12 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_tagcloud.php"
+Jul 02 20:02:12 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 20:02:12 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 20:02:12 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 02 20:02:12 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 02 20:02:12 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 02 20:02:12 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 02 20:02:12 symfony [info] {sfWebDebugLogger} Configuration 291.24 ms (17)
+Jul 02 20:02:12 symfony [info] {sfWebDebugLogger} Factories 228.99 ms (1)
+Jul 02 20:02:12 symfony [info] {sfWebDebugLogger} Action "home/tagresult" 200.62 ms (1)
+Jul 02 20:02:12 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (8)
+Jul 02 20:02:12 symfony [info] {sfWebDebugLogger} View "Success" for "home/tagresult" 1688.87 ms (1)
+Jul 02 20:02:12 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 14.34 ms (1)
+Jul 02 20:02:12 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 12.18 ms (1)
+Jul 02 20:02:12 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 2.19 ms (1)
+Jul 02 20:02:12 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 27.44 ms (1)
+Jul 02 20:02:12 symfony [info] {sfWebDebugLogger} Component "home/tagcloud" 1160.47 ms (1)
+Jul 02 20:02:12 symfony [info] {sfWebDebugLogger} Partial "home/_tagcloud" 10.51 ms (1)
+Jul 02 20:02:12 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.05 ms (1)
+Jul 02 20:02:12 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 10.83 ms (1)
+Jul 02 20:02:12 symfony [info] {sfWebResponse} Send content (62043 o)
+Jul 02 20:02:16 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /home/article/id/12 with parameters array (  'module' => 'home',  'action' => 'article',  'id' => '12',)
+Jul 02 20:02:16 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 02 20:02:16 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 02 20:02:16 symfony [info] {homeActions} Call "homeActions->executeArticle()"
+Jul 02 20:02:17 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 02 20:02:17 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.published_at AS a__published_at, u.id AS u__id FROM articles a INNER JOIN users u ON a.user_id = u.id LEFT JOIN comments c ON a.id = c.article_id WHERE (a.id = ? AND a.published = ?) - (12, 1)
+Jul 02 20:02:17 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, COUNT(c.article_id) AS c__0 FROM articles a INNER JOIN comments c ON a.id = c.article_id WHERE (c.article_id = ?) - (12)
+Jul 02 20:02:17 symfony [info] {Doctrine_Connection_Statement} execute : UPDATE articles SET read_count = (read_count+1) WHERE (id = ?) - (12)
+Jul 02 20:02:17 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/articleSuccess.php"
+Jul 02 20:02:17 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title, a.text AS a__text, a.category_id AS a__category_id, a.published_at AS a__published_at, a.read_count AS a__read_count, a.user_id AS a__user_id, a.published AS a__published, a.photo AS a__photo FROM articles a WHERE (a.id = ?) LIMIT 1 - (12)
+Jul 02 20:02:17 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.role_id AS u__role_id, u.username AS u__username, u.password AS u__password, u.active AS u__active, u.name AS u__name, u.surname AS u__surname, u.email AS u__email, u.nickname AS u__nickname FROM users u WHERE (u.id = ?) LIMIT 1 - (2)
+Jul 02 20:02:17 symfony [info] {Doctrine_Connection_Statement} execute : SELECT c.id AS c__id, c.user_id AS c__user_id, c.text AS c__text, c.article_id AS c__article_id, c.published_at AS c__published_at, c.published AS c__published FROM comments c WHERE (c.article_id IN (?)) - (12)
+Jul 02 20:02:17 symfony [info] {main} Call "home->executeToparticles()"
+Jul 02 20:02:17 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title FROM articles a WHERE (a.published = ?) ORDER BY a.read_count DESC LIMIT 5 - (1)
+Jul 02 20:02:17 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 02 20:02:17 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 02 20:02:17 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 02 20:02:17 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 02 20:02:17 symfony [info] {main} Call "home->executeTagcloud()"
+Jul 02 20:02:17 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,count(t.id) AS broj,t.text 
+              FROM articles a 
+              INNER JOIN articles_tags at ON a.id=at.articles_id 
+              INNER JOIN tags t ON at.tags_id=t.id 
+              GROUP BY t.text - ()
+Jul 02 20:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_tagcloud.php"
+Jul 02 20:02:18 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 20:02:18 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 20:02:18 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 02 20:02:18 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 02 20:02:18 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 02 20:02:18 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 02 20:02:18 symfony [info] {sfWebDebugLogger} Configuration 257.76 ms (17)
+Jul 02 20:02:18 symfony [info] {sfWebDebugLogger} Factories 199.13 ms (1)
+Jul 02 20:02:18 symfony [info] {sfWebDebugLogger} Action "home/article" 221.03 ms (1)
+Jul 02 20:02:18 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (10)
+Jul 02 20:02:18 symfony [info] {sfWebDebugLogger} View "Success" for "home/article" 1828.56 ms (1)
+Jul 02 20:02:18 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 14.62 ms (1)
+Jul 02 20:02:18 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 10.98 ms (1)
+Jul 02 20:02:18 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 9.10 ms (1)
+Jul 02 20:02:18 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 10.38 ms (1)
+Jul 02 20:02:18 symfony [info] {sfWebDebugLogger} Component "home/tagcloud" 1350.52 ms (1)
+Jul 02 20:02:18 symfony [info] {sfWebDebugLogger} Partial "home/_tagcloud" 9.02 ms (1)
+Jul 02 20:02:18 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.05 ms (1)
+Jul 02 20:02:18 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 8.41 ms (1)
+Jul 02 20:02:19 symfony [info] {sfWebResponse} Send content (65344 o)
+Jul 02 20:02:30 symfony [info] {sfPatternRouting} Match route "default_index" (/:module) for /home with parameters array (  'module' => 'home',  'action' => 'index',)
+Jul 02 20:02:31 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Jul 02 20:02:31 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Jul 02 20:02:31 symfony [info] {homeActions} Call "homeActions->executeIndex()"
+Jul 02 20:02:31 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Jul 02 20:02:31 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,a.text,a.published_at,c.name,c.id AS c_id,a.photo
+                             FROM articles a
+                             INNER JOIN
+                             (SELECT articles.category_id,MAX(articles.published_at) AS latest FROM
+                             articles  GROUP BY articles.category_id) b ON
+                             a.category_id=b.category_id AND a.published_at=b.latest
+                             INNER JOIN categories c ON a.category_id=c.id WHERE a.published=1 - ()
+Jul 02 20:02:31 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/indexSuccess.php"
+Jul 02 20:02:31 symfony [info] {main} Call "home->executeToparticles()"
+Jul 02 20:02:31 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.title AS a__title FROM articles a WHERE (a.published = ?) ORDER BY a.read_count DESC LIMIT 5 - (1)
+Jul 02 20:02:31 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_toparticles.php"
+Jul 02 20:02:31 symfony [info] {main} Call "home->executeCategorieslist()"
+Jul 02 20:02:31 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name FROM categories c - ()
+Jul 02 20:02:31 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_categorieslist.php"
+Jul 02 20:02:31 symfony [info] {main} Call "home->executeTagcloud()"
+Jul 02 20:02:31 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id,a.title,count(t.id) AS broj,t.text 
+              FROM articles a 
+              INNER JOIN articles_tags at ON a.id=at.articles_id 
+              INNER JOIN tags t ON at.tags_id=t.id 
+              GROUP BY t.text - ()
+Jul 02 20:02:32 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_tagcloud.php"
+Jul 02 20:02:32 symfony [info] {sfPHPView} Decorate content with "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 20:02:32 symfony [info] {sfPHPView} Render "G:\xampp\htdocs\sfproject\apps\frontend\templates/home.php"
+Jul 02 20:02:32 symfony [info] {main} Call "home->executeMainmenu()"
+Jul 02 20:02:32 symfony [info] {sfPartialView} Render "G:\xampp\htdocs\sfproject\apps\frontend\modules/home/templates/_mainmenu.php"
+Jul 02 20:02:32 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Jul 02 20:02:32 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Jul 02 20:02:32 symfony [info] {sfWebDebugLogger} Configuration 254.34 ms (17)
+Jul 02 20:02:32 symfony [info] {sfWebDebugLogger} Factories 202.63 ms (1)
+Jul 02 20:02:32 symfony [info] {sfWebDebugLogger} Action "home/index" 65.23 ms (1)
+Jul 02 20:02:32 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (5)
+Jul 02 20:02:32 symfony [info] {sfWebDebugLogger} View "Success" for "home/index" 1861.78 ms (1)
+Jul 02 20:02:32 symfony [info] {sfWebDebugLogger} Component "home/toparticles" 91.20 ms (1)
+Jul 02 20:02:32 symfony [info] {sfWebDebugLogger} Partial "home/_toparticles" 18.16 ms (1)
+Jul 02 20:02:32 symfony [info] {sfWebDebugLogger} Component "home/categorieslist" 8.35 ms (1)
+Jul 02 20:02:32 symfony [info] {sfWebDebugLogger} Partial "home/_categorieslist" 10.92 ms (1)
+Jul 02 20:02:32 symfony [info] {sfWebDebugLogger} Component "home/tagcloud" 1335.68 ms (1)
+Jul 02 20:02:32 symfony [info] {sfWebDebugLogger} Partial "home/_tagcloud" 8.78 ms (1)
+Jul 02 20:02:32 symfony [info] {sfWebDebugLogger} Component "home/mainmenu" 0.05 ms (1)
+Jul 02 20:02:32 symfony [info] {sfWebDebugLogger} Partial "home/_mainmenu" 9.91 ms (1)
+Jul 02 20:02:33 symfony [info] {sfWebResponse} Send content (55301 o)
