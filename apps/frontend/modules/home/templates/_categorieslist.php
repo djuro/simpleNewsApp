@@ -1,5 +1,5 @@
 <li>
-    <h3>Categories</h3>
+    <h3><?php echo __('Categories') ?></h3>
 		<ul id="kategorije">
 		 <?php 
 		  foreach($naslovi as $t)

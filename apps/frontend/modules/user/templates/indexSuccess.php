@@ -1,13 +1,14 @@
 <?php 
   use_helper('text');
   use_helper('date');
+  use_helper('I18N');
 ?>
 <div id="page">
 			<div id="content">
 			
 			<div class="post">
 			
-			<h2>Registrirajte se</h2>
+			<h2><?php echo __('Register')?></h2>
 			
 			<div class="entry">
 			<?php //echo nl2br($article->getText())?>
@@ -49,11 +50,12 @@
 					<!--  here was a list of sidebar links -->
 					<?php include_component('home', 'categorieslist') ?>
 				</ul>
+				<?php include_component('home', 'tagcloud') ?>
 			</div>
 			<!-- end #sidebar -->
 			<div style="clear: both;">&nbsp;</div>
 			<div id="widebar">
-				<div id="colA">
+				<!--div id="colA">
 					<h3>Volutpat Consequat</h3>
 					<dl class="list1">
 						<dt>12.17.2007</dt>
@@ -71,9 +73,9 @@
 				<div id="colB">
 					<h3>Pharetra Sed Tempus</h3>
 					<p>Morbi sit amet mauris Nam vitae nibh eu sapien dictum pharetra. Vestibulum elementum neque vel lacus. Lorem ipsum dolor sit dolore phasellus pede lorem proin auctor dolor loremmassa phasellus sit. <a href="#">More&hellip;</a></p>
-				</div>
+				</div-->
 				<!--   here was a nice thumbs html -->
-				<?php include_partial('nice_thumbs') ?>
+				<?php //include_partial('nice_thumbs') ?>
 				
 				<div style="clear: both;">&nbsp;</div>
 			</div>

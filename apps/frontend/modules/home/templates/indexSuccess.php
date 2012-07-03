@@ -1,6 +1,7 @@
 <?php 
   use_helper('text');
   use_helper('date');
+  use_helper('I18N');
 ?>
 <div id="page">
 			<div id="content">
@@ -11,7 +12,8 @@
 			?>
 			<!-- 'post' sadrzi odlomak jednog clanka -->
             <div class="post">
-			<h2 class="title"><a href="<?php echo url_for('home/article').'/id/'.$article['id']?>"><?php echo $article['title'];?></a></h2>
+			<h2 class="title"><a href="<?php echo url_for('home/article').'/id/'.$article['id']?>">
+				<?php echo $article['title'];?></a></h2>
 			<div class="entry">
 				
 			 <!-- slika, smanjen prikaz -->
@@ -26,9 +28,9 @@
 		
 			</div>
 			<p class="meta"><a href="<?php echo url_for('home/category').'/id/'.$article['c_id']?>">
-			  <?php echo $article['name']?></a>&nbsp;&nbsp;&nbsp;
-			  <?php echo format_datetime($article['published_at'],'F','hr','UTF-8')?>
-			  <a href="<?php echo url_for('home/article').'/id/'.$article['id']?>" class="permalink">Read more</a></p>
+			  <?php echo __($article['name'])?></a>&nbsp;&nbsp;&nbsp;
+			  <?php echo format_datetime($article['published_at'],'F','','UTF-8')?>
+			  <a href="<?php echo url_for('home/article').'/id/'.$article['id']?>" class="permalink"><?php echo __('Read more')?></a></p>
             </div>
 		    <?php endforeach; ?>
 			

@@ -54,7 +54,6 @@ class userActions extends sfActions
      
         $user->save();
 
-        // slanje maila
         UsersTable::getInstance()->sendEmail($nickname,$email,$password);
       }
      }

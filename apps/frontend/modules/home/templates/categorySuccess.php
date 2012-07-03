@@ -1,6 +1,7 @@
 <?php 
   use_helper('text');
   use_helper('date');
+  use_helper('I18N');
 ?>
 <div id="page">
 			<div id="content">
@@ -20,7 +21,9 @@
 			  </a>
 			<p><?php echo truncate_text($article->getText(),255,'...',true)?></p>
 			</div>
-			<p class="meta"><a href="#"><?php echo $article->Categories->getName()?></a>&nbsp;&nbsp;&nbsp;<?php echo format_datetime($article->getPublishedAt(),'F','hr','UTF-8')?><a href="<?php echo url_for('home/article').'/id/'.$article->getId()?>" class="permalink">Read more</a> </p>
+			<p class="meta"><a href="#"><?php echo $article->Categories->getName()?></a>&nbsp;&nbsp;&nbsp;
+				<?php echo format_datetime($article->getPublishedAt(),'F','','UTF-8')?>
+				<a href="<?php echo url_for('home/article').'/id/'.$article->getId()?>" class="permalink">Read more</a> </p>
            </div>
 		<?php endforeach; ?>
 			

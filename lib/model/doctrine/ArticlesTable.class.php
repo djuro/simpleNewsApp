@@ -117,15 +117,7 @@ class ArticlesTable extends Doctrine_Table
           
     }
 
-	/*
-	  public function findHisComments($id) {
-        return $this->createQuery("as")
-                    ->leftJoin("as.Comments c")
-				            ->where("as.id=?",$id)
-                    ->execute();
-    }
-
-  */
+	
 
   /**
   * Selecta sve clanke za backend listu s tim da joina categories i users. Select zavisi od credentiala i username-a.
@@ -169,21 +161,7 @@ class ArticlesTable extends Doctrine_Table
    }
 
 
-  /**
-  * Selecta sve clanke za backend listu koji pripadaju logiranom autoru
-  */
-  /*
-   public function getAuthorsArticles()
-   {
-    $q = $articles->createQuery('a')
-        ->select('a.id,a.title,a.text,a.published,a.read_count,a.category_id,a.published_at,a.user_id,a.photo,u.name AS u_name,u.surname AS u_surname,c.name AS c_name')
-        ->from('Articles a')
-        ->innerJoin('a.Users u')
-        ->innerJoin('a.Categories c')
-        ->where('user_id = ?', $this->getUser()->getAttribute('id'));
-    return $q->execute();
-   }
-  */
+
 
 /**
 *  Prima ID clanka i varijablu published: 1 ili 0. Vrsi update recorda.

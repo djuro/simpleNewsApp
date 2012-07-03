@@ -56,7 +56,8 @@ class homeComponents extends sfComponents
     $query = "SELECT a.id,a.title,count(t.id) AS broj,t.text 
               FROM articles a 
               INNER JOIN articles_tags at ON a.id=at.articles_id 
-              INNER JOIN tags t ON at.tags_id=t.id 
+              INNER JOIN tags t ON at.tags_id=t.id
+              WHERE a.published=1 
               GROUP BY t.text";
     $statement = $connection->execute($query);
     $statement->execute();

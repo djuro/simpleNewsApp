@@ -1,5 +1,5 @@
 <li>
-    <h3>Top articles</h3>
+    <h3><?php echo __('Top articles') ?></h3>
 		<ul id="toparticles">
 		 <?php 
 		  foreach($top_articles as $t)

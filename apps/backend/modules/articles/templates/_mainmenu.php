@@ -6,8 +6,7 @@
 
 	<li style="list-style-type:none;display:inline;"><a href="<?php echo url_for('articles/index')?>">Articles</a></li>
 	<li style="list-style-type:none;display:inline;"><a href="<?php echo url_for('comments/index')?>">Comments</a></li>
-	<li style="list-style-type:none;display:inline;"><a href="<?php echo url_for('tags/index')?>">Tags</a></li>
-	<li style="list-style-type:none;display:inline;"><a href="http://localhost/sfproject/web/frontend_dev.php/home">Frontend</a></li>
+	<li style="list-style-type:none;display:inline;"><a href="http://localhost/sfproject/web/en/home">Frontend</a></li>
 	
 </ul>
 
@@ -21,8 +20,7 @@
 	<li style="list-style-type:none;display:inline;"><a href="<?php echo url_for('comments/index')?>">Comments</a></li>
 	<li style="list-style-type:none;display:inline;"><a href="<?php echo url_for('categories/index')?>">Categories</a></li>
 	<li style="list-style-type:none;display:inline;"><a href="<?php echo url_for('users/index')?>">Users</a></li>
-	<li style="list-style-type:none;display:inline;"><a href="<?php echo url_for('tags/index')?>">Tags</a></li>
-	<li style="list-style-type:none;display:inline;"><a href="http://localhost/sfproject/web/frontend_dev.php/home">Frontend</a></li>
+	<li style="list-style-type:none;display:inline;"><a href="http://localhost/sfproject/web/en/home">Frontend</a></li>
 	
 </ul>
 

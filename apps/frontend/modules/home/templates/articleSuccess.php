@@ -1,6 +1,7 @@
 <?php 
   use_helper('text');
   use_helper('date');
+  use_helper('I18N');
   use_javascript("jquery.js");
   use_javascript("show_comments.js");
 ?>
@@ -16,7 +17,7 @@
 			</div>
 			
       <p class="meta"><?php echo $article->Users->getName().'&nbsp;'; echo $article->Users->getSurname();?>,
-      &nbsp;&nbsp;&nbsp;<?php echo format_datetime($article->getPublishedAt(),'F','hr','UTF-8')?> 
+      &nbsp;&nbsp;&nbsp;<?php echo format_datetime($article->getPublishedAt(),'F','','UTF-8')?> 
       <a href="#" onClick="return false;" id="showcomments" class="comments">Comments <?php echo $num_comments->getCmnts()?></a></p>
       
 
@@ -39,7 +40,7 @@
 					else:
 					     echo $comment->getUsers()->getNickname().'&nbsp;';
 					endif;
-					     echo format_datetime($comment->getPublishedAt(),'F','hr','UTF-8').'</strong></p>';
+					     echo format_datetime($comment->getPublishedAt(),'F','','UTF-8').'</strong></p>';
 			        echo '</div>';
 			       }
 				   

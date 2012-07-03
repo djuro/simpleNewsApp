@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd" >
+<xliff version="1.0">
+  <file original="global" source-language="en_US" datatype="plaintext">
+    <body>
+      <trans-unit id="1">
+        <source>Read more</source>
+        <target>Više</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Top articles</source>
+        <target>Popularni članci</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Categories</source>
+        <target>Kategorije</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Tags</source>
+        <target>Tagovi</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>The chosen tag:</source>
+        <target>Odabrani tag:</target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>Homepage</source>
+        <target>Naslovnica</target>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>Welcome </source>
+        <target>Dobrodošli </target>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>Register</source>
+        <target>Registrirajte se</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>Log in</source>
+        <target>Prijava korisnika</target>
+      </trans-unit>
+      <trans-unit id="10">
+        <source>User</source>
+        <target>Korisnik</target>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>Log out</source>
+        <target>Odjavite se</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
