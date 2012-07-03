@@ -206,7 +206,9 @@ public function executeCreate(sfWebRequest $request)
 
      }
 
-    $this->setTemplate('new');
+    $this->pager = $this->getPager();
+    $this->sort = $this->getSort();
+    $this->setTemplate('index');
   }
 
 
