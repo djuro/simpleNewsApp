@@ -133,4 +133,19 @@ class UsersTable extends Doctrine_Table
               'Hello '.$nick.',  Your account password is: '.$passwd);
     }
 
+
+    /**
+    *  Prima ID clanka i varijablu published: 1 ili 0. Vrsi update recorda.
+    */
+    public function updateUser($id,$act)
+    {
+      $q = $this->createQuery()
+                ->update('Users')
+                ->set('active','?',$act)
+                ->where('id=?',$id);
+
+      $q->execute();
+      return 'ok';
+    }
+
 }

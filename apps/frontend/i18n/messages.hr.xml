@@ -47,6 +47,10 @@
         <source>Log out</source>
         <target>Odjavite se</target>
       </trans-unit>
+       <trans-unit id="12">
+        <source>articles in this category</source>
+        <target>članaka u ovoj kategoriji</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

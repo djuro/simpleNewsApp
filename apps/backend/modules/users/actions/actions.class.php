@@ -93,4 +93,25 @@ class usersActions extends autoUsersActions
     $this->sort = $this->getSort();
     $this->setTemplate('index');
    }
+
+
+
+
+  /**
+  * Prima Ajaxom postan ID clanka i varijablu published:1/0, kontaktira model funkciju za promjenu statusa korisnika u bazi
+  *
+  */
+  public function executeChangepublished(sfWebRequest $request)
+  {
+   $users = UsersTable::getInstance();
+
+   if ($request->isXmlHttpRequest())
+   {
+    $user_id = $request->getParameter('user_id');
+    $usr_active = $request->getParameter('usr_active');
+    $usr = $users->updateUser($user_id,$usr_active);
+
+    return $this->renderText($usr);
+   }
+  }
 }

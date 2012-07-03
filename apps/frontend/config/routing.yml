@@ -5,7 +5,7 @@
 
 homepage:
   url:   /:sf_culture/
-  param: { module: default, action: index }
+  param: { module: home, action: index }
 
 # generic rules
 # please, remove them by adding more specific rules

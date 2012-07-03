@@ -18,6 +18,7 @@ Released   : 20071218
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
     <?php include_javascripts() ?>
+    <?php use_helper('I18N') ?>
 </head>
 <body>
 <div id="wrapper">

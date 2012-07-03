@@ -8,27 +8,61 @@
 			
 			
 				<?php
-                  foreach($articles_category as $article):
+                  foreach($pager->getResults() as $p):
 				?>
 			<div class="post">
 			<h2 class="title">
-			  <a href="<?php echo url_for('home/article').'/id/'.$article['id']?>"><?php echo $article->getTitle();?></a>
+			  <a href="<?php echo url_for('home/article').'/id/'.$p['id']?>"><?php echo $p->getTitle();?></a>
 			</h2>
 			<div class="entry">
 			  <!-- slika -->
-			  <a href="<?php echo url_for('home/article').'/id/'.$article['id']?>">
-			  <img src="<?php echo '/sfproject/web/uploads/'.$article['photo']?>" width="138" height="93" class="left">
+			  <a href="<?php echo url_for('home/article').'/id/'.$p['id']?>">
+			  <img src="<?php echo '/sfproject/web/uploads/'.$p['photo']?>" width="138" height="93" class="left">
 			  </a>
-			<p><?php echo truncate_text($article->getText(),255,'...',true)?></p>
+			<p><?php echo truncate_text($p->getText(),255,'...',true)?></p>
 			</div>
-			<p class="meta"><a href="#"><?php echo $article->Categories->getName()?></a>&nbsp;&nbsp;&nbsp;
-				<?php echo format_datetime($article->getPublishedAt(),'F','','UTF-8')?>
-				<a href="<?php echo url_for('home/article').'/id/'.$article->getId()?>" class="permalink">Read more</a> </p>
+			<p class="meta"><a href="#"><?php echo $p->Categories->getName()?></a>&nbsp;&nbsp;&nbsp;
+				<?php echo format_datetime($p->getPublishedAt(),'F','','UTF-8')?>
+				<a href="<?php echo url_for('home/article').'/id/'.$p->getId()?>" class="permalink"><?php echo __('Read more')?></a> </p>
            </div>
 		<?php endforeach; ?>
-			
-			
-				
+
+			<!-- pager code -->
+			<?php if ($pager->haveToPaginate()): ?>
+  <div class="pagination">
+    <a href="<?php echo url_for('home', 'category') ?>?page=1">
+      <img src="/images/first.png" alt="First page" />
+    </a>
+ 
+    <a href="<?php echo url_for('home', 'category') ?>?page=<?php echo $pager->getPreviousPage() ?>">
+      <img src="/images/previous.png" alt="Previous page" title="Previous page" />
+    </a>
+ 
+    <?php foreach ($pager->getLinks() as $page): ?>
+      <?php if ($page == $pager->getPage()): ?>
+        <?php echo $page ?>
+      <?php else: ?>
+        <a href="<?php echo url_for('home', 'category') ?>?page=<?php echo $page ?>"><?php echo $page ?></a>
+      <?php endif; ?>
+    <?php endforeach; ?>
+ 
+    <a href="<?php echo url_for('home', 'category') ?>?page=<?php echo $pager->getNextPage() ?>">
+      <img src="/images/next.png" alt="Next page" title="Next page" />
+    </a>
+ 
+    <a href="<?php echo url_for('home', 'category') ?>?page=<?php echo $pager->getLastPage() ?>">
+      <img src="/images/last.png" alt="Last page" title="Last page" />
+    </a>
+  </div>
+<?php endif; ?>
+<div class="pagination_desc">
+  <strong><?php echo $pager->getNbResults() ?></strong> <?php echo __('articles in this category')?>
+ 
+  <?php if ($pager->haveToPaginate()): ?>
+    - page <strong><?php echo $pager->getPage() ?>/<?php echo $pager->getLastPage() ?></strong>
+  <?php endif; ?>
+</div>
+				<!-- end pager code -->
 			</div>
 			<!-- end #content -->
 			<div id="sidebar">

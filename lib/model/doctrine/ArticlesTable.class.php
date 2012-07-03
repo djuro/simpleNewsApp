@@ -58,7 +58,7 @@ class ArticlesTable extends Doctrine_Table
       ->where('c.id=?',$id)
       ->andWhere('a.published=?',1);
       
-      return $q->execute();
+      return $q;
     }
 
     
@@ -95,7 +95,8 @@ class ArticlesTable extends Doctrine_Table
          ->select('a.id,COUNT(c.article_id) AS cmnts')
          ->from('Articles a')
          ->innerJoin('a.Comments c')
-         ->where('c.article_id=?',$id);
+         ->where('c.article_id=?',$id)
+         ->andWhere('c.published=?',1);
          
          return $q->fetchOne();
     

@@ -33,7 +33,17 @@ class homeActions extends sfActions
    $id = $request->getParameter('id');
    
    $articles = ArticlesTable::getInstance();
-   $this->articles_category = $articles->getAllFromCategory($id);
+
+   $this->pager = new sfDoctrinePager(
+    'Articles',
+    sfConfig::get('app_max_articles_in_category')
+  );
+
+   $this->pager->setQuery($articles->getAllFromCategory($id));
+   $this->pager->setPage($request->getParameter('page', 1));
+   $this->pager->init();
+
+   //$this->articles_category = $articles->getAllFromCategory($id);
     
   }
   

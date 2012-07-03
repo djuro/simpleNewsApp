@@ -26,6 +26,7 @@
 			
 			foreach($article->Comments as $comment)
 			       {
+			       	if($comment->getPublished()==1):
 			        echo '<div class="post">';
 					
 			        echo '<div class="entry">';
@@ -42,6 +43,7 @@
 					endif;
 					     echo format_datetime($comment->getPublishedAt(),'F','','UTF-8').'</strong></p>';
 			        echo '</div>';
+			        endif;
 			       }
 				   
 			?>
