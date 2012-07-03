@@ -21,9 +21,10 @@ $("#complete_text").dialog({autoOpen:false,modal:true,width:600,height:400});
    
    
 // ajax posta ID clanka akciji i dobija nazad tekst i naslov clanka. Prikazuje i puni dialog box.
-   $.post("/sfproject/web/backend_dev.php/articles/completetext",{artcl_id:artcl_id['idartcl']},function(data)
+   $.post("/sfproject/web/backend.php/articles/completetext",{artcl_id:artcl_id['idartcl']},function(data)
    {
    	 $("#complete_text").dialog('open');
+     $("#complete_text").dialog("option", "title", "Article Text");
      $("#complete_text").html(data);
      
    });
@@ -49,8 +50,24 @@ $(".pub_cbox").change(function(){
    	var publ = 0;
    }
   
-  $.post("/sfproject/web/backend_dev.php/articles/changepublished",{article_id:art_id,published:publ},function(data){
+  $.post("/sfproject/web/backend.php/articles/changepublished",{article_id:art_id,published:publ},function(data){
   	//alert(data);
+  });
+
+});
+
+
+$(".show_photo").click(function(){
+
+  
+  var artcl_id = $(this).data();
+
+  $.post("/sfproject/web/backend.php/articles/retrievephoto",{article_id:artcl_id['artclid']},function(data){
+    //alert(data);
+     var img_html = '<img src="/sfproject/web/uploads/'+data+'">';
+     $("#complete_text").dialog('open');
+     $("#complete_text").dialog("option", "title", "Article Photo");
+     $("#complete_text").html(img_html);
   });
 
 });

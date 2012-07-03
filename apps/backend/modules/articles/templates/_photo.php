@@ -1,2 +1,2 @@
 <?php use_helper('text')?>
-<?php echo '<span title="'.$articles->getPhoto().'"><u>'.truncate_text($articles->getPhoto(),15,'...',true).'</u></span>' ?>
+<?php echo '<span title="'.$articles->getPhoto().'"><a href="#" class="show_photo" data-artclid="'.$articles->getId().'" onClick="return false;">'.truncate_text($articles->getPhoto(),15,'...',true).'</a></span>' ?>

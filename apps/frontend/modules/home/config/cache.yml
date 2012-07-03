@@ -7,21 +7,21 @@ default:
   lifetime:    20
 
 index:
-  enabled:     true
+  enabled:     false
   with_layout: false
   lifetime:    20
 
 category:
-  enabled:     true
+  enabled:     false
   with_layout: false
   lifetime:    20
 
 article:
-  enabled:     true
+  enabled:     false
   with_layout: false
   lifetime:    20
 
 tagresult:
-  enabled:     true
+  enabled:     false
   with_layout: false
   lifetime:    20

@@ -23,7 +23,12 @@ Released   : 20071218
 <body>
 <div id="wrapper">
 	<div id="wrapper2">
-		<div id="header">
+		<div id="header" style="position:relative;">
+			<ul id="i18n-menu">
+				<li><a href="/sfproject/web/en/home">EN</a></li>
+				<li style="color:#fff;font-size:15px;"> | </li>
+				<li><a href="/sfproject/web/hr/naslovnica">HR</a></li>
+			</ul>
 			<div id="logo">
 				<h1><a href="<?php echo url_for('home/index')?>"><span style="font-weight:normal;">Simple</span>News</a></h1>
 			</div>

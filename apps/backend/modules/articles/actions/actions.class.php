@@ -272,6 +272,23 @@ public function executeChangepublished(sfWebRequest $request)
   }
 }
 
+/**
+* Prima Ajaxom postan ID clanka i varijablu published:1/0, kontaktira model funkciju za promjenu statusa clanka u bazi
+*
+*/
+public function executeRetrievephoto(sfWebRequest $request)
+{
+ $articles = ArticlesTable::getInstance();
+
+ if ($request->isXmlHttpRequest())
+  {
+    $article_id = $request->getParameter('article_id');
+    
+    $a = $articles->articlePhoto($article_id);
+    $article_photo = $a->getPhoto();
+    return $this->renderText($article_photo);
+  }
+}
 
 
 

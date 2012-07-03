@@ -382,3 +382,8 @@ table th {vertical-align:top;}
 #cloud a.tag6 { font-size: 30px; font-weight: 600; }
 
 #content .entry{font-size:15px;}
+
+#i18n-menu {position:absolute;z-index:10;left:40px;top:15px;}
+#i18n-menu li {list-style-type:none;display:inline;}
+#i18n-menu li a {color:#fff;font-size:15px;text-decoration:none;font-weight:bold;}
+#i18n-menu li a:hover {text-decoration:underline;}

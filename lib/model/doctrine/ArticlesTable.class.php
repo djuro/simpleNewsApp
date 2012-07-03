@@ -58,7 +58,7 @@ class ArticlesTable extends Doctrine_Table
       ->where('c.id=?',$id)
       ->andWhere('a.published=?',1);
       
-      return $q;
+      return $q->execute();
     }
 
     
@@ -264,5 +264,20 @@ class ArticlesTable extends Doctrine_Table
               ->where('a.id = ?', $id);
 
     $q->execute();
+  }
+
+
+
+  /**
+  * Prima id clanka, selecta i vraca url fotografije
+  */
+  public function articlePhoto($id)
+  {
+     $q = $this->createQuery()
+               ->select('a.photo')
+               ->from('Articles a')
+               ->where('a.id=?',$id);
+
+     return $q->fetchOne();
   }
 }

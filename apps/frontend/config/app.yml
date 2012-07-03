@@ -2,5 +2,4 @@
 # http://www.symfony-project.org/reference/1_4/en/11-App
 
 # default values
-all:
-  max_articles_in_category: 5
+#all:
